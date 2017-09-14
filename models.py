@@ -39,6 +39,23 @@ class Dxf2VrPage(Page):
         ImageChooserPanel('equirectangular_image'),
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
+    
+    def extract_dxf(self):
+        dxf_f = open(self.dxf_file)
+        output = {}
+        flag = False
+        x = 0
+        while dxf_f:
+            key = dxf_f.readline()
+            value = dxf_f.readline()
+            if value == 'ENDSEC' and flag:
+                dxf_f.close()
+                return output
+            elif value == 'INPUT':
+                flag = True
+                x += 1
+            elif flag:
+                output[x][key] = value
 
 class Dxf2VrPageGalleryImage(Orderable):
     page = ParentalKey(Dxf2VrPage, related_name='material_images')

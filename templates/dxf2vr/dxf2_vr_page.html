@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+        {% block extra_css %}
+            <script type="text/javascript" src="{% static 'js/aframe.min.js' %}"></script>
+        {% endblock %}
+
+{% block body_class %}template-dxf2vrpage{% endblock %}
+
+{% block content %}
+        <a-scene style="width: 100%; height: 768px" embedded>
+          <a-assets>
+			{% with equirectangular_image=page.equirectangular_image %}
+			{% if equirectangular_image %}
+			{% image equirectangular_image original as temp_image %}
+			<img id="sky" src="{{ temp_image.url }}">
+			{% else %}
+			<img id="sky" src="{% static 'images/target.png' %}">
+			{% endif %}
+			{% endwith %}
+		</a-assets>
+            <a-sky src="#sky"></a-sky>
+			<a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2; castShadow: true;" 
+			position="-10 10 5"></a-entity>
+            <a-entity id="camera-ent">
+                  <a-camera id="camera">
+                    <a-light type="point"></a-light>
+                    <a-entity position="0 -1.6 0" id="camera-foot"></a-entity>
+                    <a-cursor color="#2E3A87"></a-cursor>
+                  </a-camera>
+            </a-entity>
+        </a-scene>
+{% endblock %}
