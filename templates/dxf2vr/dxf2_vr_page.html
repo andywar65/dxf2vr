@@ -21,6 +21,9 @@
 			{% endif %}
 			{% endwith %}
 		</a-assets>
+		{% with extract_dxf=page.extract_dxf %}
+		<div>{{ extract_dxf }}</div>
+		{% endwith %}
             <a-sky src="#sky"></a-sky>
 			<a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2; castShadow: true;" 
 			position="-10 10 5"></a-entity>

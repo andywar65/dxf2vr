@@ -41,21 +41,27 @@ class Dxf2VrPage(Page):
     ]
     
     def extract_dxf(self):
-        dxf_f = open(self.dxf_file)
+        dxf_f = open(self.dxf_file.url)
         output = {}
+        temp = {}
         flag = False
         x = 0
-        while dxf_f:
-            key = dxf_f.readline()
-            value = dxf_f.readline()
-            if value == 'ENDSEC' and flag:
-                dxf_f.close()
-                return output
-            elif value == 'INPUT':
-                flag = True
-                x += 1
-            elif flag:
-                output[x][key] = value
+        value = 'start'
+    while value != 'EOF':
+        key = dxf_f.readline().strip()
+        value = dxf_f.readline().strip()
+        if value == 'ENDSEC' and flag:
+            dxf_f.close()
+            output.pop(0)
+            return output
+        elif value == 'INSERT':
+            output[x] = temp
+            temp = {}
+            flag = True
+            x += 1
+        elif flag:
+            temp[key] = value
+    return None
 
 class Dxf2VrPageGalleryImage(Orderable):
     page = ParentalKey(Dxf2VrPage, related_name='material_images')
