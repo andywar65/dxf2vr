@@ -1,5 +1,7 @@
+import os
 from django import forms
 from django.db import models
+from django.conf import settings
 
 from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
@@ -41,7 +43,9 @@ class Dxf2VrPage(Page):
     ]
     
     def extract_dxf(self):
-        dxf_f = open(self.dxf_file.url)
+        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
+        dxf_f = open(path_to_dxf, encoding = 'utf-8')
+        #dxf_f = open("http://localhost:8000/media" + self.dxf_file.url, encoding = 'utf-8')
         output = {}
         temp = {}
         flag = False
