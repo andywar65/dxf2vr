@@ -45,7 +45,6 @@ class Dxf2VrPage(Page):
     def extract_dxf(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
-        #dxf_f = open("http://localhost:8000/media" + self.dxf_file.url, encoding = 'utf-8')
         output = {}
         temp = {}
         flag = False
@@ -67,11 +66,10 @@ class Dxf2VrPage(Page):
                 temp[key] = value
         return None
 
-class Dxf2VrPageGalleryImage(Orderable):
+class Dxf2VrPageMaterialImage(Orderable):
     page = ParentalKey(Dxf2VrPage, related_name='material_images')
     image = models.ForeignKey(
         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+', 
-        null=True, blank=True,
     )
     layer = models.CharField(max_length=250,)
     color = models.CharField(max_length=250, null=True, blank=True,)
