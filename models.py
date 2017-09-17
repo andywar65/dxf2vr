@@ -54,6 +54,7 @@ class Dxf2VrPage(Page):
             key = dxf_f.readline().strip()
             value = dxf_f.readline().strip()
             if value == 'ENDSEC' and flag:
+                output[x] = temp
                 dxf_f.close()
                 output.pop(0)
                 return output
