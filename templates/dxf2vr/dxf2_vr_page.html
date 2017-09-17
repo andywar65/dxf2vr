@@ -25,8 +25,7 @@
 			{% for item in material_images %}
 			<a-mixin id="{{ item.layer }}" 
 			material="color: {{ item.color }};
-			{% image item original as temp_image %}
-			src: {{ temp_image.url }}"></a-mixin>
+			{# image item original as temp_image #} src: {# temp_image.url #}"></a-mixin>
 			{% endfor %}
 			{% endif %}
 			{% endwith %}
