@@ -63,6 +63,8 @@ class Dxf2VrPage(Page):
                 flag = True
                 x += 1
             elif flag:
+                if value==None:
+                    value = 0
                 temp[key] = value
         return None
 

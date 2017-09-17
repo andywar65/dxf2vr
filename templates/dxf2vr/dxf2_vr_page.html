@@ -23,16 +23,28 @@
 			{% with material_images=page.material_images.all %}
 			{% if material_images %}
 			{% for item in material_images %}
-			<a-mixin id="{{ item.layer }}" 
-			material="color: {{ item.color }};
-			{# image item original as temp_image #} src: {# temp_image.url #}"></a-mixin>
+			<a-mixin id="color-{{ item.layer }}" 
+			material="color: {{ item.color }}"></a-mixin>
+			{# image item original as temp_image #}{# temp_image.url #}
 			{% endfor %}
 			{% endif %}
 			{% endwith %}
 		</a-assets>
-		{% with extract_dxf=page.extract_dxf %}
-		<div>{{ extract_dxf }}</div>
-		{% endwith %}
+		<a-entity id="model-ent" shadow="receive: true; cast: true"
+            position="0 0 0"
+            rotation="0 0 0">
+			{% with extract_dxf=page.extract_dxf %}
+				{% for key, value in extract_dxf.items %}
+				<a-entity id="block-{{ key }}" 
+				geometry="primitive: {{ value.2 }}"
+				position="{{ value.10 }} {{ value.30 }} {{ value.20 }}"
+				rotation="0 {{ value.50 }} 0"
+				scale="{{ value.41 }} {{ value.43 }} {{ value.42 }}"
+				mixin="color-{{ value.8 }}">
+				</a-entity>
+				{% endfor %}
+			{% endwith %}
+        </a-entity>
             <a-sky src="#sky"></a-sky>
 			<a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2; castShadow: true;" 
 			position="-10 10 5"></a-entity>
