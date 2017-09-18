@@ -4,8 +4,6 @@ from django.db import models
 from django.conf import settings
 
 from modelcluster.fields import ParentalKey
-from modelcluster.contrib.taggit import ClusterTaggableManager
-from taggit.models import TaggedItemBase
 
 from wagtail.wagtailcore.models import Page, Orderable
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
@@ -72,10 +70,10 @@ class Dxf2VrPage(Page):
 class Dxf2VrPageMaterialImage(Orderable):
     page = ParentalKey(Dxf2VrPage, related_name='material_images')
     image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+', 
+        'wagtailimages.Image', blank=True, null=True, on_delete=models.SET_NULL, related_name='+', 
     )
     layer = models.CharField(max_length=250,)
-    color = models.CharField(max_length=250, null=True, blank=True,)
+    color = models.CharField(max_length=250, default="white",)
 
     panels = [
         FieldPanel('layer'),
