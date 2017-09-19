@@ -25,7 +25,9 @@
 			{% for item in material_images %}
 			<a-mixin id="color-{{ item.layer }}" 
 			material="color: {{ item.color }}"></a-mixin>
-			{# image item original as temp_image #}{# temp_image.url #}
+			{# image item original as temp_image #}
+			<a-img id="image-{{ item.layer }}" 
+			src="{% static 'images/white.png' %}{# temp_image.url #}">
 			{% endfor %}
 			{% endif %}
 			{% endwith %}
@@ -40,6 +42,7 @@
 				position="{{ value.10 }} {{ value.30 }} {{ value.20 }}"
 				rotation="0 {{ value.50 }} 0"
 				scale="{{ value.41 }} {{ value.43 }} {{ value.42 }}"
+				material="src: #image-{{ value.8 }}"
 				mixin="color-{{ value.8 }}">
 				</a-entity>
 				{% endfor %}
