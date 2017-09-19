@@ -44,7 +44,7 @@ class Dxf2VrPage(Page):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}
-        temp = {}
+        temp = {41: 1, 42: 1, 43: 1, 50: 0}
         flag = False
         x = 0
         value = 'start'
@@ -58,10 +58,10 @@ class Dxf2VrPage(Page):
                 return output
             elif value == 'INSERT':
                 output[x] = temp
-                temp = {}
+                temp = {41: 1, 42: 1, 43: 1, 50: 0}
                 flag = True
                 x += 1
-            elif flag:#TODO if no key 50 insert key 50 value 0
+            elif flag:
                 temp[key] = value
         return None
 
