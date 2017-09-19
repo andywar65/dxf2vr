@@ -61,9 +61,7 @@ class Dxf2VrPage(Page):
                 temp = {}
                 flag = True
                 x += 1
-            elif flag:
-                if value==None:
-                    value = 0
+            elif flag:#TODO if no key 50 insert key 50 value 0
                 temp[key] = value
         return None
 
