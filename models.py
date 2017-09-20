@@ -68,9 +68,13 @@ class Dxf2VrPage(Page):
 class Dxf2VrPageMaterialImage(Orderable):
     page = ParentalKey(Dxf2VrPage, related_name='material_images')
     image = models.ForeignKey(
-        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+', 
+        'wagtailimages.Image', 
+        null=True,
+        blank=True,
+        on_delete = models.SET_NULL, 
+        related_name = '+',
     )
-    layer = models.CharField(max_length=250,)
+    layer = models.CharField(max_length=250, default="0",)
     color = models.CharField(max_length=250, default="white",)
 
     panels = [
