@@ -39,31 +39,6 @@ class Dxf2VrPage(Page):
         ImageChooserPanel('equirectangular_image'),
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
-    
-    def extract_dxf_bkp(self):
-        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
-        dxf_f = open(path_to_dxf, encoding = 'utf-8')
-        output = {}
-        temp = {41: 1, 42: 1, 43: 1, 50: 0}
-        flag = False
-        x = 0
-        value = 'start'
-        while value != 'EOF':
-            key = dxf_f.readline().strip()
-            value = dxf_f.readline().strip()
-            if value == 'ENDSEC' and flag:
-                output[x] = temp
-                dxf_f.close()
-                output.pop(0)
-                return output
-            elif value == 'INSERT':
-                output[x] = temp
-                temp = {41: 1, 42: 1, 43: 1, 50: 0}
-                flag = True
-                x += 1
-            elif flag:
-                temp[key] = value
-        return None
 
     def extract_dxf(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
@@ -76,6 +51,8 @@ class Dxf2VrPage(Page):
             key = dxf_f.readline().strip()
             value = dxf_f.readline().strip()
             if flag == True:
+                if key == '20':
+                    value = -float(value)
                 temp[key] = value
             if key == '0':
                 if flag == True:
@@ -87,7 +64,6 @@ class Dxf2VrPage(Page):
                     x += 1
                 #here other ifs for other kind of entities
         dxf_f.close()
-        #output.pop(0)
         return output
 
 class Dxf2VrPageMaterialImage(Orderable):
