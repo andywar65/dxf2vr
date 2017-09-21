@@ -40,7 +40,7 @@ class Dxf2VrPage(Page):
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
     
-    def extract_dxf(self):
+    def extract_dxf_bkp(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}
@@ -65,6 +65,31 @@ class Dxf2VrPage(Page):
                 temp[key] = value
         return None
 
+    def extract_dxf(self):
+        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
+        dxf_f = open(path_to_dxf, encoding = 'utf-8')
+        output = {}
+        flag = False
+        x = 0
+        value = 'dummy'
+        while value !='EOF':
+            key = dxf_f.readline().strip()
+            value = dxf_f.readline().strip()
+            if flag == True:
+                temp[key] = value
+            if key == '0':
+                if flag == True:
+                    output[x] = temp
+                    flag = False
+                if value == 'INSERT':
+                    temp = {41: 1, 42: 1, 43: 1, 50: 0}
+                    flag = True
+                    x += 1
+                #here other ifs for other kind of entities
+        dxf_f.close()
+        #output.pop(0)
+        return output
+
 class Dxf2VrPageMaterialImage(Orderable):
     page = ParentalKey(Dxf2VrPage, related_name='material_images')
     image = models.ForeignKey(
@@ -81,4 +106,4 @@ class Dxf2VrPageMaterialImage(Orderable):
         FieldPanel('layer'),
         ImageChooserPanel('image'),
         FieldPanel('color'),
-    ]
+]

@@ -39,6 +39,7 @@
             rotation="0 0 0">
 			{% with extract_dxf=page.extract_dxf %}
 				{% for key, value in extract_dxf.items %}
+				<div>{{ key }}{{ value }}</div>
 				<a-entity id="block-{{ key }}" 
 				geometry="primitive: {{ value.2 }}"
 				position="{{ value.10 }} {{ value.30 }} {{ value.20 }}"
