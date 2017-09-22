@@ -1,4 +1,5 @@
 import os
+from math import acos, degrees, pi
 from django import forms
 from django.db import models
 from django.conf import settings
@@ -51,15 +52,19 @@ class Dxf2VrPage(Page):
             key = dxf_f.readline().strip()
             value = dxf_f.readline().strip()
             if flag == True:
-                if key == '20':
+                if key == '20':#mirror Y position
                     value = -float(value)
+                elif key == '210':#rotation around X
+                    value = degrees(pi/2-acos(float(value)))
+                elif key == '220':#rotation around Y
+                    value = -degrees(pi/2-acos(float(value)))
                 temp[key] = value
             if key == '0':
                 if flag == True:
                     output[x] = temp
                     flag = False
                 if value == 'INSERT':
-                    temp = {41: 1, 42: 1, 43: 1, 50: 0}
+                    temp = {'41': 1, '42': 1, '43': 1, '50': 0, '210': 0, '220': 0}#default values
                     flag = True
                     x += 1
                 #here other ifs for other kind of entities
