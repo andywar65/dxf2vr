@@ -94,6 +94,12 @@ class Dxf2VrPage(Page):
             if key == '0':
                 if flag == True:
                     output[x] = temp
+                    #if temp['12']!=temp['13'] or temp['22']!=temp['23'] or temp['32']!=temp['33']:
+                        #temp2 = temp
+                        #temp2['11']=temp2['12']; temp2['21']=temp2['22']; temp2['31']=temp2['32']
+                        #temp2['12']=temp2['13']; temp2['22']=temp2['23']; temp2['32']=temp2['33']
+                        #x += 1
+                        #output[x] = temp2
                     flag = False
                 if value == '3DFACE':
                     temp = {}#default values
