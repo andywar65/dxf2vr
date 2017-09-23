@@ -41,14 +41,17 @@ class Dxf2VrPage(Page):
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
 
-    def extract_dxf(self):
+    def extract_blocks(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}
         flag = False
         x = 0
         value = 'dummy'
-        while value !='EOF':
+        while value !='ENTITIES':
+            key = dxf_f.readline().strip()
+            value = dxf_f.readline().strip()
+        while value !='ENDSEC':
             key = dxf_f.readline().strip()
             value = dxf_f.readline().strip()
             if flag == True:
@@ -65,6 +68,35 @@ class Dxf2VrPage(Page):
                     flag = False
                 if value == 'INSERT':
                     temp = {'41': 1, '42': 1, '43': 1, '50': 0, '210': 0, '220': 0}#default values
+                    flag = True
+                    x += 1
+                #here other ifs for other kind of entities
+        dxf_f.close()
+        return output
+
+    def extract_3Dfaces(self):
+        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
+        dxf_f = open(path_to_dxf, encoding = 'utf-8')
+        output = {}
+        flag = False
+        x = 0
+        value = 'dummy'
+        while value !='ENTITIES':
+            key = dxf_f.readline().strip()
+            value = dxf_f.readline().strip()
+        while value !='ENDSEC':
+            key = dxf_f.readline().strip()
+            value = dxf_f.readline().strip()
+            if flag == True:
+                if key == '20' or key == '21' or key == '22' or key == '23':#mirror Y position
+                    value = -float(value)
+                temp[key] = value
+            if key == '0':
+                if flag == True:
+                    output[x] = temp
+                    flag = False
+                if value == '3DFACE':
+                    temp = {}#default values
                     flag = True
                     x += 1
                 #here other ifs for other kind of entities

@@ -37,8 +37,8 @@
 		<a-entity id="dxf-ent" shadow="receive: true; cast: true"
             position="0 0 0"
             rotation="0 0 0">
-			{% with extract_dxf=page.extract_dxf %}
-				{% for key, value in extract_dxf.items %}
+			{% with blocks=page.extract_blocks %}
+				{% for key, value in blocks.items %}
 				<div>{{ key }}{{ value }}</div>
 				<a-entity id="block-{{ key }}" 
 				geometry="primitive: {{ value.2 }}"
@@ -48,6 +48,18 @@
 				mixin="color-{{ value.8 }}"
 				material="src: #image-{{ value.8 }}">
 				</a-entity>
+				{% endfor %}
+			{% endwith %}
+			{% with faces=page.extract_3Dfaces %}
+				{% for key, value in faces.items %}
+				<div>{{ key }}{{ value }}</div>
+				<a-triangle id="3Dface-{{ key }}"
+				geometry="vertexA: {{ value.10 }} {{ value.30 }} {{ value.20 }};
+				vertexB: {{ value.11 }} {{ value.31 }} {{ value.21 }};
+				vertexC: {{ value.12 }} {{ value.32 }} {{ value.22 }};"
+				mixin="color-{{ value.8 }}"
+				material="src: #image-{{ value.8 }}, side: double">
+				</a-triangle>
 				{% endfor %}
 			{% endwith %}
         </a-entity>
