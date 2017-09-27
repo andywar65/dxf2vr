@@ -55,15 +55,27 @@ class Dxf2VrPage(Page):
             key = dxf_f.readline().strip()
             value = dxf_f.readline().strip()
             if flag == True:
-                if key == '20':#mirror Y position
-                    value = -float(value)
-                elif key == '210':#rotation around X
+                if key == '210':#rotation around X
+                    vect_x = float(value)
+                    rot_x = float(temp['10'])
                     value = degrees(pi/2-acos(float(value)))
                 elif key == '220':#rotation around Y
+                    vect_y = float(value)
+                    rot_y = float(temp['20'])
                     value = -degrees(pi/2-acos(float(value)))
+                elif key == '230':#coordinates translated back to XYZ
+                    vect_z = float(value)
+                    rot_z = float(temp['30'])
+                    if temp['210']:
+                        temp['10'] = rot_x*vect_z + rot_z*vect_x
+                        temp['30'] = rot_z*vect_z - rot_x*vect_x
+                    if temp['220']:
+                        temp['20'] = rot_y*vect_z + rot_z*vect_y
+                        temp['30'] = rot_z*vect_z - rot_y*vect_y
                 temp[key] = value
             if key == '0':
                 if flag == True:
+                    temp['20'] = - float(temp['20'])#mirror Y position
                     output[x] = temp
                     flag = False
                 if value == 'INSERT':
@@ -96,8 +108,8 @@ class Dxf2VrPage(Page):
                     output[x] = temp
                     if temp['12']!=temp['13'] or temp['22']!=temp['23'] or temp['32']!=temp['33']:
                         temp2 = temp.copy()
-                        temp2['11']=temp2['12']; temp2['21']=temp2['22']; temp2['31']=temp2['32']
-                        temp2['12']=temp2['13']; temp2['22']=temp2['23']; temp2['32']=temp2['33']
+                        temp2['11']=temp['12']; temp2['21']=temp['22']; temp2['31']=temp['32']
+                        temp2['12']=temp['13']; temp2['22']=temp['23']; temp2['32']=temp['33']
                         x += 1
                         output[x] = temp2
                     flag = False
