@@ -1,5 +1,5 @@
 import os
-from math import acos, degrees, pi
+from math import acos, degrees, pi, sqrt, pow, fabs
 from django import forms
 from django.db import models
 from django.conf import settings
@@ -56,22 +56,37 @@ class Dxf2VrPage(Page):
             value = dxf_f.readline().strip()
             if flag == True:
                 if key == '210':#rotation around X
-                    vect_x = float(value)
-                    rot_x = float(temp['10'])
+                    Az_1 = float(value)
+                    P_x = float(temp['10'])
                     value = degrees(pi/2-acos(float(value)))
                 elif key == '220':#rotation around Y
-                    vect_y = float(value)
-                    rot_y = float(temp['20'])
+                    Az_2 = float(value)
+                    P_y = float(temp['20'])
                     value = -degrees(pi/2-acos(float(value)))
-                elif key == '230':#coordinates translated back to XYZ
-                    vect_z = float(value)
-                    rot_z = float(temp['30'])
-                    if temp['210']:
-                        temp['10'] = rot_x*vect_z + rot_z*vect_x
-                        temp['30'] = rot_z*vect_z - rot_x*vect_x
-                    if temp['220']:
-                        temp['20'] = rot_y*vect_z + rot_z*vect_y
-                        temp['30'] = rot_z*vect_z - rot_y*vect_y
+                elif key == '230':#arbitrary axis algorithm
+                    Az_3 = float(value)
+                    P_z = float(temp['30'])
+                    if fabs(Az_1) < (1/64) and fabs(Az_2) < (1/64):
+                        W = ('dummy', 0, 1, 0)
+                    else:
+                        W = ('dummy', 0, 0, 1)
+                    Ax_1 = W[2]*Az_3-W[3]*Az_2
+                    Ax_2 = W[3]*Az_1-W[1]*Az_3
+                    Ax_3 = W[1]*Az_2-W[2]*Az_1
+                    Norm = sqrt(pow(Ax_1, 2)+pow(Ax_2, 2)+pow(Ax_3, 2))
+                    Ax_1 = Ax_1/Norm
+                    Ax_2 = Ax_2/Norm
+                    Ax_3 = Ax_3/Norm
+                    Ay_1 = Az_2*Ax_3-Az_3*Ax_2
+                    Ay_2 = Az_3*Ax_1-Az_1*Ax_3
+                    Ay_3 = Az_1*Ax_2-Az_2*Ax_1
+                    Norm = sqrt(pow(Ay_1, 2)+pow(Ay_2, 2)+pow(Ay_3, 2))
+                    Ay_1 = Ay_1/Norm
+                    Ay_2 = Ay_2/Norm
+                    Ay_3 = Ay_3/Norm
+                    temp['10'] = P_x*Ax_1+P_y*Ay_1+P_z*Az_1
+                    temp['20'] = P_x*Ax_2+P_y*Ay_2+P_z*Az_2
+                    temp['30'] = P_x*Ax_3+P_y*Ay_3+P_z*Az_3
                 temp[key] = value
             if key == '0':
                 if flag == True:
