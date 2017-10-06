@@ -55,21 +55,23 @@ class Dxf2VrPage(Page):
             key = dxf_f.readline().strip()
             value = dxf_f.readline().strip()
             if flag == True:
-                if key == '210':#rotation around X
+                if key == '210':#rotation around OCS x
                     Az_1 = float(value)
                     P_x = float(temp['10'])
-                    value = degrees(pi/2-acos(float(value)))
-                elif key == '220':#rotation around Y
+                    #value = degrees(pi/2-acos(float(value)))
+                elif key == '220':#rotation around OCS y
                     Az_2 = float(value)
                     P_y = float(temp['20'])
-                    value = -degrees(pi/2-acos(float(value)))
+                    #value = -degrees(pi/2-acos(float(value)))
                 elif key == '230':#arbitrary axis algorithm
                     Az_3 = float(value)
                     P_z = float(temp['30'])
+                    #see if OCS z axis is close to world Z axis
                     if fabs(Az_1) < (1/64) and fabs(Az_2) < (1/64):
                         W = ('dummy', 0, 1, 0)
                     else:
                         W = ('dummy', 0, 0, 1)
+                    #cross product for OCS x axis, normalized
                     Ax_1 = W[2]*Az_3-W[3]*Az_2
                     Ax_2 = W[3]*Az_1-W[1]*Az_3
                     Ax_3 = W[1]*Az_2-W[2]*Az_1
@@ -77,6 +79,7 @@ class Dxf2VrPage(Page):
                     Ax_1 = Ax_1/Norm
                     Ax_2 = Ax_2/Norm
                     Ax_3 = Ax_3/Norm
+                    #cross product for OCS y axis, normalized
                     Ay_1 = Az_2*Ax_3-Az_3*Ax_2
                     Ay_2 = Az_3*Ax_1-Az_1*Ax_3
                     Ay_3 = Az_1*Ax_2-Az_2*Ax_1
@@ -84,6 +87,7 @@ class Dxf2VrPage(Page):
                     Ay_1 = Ay_1/Norm
                     Ay_2 = Ay_2/Norm
                     Ay_3 = Ay_3/Norm
+                    #world coordinates from OCS
                     temp['10'] = P_x*Ax_1+P_y*Ay_1+P_z*Az_1
                     temp['20'] = P_x*Ax_2+P_y*Ay_2+P_z*Az_2
                     temp['30'] = P_x*Ax_3+P_y*Ay_3+P_z*Az_3
