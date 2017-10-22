@@ -156,9 +156,11 @@ class Dxf2VrPageMaterialImage(Orderable):
     )
     layer = models.CharField(max_length=250, default="0",)
     color = models.CharField(max_length=250, default="white",)
+    pattern = models.BooleanField(default=False)
 
     panels = [
         FieldPanel('layer'),
         ImageChooserPanel('image'),
+        FieldPanel('pattern'),
         FieldPanel('color'),
 ]
