@@ -95,7 +95,7 @@ class Dxf2VrPage(Page):
             if key == '0':
                 if flag == True:
                     temp['20'] = - float(temp['20'])#mirror Y position
-                    temp['30'] = float(temp['30']) - float(temp['43'])/2#correct Z position
+                    temp['30'] = float(temp['30']) + float(temp['43'])/2#correct Z position
                     output[x] = temp
                     flag = False
                 if value == 'INSERT':
