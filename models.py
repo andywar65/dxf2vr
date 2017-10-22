@@ -94,12 +94,16 @@ class Dxf2VrPage(Page):
                 temp[key] = value
             if key == '0':
                 if flag == True:
+                    #caution: block insertion is on the base of the entity,
+                    #while a-frame entities are inserted in center
+                    temp['10'] = float(temp['10']) + float(temp['43'])/2 * float(temp['210'])#correct X position
+                    temp['20'] = float(temp['20']) + float(temp['43'])/2 * float(temp['220'])#correct Y position
+                    temp['30'] = float(temp['30']) + float(temp['43'])/2 * float(temp['230'])#correct Z position
                     temp['20'] = - float(temp['20'])#mirror Y position
-                    temp['30'] = float(temp['30']) + float(temp['43'])/2#correct Z position
                     output[x] = temp
                     flag = False
                 if value == 'INSERT':
-                    temp = {'41': 1, '42': 1, '43': 1, '50': 0, '210': 0, '220': 0}#default values
+                    temp = {'41': 1, '42': 1, '43': 1, '50': 0, '210': 0, '220': 0, '230': 1,}#default values
                     flag = True
                     x += 1
                 #here other ifs for other kind of entities
