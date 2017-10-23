@@ -47,18 +47,7 @@
 				scale="{{ value.41 }} {{ value.43 }} {{ value.42 }}"
 				mixin="color-{{ value.8 }}"
 				material="src: #image-{{ value.8 }};
-				{% with material_images=page.material_images.all %}
-				 {% if material_images %}
-				  {% for material in material_images %}
-				   {% if material.layer == value.8 %}
-					{% if material.pattern %}
-					 ; repeat: {{ value.41 }} {{ value.43 }}
-					{% endif %}
-				   {% endif %}
-				  {% endfor %}
-				 {% endif %}
-				{% endwith %}
-				">
+				; repeat: {{ value.repeatX }} {{ value.repeatY }}">
 				</a-entity>
 				{% endfor %}
 			{% endwith %}

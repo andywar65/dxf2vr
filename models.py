@@ -100,6 +100,15 @@ class Dxf2VrPage(Page):
                     temp['20'] = float(temp['20']) + float(temp['43'])/2 * float(temp['220'])#correct Y position
                     temp['30'] = float(temp['30']) + float(temp['43'])/2 * float(temp['230'])#correct Z position
                     temp['20'] = - float(temp['20'])#mirror Y position
+                    #material images are patterns?
+                    temp['repeatX']=1
+                    temp['repeatY']=1
+                    material_gallery=self.material_images.all()
+                    if material_gallery:
+                        for material in material_gallery:
+                            if material.layer == temp['8'] and material.pattern == True:
+                                temp['repeatX']=temp['41']
+                                temp['repeatY']=temp['43']
                     output[x] = temp
                     flag = False
                 if value == 'INSERT':
