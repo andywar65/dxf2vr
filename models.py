@@ -96,9 +96,13 @@ class Dxf2VrPage(Page):
                 if flag == True:
                     #caution: block insertion is on the base of the entity,
                     #while a-frame entities are inserted in center
-                    temp['10'] = float(temp['10']) + float(temp['43'])/2 * float(temp['210'])#correct X position
-                    temp['20'] = float(temp['20']) + float(temp['43'])/2 * float(temp['220'])#correct Y position
-                    temp['30'] = float(temp['30']) + float(temp['43'])/2 * float(temp['230'])#correct Z position
+                    if temp['2'] == 'sphere':#sphere is higher than other blocks
+                        div = 1
+                    else:
+                        div = 2
+                    temp['10'] = float(temp['10']) + float(temp['43'])/div * float(temp['210'])#correct X position
+                    temp['20'] = float(temp['20']) + float(temp['43'])/div * float(temp['220'])#correct Y position
+                    temp['30'] = float(temp['30']) + float(temp['43'])/div * float(temp['230'])#correct Z position
                     temp['20'] = - float(temp['20'])#mirror Y position
                     #material images are patterns?
                     temp['repeatX']=1
