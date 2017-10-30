@@ -119,7 +119,7 @@ class Dxf2VrPage(Page):
         dxf_f.close()
         return output
 
-    def extract_3Dfaces_bkp(self):
+    def extract_3Dfaces(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}
@@ -154,7 +154,7 @@ class Dxf2VrPage(Page):
         dxf_f.close()
         return output
 
-    def extract_3Dfaces(self):
+    def extract_meshes(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}
