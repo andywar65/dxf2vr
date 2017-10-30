@@ -119,7 +119,7 @@ class Dxf2VrPage(Page):
         dxf_f.close()
         return output
 
-    def extract_3Dfaces(self):
+    def extract_3Dfaces_bkp(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}
@@ -151,6 +151,98 @@ class Dxf2VrPage(Page):
                     flag = True
                     x += 1
                 #here other ifs for other kind of entities
+        dxf_f.close()
+        return output
+
+    def extract_3Dfaces(self):
+        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
+        dxf_f = open(path_to_dxf, encoding = 'utf-8')
+        output = {}
+        flag = False
+        x = 0
+        value = 'dummy'
+        while value !='ENTITIES':
+            key = dxf_f.readline().strip()
+            value = dxf_f.readline().strip()
+        while value !='ENDSEC':
+            key = dxf_f.readline().strip()
+            value = dxf_f.readline().strip()
+            if flag == 'face':
+                if key == '8':#layer name
+                    temp[key] = value
+                elif key == '10' or key == '11' or key == '12' or key == '13':#X position
+                    temp[key] = value
+                elif key == '20' or key == '21' or key == '22' or key == '23':#mirror Y position
+                    value = -float(value)
+                    temp[key] = value
+                elif key == '30' or key == '31' or key == '32' or key == '33':#Z position
+                    temp[key] = value
+            elif flag == 'mesh':
+                if key == '8':#layer name
+                    temp[key] = value
+                elif key == '10':#X position
+                    temp_v[key] = value
+                elif key == '20':#mirror Y position
+                    value = -float(value)
+                    temp_v[key] = value
+                elif key == '30':#Z position
+                    temp_v[key] = value
+                    vertex[v] = temp_v
+                    temp_v = {}
+                    v += 1
+                elif key == '71':#first vertex
+                    #return vertex
+                    temp_v = vertex[int(value)].copy()
+                    temp['10'] = temp_v['10']
+                    temp['20'] = temp_v['20']
+                    temp['30'] = temp_v['30']
+                elif key == '72':#second vertex
+                    temp_v = vertex[int(value)].copy()
+                    temp['11'] = temp_v['10']
+                    temp['21'] = temp_v['20']
+                    temp['31'] = temp_v['30']
+                elif key == '73':#third vertex
+                    temp_v = vertex[int(value)].copy()
+                    temp['12'] = temp_v['10']
+                    temp['22'] = temp_v['20']
+                    temp['32'] = temp_v['30']
+                    output[x] = temp
+                    x += 1
+                elif key == '74':#fourth vertex
+                    temp2 = temp.copy()
+                    temp_v = vertex[int(value)].copy()
+                    temp2['10'] = temp_v['10']
+                    temp2['20'] = temp_v['20']
+                    temp2['30'] = temp_v['30']
+                    temp2['11']=temp['10']; temp2['21']=temp['20']; temp2['31']=temp['30']
+                    output[x] = temp2
+                    temp = {}
+                    temp2 = {}
+                    x += 1
+            if key == '0':
+                if flag == 'face':
+                    output[x] = temp
+                    if temp['12']!=temp['13'] or temp['22']!=temp['23'] or temp['32']!=temp['33']:
+                        temp2 = temp.copy()
+                        temp2['11']=temp['12']; temp2['21']=temp['22']; temp2['31']=temp['32']
+                        temp2['12']=temp['13']; temp2['22']=temp['23']; temp2['32']=temp['33']
+                        x += 1
+                        output[x] = temp2
+                    flag = False
+                if flag == 'mesh' and value != 'VERTEX':
+                    flag = False
+                if value == '3DFACE':
+                    temp = {}#default values
+                    flag = 'face'
+                    x += 1
+                elif value == 'VERTEX' and flag != 'mesh':
+                    temp = {}
+                    temp2 = {}
+                    vertex = {}
+                    temp_v = {}
+                    flag = 'mesh'
+                    x += 1
+                    v = 1
         dxf_f.close()
         return output
 

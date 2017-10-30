@@ -39,7 +39,6 @@
             rotation="0 0 0">
 			{% with blocks=page.extract_blocks %}
 				{% for key, value in blocks.items %}
-				{#<div>{{ key }}{{ value }}</div>#}
 				<a-entity id="block-{{ key }}" 
 				geometry="primitive: {{ value.2 }}"
 				position="{{ value.10 }} {{ value.30 }} {{ value.20 }}"
@@ -53,7 +52,6 @@
 			{% endwith %}
 			{% with faces=page.extract_3Dfaces %}
 				{% for key, value in faces.items %}
-				{#<div>{{ key }}{{ value }}</div>#}
 				<a-triangle id="3Dface-{{ key }}"
 				geometry="vertexA: {{ value.10 }} {{ value.30 }} {{ value.20 }};
 				vertexB: {{ value.11 }} {{ value.31 }} {{ value.21 }};
