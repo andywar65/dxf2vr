@@ -141,6 +141,20 @@ class Dxf2VrPage(Page):
 
                         outstr += '</a-entity>\n'
                         output[x] = outstr
+
+                    elif temp['2'] == 'cylinder':
+                        outstr = f'<a-cylinder id="cylinder-{x}" \n'
+                        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])/2} {temp["20"]}" \n'
+                        outstr += f'rotation="0 {temp["50"]} 0"\n'
+                        outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
+                        outstr += f'mixin="color-{temp["8"]}" \n'
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += '">\n'
+                        outstr += '</a-cylinder>\n'
+                        output[x] = outstr
+
                     flag = False
 
                 if value == 'INSERT':
