@@ -40,7 +40,7 @@
 			{% with blocks=page.extract_blocks %}
 			 {% if blocks %}
 				{% for key, value in blocks.items %}
-				{{ value }}
+				{{ value|safe }}
 				{% endfor %}
 			 {% endif %}
 			{% endwith %}
