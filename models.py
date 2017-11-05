@@ -44,6 +44,116 @@ class Dxf2VrPage(Page):
     def extract_blocks(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
+        material_gallery=self.material_images.all()
+        output = {}
+        flag = False
+        x = 0
+        value = 'dummy'
+        while value !='ENTITIES':
+            key = dxf_f.readline().strip()
+            value = dxf_f.readline().strip()
+        while value !='ENDSEC':
+            key = dxf_f.readline().strip()
+            value = dxf_f.readline().strip()
+            if flag == 'block':#elif flag == 'face'
+                if key == '2' or key == '8':#block name and layer name
+                    temp[key] = value
+                elif key == '10' or key == '30':#X Z position
+                    temp[key] = value
+                elif key == '20':#Y position, mirrored
+                    temp[key] = -float(value)
+                elif key == '50':#Z rotation
+                    temp[key] = value
+                elif key == '41' or key == '42' or key == '43':#scale values
+                    temp[key] = value
+            if key == '0':
+                if flag == 'block':#elif flag == 'face'
+                    #material images are patterns?
+                    repeat=False
+                    if material_gallery:
+                        for material in material_gallery:
+                            if material.layer == temp['8'] and material.pattern == True:
+                                repeat=True
+                    if temp['2'] == 'box':
+                        outstr = f'<a-entity id="box-{x}" '
+                        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" '
+                        outstr += f'rotation="0 {temp["50"]} 0">'
+
+                        outstr += f'<a-plane id="box-{x}-bottom" '
+                        outstr += 'position="0 0 0" '
+                        outstr += 'rotation="90 0 0" '
+                        outstr += f'width="{temp["41"]}" height="{temp["42"]}" '
+                        outstr += f'mixin="color-{temp["8"]}" '
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["42"]}'
+                        outstr += '"></a-plane> '
+
+                        outstr += f'<a-plane id="box-{x}-top" '
+                        outstr += f'position="0 {temp["43"]} 0" '
+                        outstr += 'rotation="-90 0 0" '
+                        outstr += f'width="{temp["41"]}" height="{temp["42"]}" '
+                        outstr += f'mixin="color-{temp["8"]}" '
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["42"]}'
+                        outstr += '"></a-plane> '
+
+                        outstr += f'<a-plane id="box-{x}-front" '
+                        outstr += f'position="0 {float(temp["43"])/2} {-float(temp["42"])/2}" '
+                        outstr += 'rotation="0 180 0" '
+                        outstr += f'width="{temp["41"]}" height="{temp["43"]}" '
+                        outstr += f'mixin="color-{temp["8"]}" '
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += '"></a-plane> '
+
+                        outstr += f'<a-plane id="box-{x}-back" '
+                        outstr += f'position="0 {float(temp["43"])/2} {float(temp["42"])/2}" '
+                        outstr += 'rotation="0 0 0" '
+                        outstr += f'width="{temp["41"]}" height="{temp["43"]}" '
+                        outstr += f'mixin="color-{temp["8"]}" '
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += '"></a-plane> '
+
+                        outstr += f'<a-plane id="box-{x}-right" '
+                        outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} 0" '
+                        outstr += 'rotation="0 90 0" '
+                        outstr += f'width="{temp["42"]}" height="{temp["43"]}" '
+                        outstr += f'mixin="color-{temp["8"]}" '
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["42"]} {temp["43"]}'
+                        outstr += '"></a-plane> '
+
+                        outstr += f'<a-plane id="box-{x}-left" '
+                        outstr += f'position="{-float(temp["41"])/2} {float(temp["43"])/2} 0" '
+                        outstr += 'rotation="0 -90 0" '
+                        outstr += f'width="{temp["42"]}" height="{temp["43"]}" '
+                        outstr += f'mixin="color-{temp["8"]}" '
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["42"]} {temp["43"]}'
+                        outstr += '"></a-plane> '
+
+                        outstr += '</a-entity>'
+                        output[x] = outstr
+                    flag = False
+
+                if value == 'INSERT':
+                    temp = {'41': 1, '42': 1, '43': 1, '50': 0,}#default values
+                    flag = 'block'
+                    x += 1
+                #here other ifs for other kind of entities
+        dxf_f.close()
+        return output
+
+    def extract_blocks_bkp(self):#just a backup, delete if redundant
+        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
+        dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}
         flag = False
         x = 0
@@ -158,7 +268,7 @@ class Dxf2VrPage(Page):
         dxf_f.close()
         return output
 
-    def extract_meshes(self):
+    def extract_meshes(self):#abandoned, but interesting structure
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}

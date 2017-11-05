@@ -38,11 +38,18 @@
             position="0 0 0"
             rotation="0 0 0">
 			{% with blocks=page.extract_blocks %}
-			 {% if blocks %}
 				{% for key, value in blocks.items %}
-				{{ value }}
+				{#<div>{{ key }}{{ value }}</div>#}
+				<a-entity id="block-{{ key }}" 
+				geometry="primitive: {{ value.2 }}"
+				position="{{ value.10 }} {{ value.30 }} {{ value.20 }}"
+				rotation="{{ value.220 }} {{ value.50 }} {{ value.210 }}"
+				scale="{{ value.41 }} {{ value.43 }} {{ value.42 }}"
+				mixin="color-{{ value.8 }}"
+				material="src: #image-{{ value.8 }};
+				; repeat: {{ value.repeatX }} {{ value.repeatY }}">
+				</a-entity>
 				{% endfor %}
-			 {% endif %}
 			{% endwith %}
 			{% with faces=page.extract_3Dfaces %}
 				{#<div>{{ faces }}</div>#}
