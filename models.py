@@ -41,7 +41,7 @@ class Dxf2VrPage(Page):
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
 
-    def extract_blocks(self):
+    def extract_dxf(self):
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         material_gallery=self.material_images.all()
@@ -55,7 +55,17 @@ class Dxf2VrPage(Page):
         while value !='ENDSEC':
             key = dxf_f.readline().strip()
             value = dxf_f.readline().strip()
-            if flag == 'block':#elif flag == 'face'
+            if flag == 'face':
+                if key == '8':#layer name
+                    temp[key] = value
+                elif key == '10' or key == '11' or key == '12' or key == '13':#X position
+                    temp[key] = value
+                elif key == '20' or key == '21' or key == '22' or key == '23':#mirror Y position
+                    value = -float(value)
+                    temp[key] = value
+                elif key == '30' or key == '31' or key == '32' or key == '33':#Z position
+                    temp[key] = value
+            elif flag == 'block':
                 if key == '2' or key == '8':#block name and layer name
                     temp[key] = value
                 elif key == '10' or key == '30':#X Z position
@@ -67,7 +77,34 @@ class Dxf2VrPage(Page):
                 elif key == '41' or key == '42' or key == '43':#scale values
                     temp[key] = value
             if key == '0':
-                if flag == 'block':#elif flag == 'face'
+                if flag == 'face':#to do repeat we should calculate triangle width
+                    outstr = f'<a-triangle id="triangle-{x}" \n'
+                    outstr += f'geometry="vertexA:{temp["10"]} {temp["30"]} {temp["20"]}; \n'
+                    outstr += f'vertexB:{temp["11"]} {temp["31"]} {temp["21"]}; \n'
+                    outstr += f'vertexC:{temp["12"]} {temp["32"]} {temp["22"]}" \n'
+                    outstr += f'mixin="color-{temp["8"]}" \n'
+                    outstr += f'material="src: #image-{temp["8"]}; side: front'
+                    #if repeat:
+                        #outstr += f'; repeat:{temp["41"]} {temp["42"]}'
+                    outstr += '">\n</a-triangle> \n'
+                    output[x] = outstr
+                    if temp['12']!=temp['13'] or temp['22']!=temp['23'] or temp['32']!=temp['33']:
+                        temp2 = temp.copy()
+                        temp2['11']=temp['12']; temp2['21']=temp['22']; temp2['31']=temp['32']
+                        temp2['12']=temp['13']; temp2['22']=temp['23']; temp2['32']=temp['33']
+                        x += 1
+                        outstr = f'<a-triangle id="triangle-{x}" \n'
+                        outstr += f'geometry="vertexA:{temp2["10"]} {temp2["30"]} {temp2["20"]}; \n'
+                        outstr += f'vertexB:{temp2["11"]} {temp2["31"]} {temp2["21"]}; \n'
+                        outstr += f'vertexC:{temp2["12"]} {temp2["32"]} {temp2["22"]}" \n'
+                        outstr += f'mixin="color-{temp2["8"]}" \n'
+                        outstr += f'material="src: #image-{temp2["8"]}; side: front'
+                        #if repeat:
+                            #outstr += f'; repeat:{temp2["41"]} {temp2["42"]}'
+                        outstr += '">\n</a-triangle> \n'
+                        output[x] = outstr
+                    flag = False
+                elif flag == 'block':
                     #material images are patterns?
                     repeat=False
                     if material_gallery:
@@ -200,11 +237,14 @@ class Dxf2VrPage(Page):
                     temp = {'41': 1, '42': 1, '43': 1, '50': 0,}#default values
                     flag = 'block'
                     x += 1
-                #here other ifs for other kind of entities
+                elif value == '3DFACE':
+                    temp = {}#default values
+                    flag = 'face'
+                    x += 1
         dxf_f.close()
         return output
 
-    def extract_blocks_bkp(self):#just a backup, delete if redundant
+    def extract_blocks_bkp(self):#just a backup, contains arbitrary axis algorithm
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
         dxf_f = open(path_to_dxf, encoding = 'utf-8')
         output = {}
@@ -280,41 +320,6 @@ class Dxf2VrPage(Page):
                     flag = False
                 if value == 'INSERT':
                     temp = {'41': 1, '42': 1, '43': 1, '50': 0, '210': 0, '220': 0, '230': 1,}#default values
-                    flag = True
-                    x += 1
-                #here other ifs for other kind of entities
-        dxf_f.close()
-        return output
-
-    def extract_3Dfaces(self):
-        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
-        dxf_f = open(path_to_dxf, encoding = 'utf-8')
-        output = {}
-        flag = False
-        x = 0
-        value = 'dummy'
-        while value !='ENTITIES':
-            key = dxf_f.readline().strip()
-            value = dxf_f.readline().strip()
-        while value !='ENDSEC':
-            key = dxf_f.readline().strip()
-            value = dxf_f.readline().strip()
-            if flag == True:
-                if key == '20' or key == '21' or key == '22' or key == '23':#mirror Y position
-                    value = -float(value)
-                temp[key] = value
-            if key == '0':
-                if flag == True:
-                    output[x] = temp
-                    if temp['12']!=temp['13'] or temp['22']!=temp['23'] or temp['32']!=temp['33']:
-                        temp2 = temp.copy()
-                        temp2['11']=temp['12']; temp2['21']=temp['22']; temp2['31']=temp['32']
-                        temp2['12']=temp['13']; temp2['22']=temp['23']; temp2['32']=temp['33']
-                        x += 1
-                        output[x] = temp2
-                    flag = False
-                if value == '3DFACE':
-                    temp = {}#default values
                     flag = True
                     x += 1
                 #here other ifs for other kind of entities
