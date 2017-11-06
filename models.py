@@ -155,6 +155,45 @@ class Dxf2VrPage(Page):
                         outstr += '</a-cylinder>\n'
                         output[x] = outstr
 
+                    elif temp['2'] == 'cone':
+                        outstr = f'<a-cone id="cone-{x}" \n'
+                        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])/2} {temp["20"]}" \n'
+                        outstr += f'rotation="0 {temp["50"]} 0"\n'
+                        outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
+                        outstr += f'mixin="color-{temp["8"]}" \n'
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += '">\n'
+                        outstr += '</a-cone>\n'
+                        output[x] = outstr
+
+                    elif temp['2'] == 'sphere':
+                        outstr = f'<a-sphere id="sphere-{x}" \n'
+                        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])} {temp["20"]}" \n'
+                        outstr += f'rotation="0 {temp["50"]} 0"\n'
+                        outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
+                        outstr += f'mixin="color-{temp["8"]}" \n'
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += '">\n'
+                        outstr += '</a-sphere>\n'
+                        output[x] = outstr
+
+                    elif temp['2'] == 'circle':
+                        outstr = f'<a-circle id="circle-{x}" \n'
+                        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+                        outstr += f'rotation="-90 {temp["50"]} 0"\n'
+                        outstr += f'radius="{temp["41"]}" \n'
+                        outstr += f'mixin="color-{temp["8"]}" \n'
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += '">\n'
+                        outstr += '</a-circle>\n'
+                        output[x] = outstr
+
                     flag = False
 
                 if value == 'INSERT':
