@@ -233,7 +233,7 @@ class Dxf2VrPage(Page):
 
                     elif temp['2'] == 'plane':
                         outstr = f'<a-plane id="plane-{x}" \n'
-                        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])} {temp["20"]}" \n'
+                        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])/2} {temp["20"]}" \n'
                         outstr += f'rotation="0 {temp["50"]} 0"\n'
                         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
