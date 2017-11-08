@@ -111,7 +111,7 @@ class Dxf2VrPage(Page):
                         for material in material_gallery:
                             if material.layer == temp['8'] and material.pattern == True:
                                 repeat=True
-                    if temp['2'] == 'box':
+                    if temp['2'] == '6planes':
                         outstr = f'<a-entity id="box-{x}" \n'
                         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
                         outstr += f'rotation="0 {temp["50"]} 0">\n'
@@ -179,6 +179,19 @@ class Dxf2VrPage(Page):
                         outstr += '</a-entity>\n'
                         output[x] = outstr
 
+                    elif temp['2'] == 'box':
+                        outstr = f'<a-box id="box-{x}" \n'
+                        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])/2} {temp["20"]}" \n'
+                        outstr += f'rotation="0 {temp["50"]} 0"\n'
+                        outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
+                        outstr += f'mixin="color-{temp["8"]}" \n'
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += '">\n'
+                        outstr += '</a-box>\n'
+                        output[x] = outstr
+
                     elif temp['2'] == 'cylinder':
                         outstr = f'<a-cylinder id="cylinder-{x}" \n'
                         outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])/2} {temp["20"]}" \n'
@@ -240,6 +253,32 @@ class Dxf2VrPage(Page):
                         outstr += f'material="src: #image-{temp["8"]}'
                         if repeat:
                             outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += '">\n'
+                        outstr += '</a-plane>\n'
+                        output[x] = outstr
+
+                    elif temp['2'] == 'floor':
+                        outstr = f'<a-plane id="plane-{x}" \n'
+                        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+                        outstr += f'rotation="-90 {temp["50"]} 0"\n'
+                        outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
+                        outstr += f'mixin="color-{temp["8"]}" \n'
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["42"]}'
+                        outstr += '">\n'
+                        outstr += '</a-plane>\n'
+                        output[x] = outstr
+
+                    elif temp['2'] == 'ceiling':
+                        outstr = f'<a-plane id="plane-{x}" \n'
+                        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+                        outstr += f'rotation="90 {temp["50"]} 0"\n'
+                        outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
+                        outstr += f'mixin="color-{temp["8"]}" \n'
+                        outstr += f'material="src: #image-{temp["8"]}'
+                        if repeat:
+                            outstr += f'; repeat:{temp["41"]} {temp["42"]}'
                         outstr += '">\n'
                         outstr += '</a-plane>\n'
                         output[x] = outstr
