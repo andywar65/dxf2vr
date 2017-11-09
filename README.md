@@ -1,15 +1,15 @@
 # DXF 2 VR
-A Django / Wagtail app that imports DXF files and renders Virtual Reality using A-Frame library.
+A [Django](https://www.djangoproject.com/) / [Wagtail](https://wagtail.io/) app that imports [DXF](https://en.wikipedia.org/wiki/AutoCAD_DXF) files and renders Virtual Reality using [A-Frame](https://aframe.io) library.
 
 ### Install Wagtail app
 
-The app can be cloned or downloaded from Github. Using a shell get into the project folder and type  `git clone https://github.com/andywar65/dxf2vr`. Add `dxf2vr` to the INSTALLED_APPS in your settings file. Migrate. The app's templates look for a `base.html` file, so be sure to have one.
+The app can be cloned or downloaded from [Github](https://github.com/andywar65/dxf2vr). Using a shell get into the project folder and type  `git clone https://github.com/andywar65/dxf2vr`. Add `dxf2vr` to the INSTALLED_APPS in your settings file. Migrate. The app's templates look for a `base.html` file, so be sure to have one.
 
 ### DXF constraints
 
 Generate a DXF in ascii mode and don't try to modify it. DXF is a sequence of key / value pairs, and deleting just one line can break up everything. By now only 3Dfaces and standard blocks can be translated, other entities will just be ignored. Standard blocks may be found in `static/samples/standard-blocks.dxf` bundled within the app: box, cylinder, cone, sphere, circle and planes. These mimic entities of the A-Frame library, with unit dimensions. Insert the block and scale it to the desired width, length and height, rotate it along the Z axis. DO NOT rotate along X and Y axis, the translation algorithm won't be able to handle this (help is appreciated on this subject). If you really need to rotate along X and Y axis, explode the block after the rotation: it will degrade to a series of 3D faces that can be handled (standard blocks only, the 3D faces are on a freezed layer). Create as many layers as you need, and place your entities on the desired one. Layers relate to the appearance of the entity, how it's explained in the next section.
 
-To include meshes, explode them to 3Dfaces (I know it's bad, but this is how it works by now). If you have an Acis solid, there is a longer way: export it as a 3DS file, import it as a mesh and explode it.
+To include meshes, explode them to 3Dfaces (I know it's bad, but this is how it works by now). If you have an Acis solid, use `3DCONVERT` to obtain a mesh, then explode it.
 
 ### Wagtail backend
 
