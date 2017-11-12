@@ -20,6 +20,7 @@
 			   <img id="sky" src="{% static 'images/target.png' %}">
 			 {% endif %}
 			{% endwith %}
+			<a-mixin id="color-default" material="color: white"></a-mixin>
 			{% with material_images=page.material_images.all %}
 			 {% if material_images %}
 			  {% for material in material_images %}

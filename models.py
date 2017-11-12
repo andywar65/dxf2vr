@@ -105,12 +105,17 @@ class Dxf2VrPage(Page):
                         output[x] = outstr
                     flag = False
                 elif flag == 'block':
-                    #material images are patterns?
+                    #material images are patterns? is material set in model?
                     repeat=False
+                    no_color=True
                     if material_gallery:
                         for material in material_gallery:
-                            if material.layer == temp['8'] and material.pattern == True:
-                                repeat=True
+                            if material.layer == temp['8']:
+                                no_color=False
+                                if material.pattern == True:
+                                    repeat=True
+                    if no_color:#color is still not set for layer, so we use default
+                        temp['8'] = 'default'
                     if temp['2'] == '6planes':
                         outstr = f'<a-entity id="box-{x}" \n'
                         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
