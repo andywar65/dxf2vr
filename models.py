@@ -28,6 +28,7 @@ class Dxf2VrPage(Page):
         on_delete = models.SET_NULL,
         related_name = '+',
         )
+    shadows = models.BooleanField(default=False)
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -38,6 +39,7 @@ class Dxf2VrPage(Page):
         FieldPanel('intro'),
         DocumentChooserPanel('dxf_file'),
         ImageChooserPanel('equirectangular_image'),
+        FieldPanel('shadows'),
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
 
