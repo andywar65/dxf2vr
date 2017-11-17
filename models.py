@@ -1,5 +1,5 @@
 import os
-from math import acos, degrees, pi, sqrt, pow, fabs
+from math import radians, sin, cos, acos, degrees, pi, sqrt, pow, fabs
 from django import forms
 from django.db import models
 from django.conf import settings
@@ -119,8 +119,10 @@ class Dxf2VrPage(Page):
                     if no_color:#color is still not set for layer, so we use default
                         temp['8'] = 'default'
                     if temp['2'] == '6planes':
+                        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
+                        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
                         outstr = f'<a-entity id="box-{x}" \n'
-                        outstr += f'position="{float(temp["10"])+float(temp["41"])/2} {temp["30"]} {float(temp["10"])-float(temp["41"])/2}" \n'
+                        outstr += f'position="{float(temp["10"])+temp_x} {temp["30"]} {float(temp["20"])-temp_y}" \n'
                         outstr += f'rotation="0 {temp["50"]} 0">\n'
 
                         outstr += f'<a-plane id="box-{x}-bottom" \n'
@@ -187,8 +189,10 @@ class Dxf2VrPage(Page):
                         output[x] = outstr
 
                     elif temp['2'] == 'box':
+                        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
+                        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
                         outstr = f'<a-box id="box-{x}" \n'
-                        outstr += f'position="{float(temp["10"])+float(temp["41"])/2} {float(temp["30"])+float(temp["43"])/2} {float(temp["20"])-float(temp["42"])/2}" \n'
+                        outstr += f'position="{float(temp["10"])+temp_x} {float(temp["30"])+float(temp["43"])/2} {float(temp["20"])-temp_y}" \n'
                         outstr += f'rotation="0 {temp["50"]} 0"\n'
                         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
