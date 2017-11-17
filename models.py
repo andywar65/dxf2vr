@@ -29,6 +29,7 @@ class Dxf2VrPage(Page):
         related_name = '+',
         )
     shadows = models.BooleanField(default=False)
+    fly_camera = models.BooleanField(default=False)
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -40,6 +41,7 @@ class Dxf2VrPage(Page):
         DocumentChooserPanel('dxf_file'),
         ImageChooserPanel('equirectangular_image'),
         FieldPanel('shadows'),
+        FieldPanel('fly_camera'),
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
 

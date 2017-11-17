@@ -54,7 +54,9 @@
 		{% endwith %}
 			position="-10 10 5"></a-entity>
             <a-entity id="camera-ent">
-                  <a-camera id="camera">
+				{% with fly_camera=page.fly_camera %}
+                  <a-camera id="camera" wasd-controls="fly: {{ fly_camera|lower }}">
+				{% endwith %}
                     <a-light type="point"></a-light>
                     <a-entity position="0 -1.6 0" id="camera-foot"></a-entity>
                     <a-cursor color="#2E3A87"></a-cursor>
