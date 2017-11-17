@@ -256,8 +256,10 @@ class Dxf2VrPage(Page):
                         output[x] = outstr
 
                     elif temp['2'] == 'plane':
+                        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50'])))
+                        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50'])))
                         outstr = f'<a-plane id="plane-{x}" \n'
-                        outstr += f'position="{float(temp["10"])+float(temp["41"])/2} {float(temp["30"])+float(temp["43"])/2} {temp["20"]}" \n'
+                        outstr += f'position="{float(temp["10"])+temp_x} {float(temp["30"])+float(temp["43"])/2} {float(temp["20"])-temp_y}" \n'
                         outstr += f'rotation="0 {temp["50"]} 0"\n'
                         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -269,8 +271,10 @@ class Dxf2VrPage(Page):
                         output[x] = outstr
 
                     elif temp['2'] == 'floor':
+                        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
+                        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
                         outstr = f'<a-plane id="plane-{x}" \n'
-                        outstr += f'position="{float(temp["10"])+float(temp["41"])/2} {temp["30"]} {float(temp["20"])-float(temp["42"])/2}" \n'
+                        outstr += f'position="{float(temp["10"])+temp_x} {temp["30"]} {float(temp["20"])-temp_y}" \n'
                         outstr += f'rotation="-90 {temp["50"]} 0"\n'
                         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -282,8 +286,10 @@ class Dxf2VrPage(Page):
                         output[x] = outstr
 
                     elif temp['2'] == 'ceiling':
+                        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
+                        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
                         outstr = f'<a-plane id="plane-{x}" \n'
-                        outstr += f'position="{float(temp["10"])+float(temp["41"])/2} {temp["30"]} {float(temp["20"])-float(temp["42"])/2}" \n'
+                        outstr += f'position="{float(temp["10"])+temp_x} {temp["30"]} {float(temp["20"])-temp_y}" \n'
                         outstr += f'rotation="90 {temp["50"]} 0"\n'
                         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
