@@ -24,6 +24,6 @@ Okay, now publish and go to the frontend to see how your model behaves.
 The model window is embedded within your website, but you can go fullscreen by pressing `F` or the visor icon in the right bottom corner of the window. On some mobiles the image will be split in two, with stereoscopic effect. You will need one of those cardboard headgears to appreciate the effect. Press `ESC` to exit fullscreen mode. On laptops, if you want to look around, you have to press and drag the mouse. To move around press the `W-A-S-D` keys. On some mobiles you literally walk to explore the model, but I've never experienced that. Last but not least, press the `Ctrl+Alt+I` to 
 enter the Inspector mode, that makes you inspect and modify the entities of the model. Modifications can be saved to HTML files.
 
-### Improvements
+### Next improvements
 
 Ability to position lights. Deal with attributes.
