@@ -13,7 +13,7 @@ To include meshes, explode them to 3Dfaces (I know it's bad, but this is how it 
 
 ### Wagtail backend
 
-Create a page of the `Dxf2Vr Page` kind. You will have to enter a Title and an Intro for the page, and an Equirectangular Image for the background (if none, a default one will be picked). Equirectangular images are like those planispheres where Greenland is bigger than Africa. You will have to check if you want your Shadows on.
+Create a page of the `Dxf2Vr Page` kind. You will have to enter a Title and an Intro for the page, and an Equirectangular Image for the background (if none, a default one will be picked). Equirectangular images are like those planispheres where Greenland is bigger than Africa. You will have to check if you want your shadows on and if you want your camera to be able to fly.
 
 Then load the most important stuff: the DXF file. It will be stored in the `media/documents` folder. After that, you may create as many Material Gallery items as the layers used in the DXF file. Each material needs a Name that must match the layer name (default is `0`), an Image that will be applied to the entity and a Color. If the image is a 1x1 meter pattern, check the appropriate box. Default color is `white`, but you can use hexadecimal notation (like `#ffffff`) or standard HTML colors. Color affects appearance of the image. If you don't add materials, elements will be just white.
 

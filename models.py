@@ -120,6 +120,7 @@ class Dxf2VrPage(Page):
                                     repeat=True
                     if no_color:#color is still not set for layer, so we use default
                         temp['8'] = 'default'
+
                     if temp['2'] == '6planes':
                         temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
                         temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
@@ -275,7 +276,7 @@ class Dxf2VrPage(Page):
                     elif temp['2'] == 'floor':
                         temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
                         temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
-                        outstr = f'<a-plane id="plane-{x}" \n'
+                        outstr = f'<a-plane id="floor-{x}" \n'
                         outstr += f'position="{float(temp["10"])+temp_x} {temp["30"]} {float(temp["20"])-temp_y}" \n'
                         outstr += f'rotation="-90 {temp["50"]} 0"\n'
                         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
@@ -290,7 +291,7 @@ class Dxf2VrPage(Page):
                     elif temp['2'] == 'ceiling':
                         temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
                         temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
-                        outstr = f'<a-plane id="plane-{x}" \n'
+                        outstr = f'<a-plane id="ceiling-{x}" \n'
                         outstr += f'position="{float(temp["10"])+temp_x} {temp["30"]} {float(temp["20"])-temp_y}" \n'
                         outstr += f'rotation="90 {temp["50"]} 0"\n'
                         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
@@ -300,6 +301,16 @@ class Dxf2VrPage(Page):
                             outstr += f'; repeat:{temp["41"]} {temp["42"]}'
                         outstr += '">\n'
                         outstr += '</a-plane>\n'
+                        output[x] = outstr
+
+                    elif temp['2'] == 'light':
+                        outstr = f'<a-entity id="light-{x}" \n'
+                        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+                        outstr += 'light="type: point; intensity: 0.75; distance: 50; decay: 2; '
+                        if self.shadows:
+                            outstr += 'castShadow: true;'
+                        outstr += '">\n'
+                        outstr += '</a-entity>\n'
                         output[x] = outstr
 
                     flag = False
