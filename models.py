@@ -252,10 +252,8 @@ class Dxf2VrPage(Page):
                         outstr += f'radius="{temp["41"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
-                        outstr += '">\n'
-                        outstr += '</a-circle>\n'
+                        outstr += self.is_repeat(repeat, temp["41"], temp["43"])
+                        outstr += '">\n</a-circle>\n'
                         output[x] = outstr
 
                     elif temp['2'] == 'plane':
@@ -326,6 +324,13 @@ class Dxf2VrPage(Page):
 
         dxf_f.close()
         return output
+
+    def is_repeat(self, repeat, rx, ry):
+        if repeat:
+            output = f'; repeat:{rx} {ry}'
+            return output
+        else:
+            return None
 
     def extract_blocks_bkp(self):#just a backup, contains arbitrary axis algorithm
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
