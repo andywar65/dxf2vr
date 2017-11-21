@@ -80,13 +80,24 @@ class Dxf2VrPage(Page):
                     temp[key] = value
                 elif key == '41' or key == '42' or key == '43':#scale values
                     temp[key] = value
+
             if key == '0':
+
                 if flag == 'face':#to do repeat we should calculate triangle width
+                    #is material set in model?
+                    no_color=True
+                    if material_gallery:
+                        for material in material_gallery:
+                            if material.layer == temp['8']:
+                                no_color=False
+                    if no_color:#color is still not set for layer, so we use default
+                        temp['8'] = 'default'
                     output[x] = self.make_triangle_1(x, temp)
                     if temp['12']!=temp['13'] or temp['22']!=temp['23'] or temp['32']!=temp['33']:
                         x += 1
                         output[x] = self.make_triangle_2(x, temp)
                     flag = False
+
                 elif flag == 'block':
                     #material images are patterns? is material set in model?
                     no_color=True
