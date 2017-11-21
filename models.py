@@ -110,14 +110,13 @@ class Dxf2VrPage(Page):
                     flag = False
                 elif flag == 'block':
                     #material images are patterns? is material set in model?
-                    repeat=False
                     no_color=True
                     if material_gallery:
                         for material in material_gallery:
                             if material.layer == temp['8']:
                                 no_color=False
                                 if material.pattern == True:
-                                    repeat=True
+                                    temp['repeat']=True
                     if no_color:#color is still not set for layer, so we use default
                         temp['8'] = 'default'
 
@@ -134,8 +133,7 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["42"]}'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["42"])
                         outstr += '">\n</a-plane> \n'
 
                         outstr += f'<a-plane id="box-{x}-top" \n'
@@ -144,8 +142,7 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["42"]}'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["42"])
                         outstr += '">\n</a-plane> \n'
 
                         outstr += f'<a-plane id="box-{x}-front" \n'
@@ -154,8 +151,7 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
                         outstr += '">\n</a-plane> \n'
 
                         outstr += f'<a-plane id="box-{x}-back" \n'
@@ -164,8 +160,7 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
                         outstr += '">\n</a-plane> \n'
 
                         outstr += f'<a-plane id="box-{x}-right" \n'
@@ -174,8 +169,7 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["42"]}" height="{temp["43"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["42"]} {temp["43"]}'
+                        outstr += self.is_repeat(temp["repeat"], temp["42"], temp["43"])
                         outstr += '">\n</a-plane> \n'
 
                         outstr += f'<a-plane id="box-{x}-left" \n'
@@ -184,8 +178,7 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["42"]}" height="{temp["43"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["42"]} {temp["43"]}'
+                        outstr += self.is_repeat(temp["repeat"], temp["42"], temp["43"])
                         outstr += '">\n</a-plane> \n'
 
                         outstr += '</a-entity>\n'
@@ -200,10 +193,8 @@ class Dxf2VrPage(Page):
                         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
-                        outstr += '">\n'
-                        outstr += '</a-box>\n'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
+                        outstr += '">\n</a-box>\n'
                         output[x] = outstr
 
                     elif temp['2'] == 'cylinder':
@@ -213,10 +204,8 @@ class Dxf2VrPage(Page):
                         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
-                        outstr += '">\n'
-                        outstr += '</a-cylinder>\n'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
+                        outstr += '">\n</a-cylinder>\n'
                         output[x] = outstr
 
                     elif temp['2'] == 'cone':
@@ -226,10 +215,8 @@ class Dxf2VrPage(Page):
                         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
-                        outstr += '">\n'
-                        outstr += '</a-cone>\n'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
+                        outstr += '">\n</a-cone>\n'
                         output[x] = outstr
 
                     elif temp['2'] == 'sphere':
@@ -239,10 +226,8 @@ class Dxf2VrPage(Page):
                         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
-                        outstr += '">\n'
-                        outstr += '</a-sphere>\n'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
+                        outstr += '">\n</a-sphere>\n'
                         output[x] = outstr
 
                     elif temp['2'] == 'circle':
@@ -252,7 +237,7 @@ class Dxf2VrPage(Page):
                         outstr += f'radius="{temp["41"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        outstr += self.is_repeat(repeat, temp["41"], temp["43"])
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
                         outstr += '">\n</a-circle>\n'
                         output[x] = outstr
 
@@ -265,10 +250,8 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["43"]}'
-                        outstr += '">\n'
-                        outstr += '</a-plane>\n'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
+                        outstr += '">\n</a-plane>\n'
                         output[x] = outstr
 
                     elif temp['2'] == 'floor':
@@ -280,10 +263,8 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["42"]}'
-                        outstr += '">\n'
-                        outstr += '</a-plane>\n'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["42"])
+                        outstr += '">\n</a-plane>\n'
                         output[x] = outstr
 
                     elif temp['2'] == 'ceiling':
@@ -295,10 +276,8 @@ class Dxf2VrPage(Page):
                         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
                         outstr += f'mixin="color-{temp["8"]}" \n'
                         outstr += f'material="src: #image-{temp["8"]}'
-                        if repeat:
-                            outstr += f'; repeat:{temp["41"]} {temp["42"]}'
-                        outstr += '">\n'
-                        outstr += '</a-plane>\n'
+                        outstr += self.is_repeat(temp["repeat"], temp["41"], temp["42"])
+                        outstr += '">\n</a-plane>\n'
                         output[x] = outstr
 
                     elif temp['2'] == 'light':
@@ -307,8 +286,7 @@ class Dxf2VrPage(Page):
                         outstr += 'light="type: point; intensity: 0.75; distance: 50; decay: 2; '
                         if self.shadows:
                             outstr += 'castShadow: true;'
-                        outstr += '">\n'
-                        outstr += '</a-entity>\n'
+                        outstr += '">\n</a-entity>\n'
                         output[x] = outstr
 
                     flag = False
@@ -318,7 +296,7 @@ class Dxf2VrPage(Page):
                     flag = 'face'
                     x += 1
                 elif value == 'INSERT':
-                    temp = {'41': 1, '42': 1, '43': 1, '50': 0,}#default values
+                    temp = {'41': 1, '42': 1, '43': 1, '50': 0, 'repeat': False}#default values
                     flag = 'block'
                     x += 1
 
@@ -330,7 +308,7 @@ class Dxf2VrPage(Page):
             output = f'; repeat:{rx} {ry}'
             return output
         else:
-            return None
+            return ';'
 
     def extract_blocks_bkp(self):#just a backup, contains arbitrary axis algorithm
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
