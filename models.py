@@ -7,7 +7,7 @@ from django.conf import settings
 from modelcluster.fields import ParentalKey
 
 from wagtail.wagtailcore.models import Page, Orderable
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 from wagtail.wagtaildocs.models import Document
@@ -41,9 +41,11 @@ class Dxf2VrPage(Page):
         FieldPanel('intro'),
         DocumentChooserPanel('dxf_file'),
         ImageChooserPanel('equirectangular_image'),
-        FieldPanel('shadows'),
-        FieldPanel('fly_camera'),
-        FieldPanel('double_face'),
+        MultiFieldPanel([
+            FieldPanel('shadows'),
+            FieldPanel('fly_camera'),
+            FieldPanel('double_face'),
+        ], heading="Visual settings"),
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
 
