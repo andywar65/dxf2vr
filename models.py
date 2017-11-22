@@ -30,6 +30,7 @@ class Dxf2VrPage(Page):
         )
     shadows = models.BooleanField(default=False)
     fly_camera = models.BooleanField(default=False)
+    double_face = models.BooleanField(default=False)
 
     search_fields = Page.search_fields + [
         index.SearchField('intro'),
@@ -42,6 +43,7 @@ class Dxf2VrPage(Page):
         ImageChooserPanel('equirectangular_image'),
         FieldPanel('shadows'),
         FieldPanel('fly_camera'),
+        FieldPanel('double_face'),
         InlinePanel('material_images', label="Material Image Gallery",),
     ]
 
@@ -327,7 +329,9 @@ class Dxf2VrPage(Page):
         outstr += f'vertexB:{temp["11"]} {temp["31"]} {temp["21"]}; \n'
         outstr += f'vertexC:{temp["12"]} {temp["32"]} {temp["22"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}; side: front'
+        outstr += f'material="src: #image-{temp["8"]}; '
+        if self.double_face:
+            outstr += 'side: double; '
         outstr += '">\n</a-triangle> \n'
         return outstr
 
@@ -337,7 +341,9 @@ class Dxf2VrPage(Page):
         outstr += f'vertexB:{temp["12"]} {temp["32"]} {temp["22"]}; \n'
         outstr += f'vertexC:{temp["13"]} {temp["33"]} {temp["23"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}; side: front'
+        outstr += f'material="src: #image-{temp["8"]}; '
+        if self.double_face:
+            outstr += 'side: double; '
         outstr += '">\n</a-triangle> \n'
         return outstr
 
