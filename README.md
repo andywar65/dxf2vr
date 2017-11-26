@@ -26,4 +26,4 @@ enter the Inspector mode, that makes you inspect and modify the entities of the 
 
 ### Next improvements
 
-Deal with attributes to store more date. In example, for the cone standard block, ability to store top radius, tetha length and tetha start.
+Deal with attributes to store more data. In example, for the cone standard block, ability to store top radius, tetha length and tetha start.

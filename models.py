@@ -166,14 +166,12 @@ class Dxf2VrPage(Page):
             return ';'
 
     def make_6planes(self, x, temp):
-        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
-        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
         outstr = f'<a-entity id="box-{x}" \n'
-        outstr += f'position="{float(temp["10"])+temp_x} {temp["30"]} {float(temp["20"])-temp_y}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="0 {temp["50"]} 0">\n'
 
         outstr += f'<a-plane id="box-{x}-bottom" \n'
-        outstr += 'position="0 0 0" \n'
+        outstr += 'position="{float(temp["41"])/2} 0 {-float(temp["42"])/2}" \n'
         outstr += 'rotation="90 0 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -182,7 +180,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane> \n'
 
         outstr += f'<a-plane id="box-{x}-top" \n'
-        outstr += f'position="0 {temp["43"]} 0" \n'
+        outstr += 'position="{float(temp["41"])/2} {temp["43"]} {-float(temp["42"])/2}" \n'
         outstr += 'rotation="-90 0 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -191,7 +189,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane> \n'
 
         outstr += f'<a-plane id="box-{x}-front" \n'
-        outstr += f'position="0 {float(temp["43"])/2} {-float(temp["42"])/2}" \n'
+        outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} {-float(temp["42"])}" \n'
         outstr += 'rotation="0 180 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -200,8 +198,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane> \n'
 
         outstr += f'<a-plane id="box-{x}-back" \n'
-        outstr += f'position="0 {float(temp["43"])/2} {float(temp["42"])/2}" \n'
-        outstr += 'rotation="0 0 0" \n'
+        outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
@@ -209,7 +206,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane> \n'
 
         outstr += f'<a-plane id="box-{x}-right" \n'
-        outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} 0" \n'
+        outstr += f'position="{float(temp["41"])} {float(temp["43"])/2} {-float(temp["42"])/2}" \n'
         outstr += 'rotation="0 90 0" \n'
         outstr += f'width="{temp["42"]}" height="{temp["43"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -218,7 +215,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane> \n'
 
         outstr += f'<a-plane id="box-{x}-left" \n'
-        outstr += f'position="{-float(temp["41"])/2} {float(temp["43"])/2} 0" \n'
+        outstr += f'position="0 {float(temp["43"])/2} {-float(temp["42"])/2}" \n'
         outstr += 'rotation="0 -90 0" \n'
         outstr += f'width="{temp["42"]}" height="{temp["43"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -230,27 +227,29 @@ class Dxf2VrPage(Page):
         return outstr
 
     def make_box(self, x, temp):
-        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
-        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
-        outstr = f'<a-box id="box-{x}" \n'
-        outstr += f'position="{float(temp["10"])+temp_x} {float(temp["30"])+float(temp["43"])/2} {float(temp["20"])-temp_y}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0"\n'
+        outstr = f'<a-entity id="box-ent-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'<a-box id="box-{x}" \n'
+        outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} {-float(temp["42"])/2}" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
-        outstr += '">\n</a-box>\n'
+        outstr += '">\n</a-box>\n</a-entity>\n'
         return outstr
 
     def make_cone(self, x, temp):
-        outstr = f'<a-cone id="cone-{x}" \n'
-        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])/2} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0"\n'
+        outstr = f'<a-entity id="cone-ent-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'<a-cone id="cone-{x}" \n'
+        outstr += f'position="0 {float(temp["43"])/2} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
-        outstr += '">\n</a-cone>\n'
+        outstr += '">\n</a-cone>\n</a-entity>\n'
         return outstr
 
     def make_circle(self, x, temp):
@@ -265,64 +264,70 @@ class Dxf2VrPage(Page):
         return outstr
 
     def make_cylinder(self, x, temp):
-        outstr = f'<a-cylinder id="cylinder-{x}" \n'
-        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])/2} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0"\n'
+        outstr = f'<a-entity id="cylinder-ent-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'<a-cylinder id="cylinder-{x}" \n'
+        outstr += f'position="0 {float(temp["43"])/2} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
-        outstr += '">\n</a-cylinder>\n'
+        outstr += '">\n</a-cylinder>\n</a-entity>\n'
         return outstr
 
     def make_sphere(self, x, temp):
-        outstr = f'<a-sphere id="sphere-{x}" \n'
-        outstr += f'position="{temp["10"]} {float(temp["30"])+float(temp["43"])} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0"\n'
+        outstr = f'<a-entity id="sphere-ent-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'<a-sphere id="sphere-{x}" \n'
+        outstr += f'position="0 {temp["43"]} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
-        outstr += '">\n</a-sphere>\n'
+        outstr += '">\n</a-sphere>\n</a-entity>\n'
         return outstr
 
     def make_plane(self, x, temp):
-        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50'])))
-        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50'])))
-        outstr = f'<a-plane id="plane-{x}" \n'
-        outstr += f'position="{float(temp["10"])+temp_x} {float(temp["30"])+float(temp["43"])/2} {float(temp["20"])-temp_y}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0"\n'
+        outstr = f'<a-entity id="plane-ent-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'<a-plane id="plane-{x}" \n'
+        outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
-        outstr += '">\n</a-plane>\n'
+        outstr += '">\n</a-plane>\n</a-entity>\n'
         return outstr
 
     def make_floor(self, x, temp):
-        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
-        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
-        outstr = f'<a-plane id="floor-{x}" \n'
-        outstr += f'position="{float(temp["10"])+temp_x} {temp["30"]} {float(temp["20"])-temp_y}" \n'
-        outstr += f'rotation="-90 {temp["50"]} 0"\n'
+        outstr = f'<a-entity id="floor-ent-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'<a-plane id="floor-{x}" \n'
+        outstr += f'position="{float(temp["41"])/2} 0 {-float(temp["42"])/2}" \n'
+        outstr += f'rotation="-90 0 0"\n'
         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["42"])
-        outstr += '">\n</a-plane>\n'
+        outstr += '">\n</a-plane>\n</a-entity>\n'
         return outstr
 
     def make_ceiling(self, x, temp):
-        temp_x = float(temp['41'])/2 * cos(radians(float(temp['50']))) - float(temp['42'])/2 * sin(radians(float(temp['50'])))
-        temp_y = float(temp['41'])/2 * sin(radians(float(temp['50']))) + float(temp['42'])/2 * cos(radians(float(temp['50'])))
-        outstr = f'<a-plane id="ceiling-{x}" \n'
-        outstr += f'position="{float(temp["10"])+temp_x} {temp["30"]} {float(temp["20"])-temp_y}" \n'
-        outstr += f'rotation="90 {temp["50"]} 0"\n'
+        outstr = f'<a-entity id="ceiling-ent-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'<a-plane id="ceiling-{x}" \n'
+        outstr += f'position="{float(temp["41"])/2} 0 {-float(temp["42"])/2}" \n'
+        outstr += f'rotation="90 0 0"\n'
         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["42"])
-        outstr += '">\n</a-plane>\n'
+        outstr += '">\n</a-plane>\n</a-entity>\n'
         return outstr
 
     def make_triangle_1(self, x, temp):
