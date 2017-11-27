@@ -84,6 +84,43 @@ class Dxf2VrPage(Page):
                     temp[key] = value
                 elif key == '41' or key == '42' or key == '43':#scale values
                     temp[key] = value
+                elif key == '210':#X of OCS unitary vector
+                    Az_1 = float(value)
+                    P_x = float(temp['10'])
+                    #value = degrees(pi/2-acos(float(value)))
+                elif key == '220':#Y of OCS unitary vector
+                    Az_2 = float(value)
+                    P_y = -float(temp['20'])
+                    #value = -degrees(pi/2-acos(float(value)))
+                elif key == '230':#Z of OCS unitary vector
+                    Az_3 = float(value)
+                    P_z = float(temp['30'])
+                    #arbitrary axis algorithm
+                    #see if OCS z axis is close to world Z axis
+                    if fabs(Az_1) < (1/64) and fabs(Az_2) < (1/64):
+                        W = ('dummy', 0, 1, 0)
+                    else:
+                        W = ('dummy', 0, 0, 1)
+                    #cross product for OCS x axis, normalized
+                    Ax_1 = W[2]*Az_3-W[3]*Az_2
+                    Ax_2 = W[3]*Az_1-W[1]*Az_3
+                    Ax_3 = W[1]*Az_2-W[2]*Az_1
+                    Norm = sqrt(pow(Ax_1, 2)+pow(Ax_2, 2)+pow(Ax_3, 2))
+                    Ax_1 = Ax_1/Norm
+                    Ax_2 = Ax_2/Norm
+                    Ax_3 = Ax_3/Norm
+                    #cross product for OCS y axis, normalized
+                    Ay_1 = Az_2*Ax_3-Az_3*Ax_2
+                    Ay_2 = Az_3*Ax_1-Az_1*Ax_3
+                    Ay_3 = Az_1*Ax_2-Az_2*Ax_1
+                    Norm = sqrt(pow(Ay_1, 2)+pow(Ay_2, 2)+pow(Ay_3, 2))
+                    Ay_1 = Ay_1/Norm
+                    Ay_2 = Ay_2/Norm
+                    Ay_3 = Ay_3/Norm
+                    #world coordinates from OCS
+                    temp['10'] = P_x*Ax_1+P_y*Ay_1+P_z*Az_1
+                    temp['20'] = -(P_x*Ax_2+P_y*Ay_2+P_z*Az_2)
+                    temp['30'] = P_x*Ax_3+P_y*Ay_3+P_z*Az_3
 
             if key == '0':
 
@@ -151,7 +188,7 @@ class Dxf2VrPage(Page):
                     flag = 'face'
                     x += 1
                 elif value == 'INSERT':
-                    temp = {'41': 1, '42': 1, '43': 1, '50': 0, 'repeat': False}#default values
+                    temp = {'41': 1, '42': 1, '43': 1, '50': 0, '210': 0, '220': 0, '230': 1,'repeat': False}#default values
                     flag = 'block'
                     x += 1
 
@@ -171,7 +208,7 @@ class Dxf2VrPage(Page):
         outstr += f'rotation="0 {temp["50"]} 0">\n'
 
         outstr += f'<a-plane id="box-{x}-bottom" \n'
-        outstr += 'position="{float(temp["41"])/2} 0 {-float(temp["42"])/2}" \n'
+        outstr += f'position="{float(temp["41"])/2} 0 {-float(temp["42"])/2}" \n'
         outstr += 'rotation="90 0 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -180,7 +217,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane> \n'
 
         outstr += f'<a-plane id="box-{x}-top" \n'
-        outstr += 'position="{float(temp["41"])/2} {temp["43"]} {-float(temp["42"])/2}" \n'
+        outstr += f'position="{float(temp["41"])/2} {temp["43"]} {-float(temp["42"])/2}" \n'
         outstr += 'rotation="-90 0 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["42"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
@@ -362,88 +399,6 @@ class Dxf2VrPage(Page):
             outstr += 'castShadow: true;'
         outstr += '">\n</a-entity>\n'
         return outstr
-
-    def extract_blocks_bkp(self):#just a backup, contains arbitrary axis algorithm
-        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
-        dxf_f = open(path_to_dxf, encoding = 'utf-8')
-        output = {}
-        flag = False
-        x = 0
-        value = 'dummy'
-        while value !='ENTITIES':
-            key = dxf_f.readline().strip()
-            value = dxf_f.readline().strip()
-        while value !='ENDSEC':
-            key = dxf_f.readline().strip()
-            value = dxf_f.readline().strip()
-            if flag == True:
-                if key == '210':#rotation around OCS x
-                    Az_1 = float(value)
-                    P_x = float(temp['10'])
-                    #value = degrees(pi/2-acos(float(value)))
-                elif key == '220':#rotation around OCS y
-                    Az_2 = float(value)
-                    P_y = float(temp['20'])
-                    #value = -degrees(pi/2-acos(float(value)))
-                elif key == '230':#arbitrary axis algorithm
-                    Az_3 = float(value)
-                    P_z = float(temp['30'])
-                    #see if OCS z axis is close to world Z axis
-                    if fabs(Az_1) < (1/64) and fabs(Az_2) < (1/64):
-                        W = ('dummy', 0, 1, 0)
-                    else:
-                        W = ('dummy', 0, 0, 1)
-                    #cross product for OCS x axis, normalized
-                    Ax_1 = W[2]*Az_3-W[3]*Az_2
-                    Ax_2 = W[3]*Az_1-W[1]*Az_3
-                    Ax_3 = W[1]*Az_2-W[2]*Az_1
-                    Norm = sqrt(pow(Ax_1, 2)+pow(Ax_2, 2)+pow(Ax_3, 2))
-                    Ax_1 = Ax_1/Norm
-                    Ax_2 = Ax_2/Norm
-                    Ax_3 = Ax_3/Norm
-                    #cross product for OCS y axis, normalized
-                    Ay_1 = Az_2*Ax_3-Az_3*Ax_2
-                    Ay_2 = Az_3*Ax_1-Az_1*Ax_3
-                    Ay_3 = Az_1*Ax_2-Az_2*Ax_1
-                    Norm = sqrt(pow(Ay_1, 2)+pow(Ay_2, 2)+pow(Ay_3, 2))
-                    Ay_1 = Ay_1/Norm
-                    Ay_2 = Ay_2/Norm
-                    Ay_3 = Ay_3/Norm
-                    #world coordinates from OCS
-                    temp['10'] = P_x*Ax_1+P_y*Ay_1+P_z*Az_1
-                    temp['20'] = P_x*Ax_2+P_y*Ay_2+P_z*Az_2
-                    temp['30'] = P_x*Ax_3+P_y*Ay_3+P_z*Az_3
-                temp[key] = value
-            if key == '0':
-                if flag == True:
-                    #caution: block insertion is on the base of the entity,
-                    #while a-frame entities are inserted in center
-                    if temp['2'] == 'sphere':#sphere is higher than other blocks
-                        div = 1
-                    else:
-                        div = 2
-                    temp['10'] = float(temp['10']) + float(temp['43'])/div * float(temp['210'])#correct X position
-                    temp['20'] = float(temp['20']) + float(temp['43'])/div * float(temp['220'])#correct Y position
-                    temp['30'] = float(temp['30']) + float(temp['43'])/div * float(temp['230'])#correct Z position
-                    temp['20'] = - float(temp['20'])#mirror Y position
-                    #material images are patterns?
-                    temp['repeatX']=1
-                    temp['repeatY']=1
-                    material_gallery=self.material_images.all()
-                    if material_gallery:
-                        for material in material_gallery:
-                            if material.layer == temp['8'] and material.pattern == True:
-                                temp['repeatX']=temp['41']
-                                temp['repeatY']=temp['43']
-                    output[x] = temp
-                    flag = False
-                if value == 'INSERT':
-                    temp = {'41': 1, '42': 1, '43': 1, '50': 0, '210': 0, '220': 0, '230': 1,}#default values
-                    flag = True
-                    x += 1
-                #here other ifs for other kind of entities
-        dxf_f.close()
-        return output
 
     def extract_meshes(self):#abandoned, but interesting structure
         path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
