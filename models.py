@@ -121,6 +121,10 @@ class Dxf2VrPage(Page):
                     temp['10'] = P_x*Ax_1+P_y*Ay_1+P_z*Az_1
                     temp['20'] = -(P_x*Ax_2+P_y*Ay_2+P_z*Az_2)
                     temp['30'] = P_x*Ax_3+P_y*Ay_3+P_z*Az_3
+                    #world coordinates from OCS for auxiliary point
+                    temp['11'] = (P_x+cos(radians(float(temp['50']))))*Ax_1+(P_y+sin(radians(float(temp['50']))))*Ay_1+P_z*Az_1
+                    temp['21'] = -((P_x+cos(radians(float(temp['50']))))*Ax_2+(P_y+sin(radians(float(temp['50']))))*Ay_2+P_z*Az_2)
+                    temp['31'] = (P_x+cos(radians(float(temp['50']))))*Ax_3+(P_y+sin(radians(float(temp['50']))))*Ay_3+P_z*Az_3
 
             if key == '0':
 
@@ -261,6 +265,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane> \n'
 
         outstr += '</a-entity>\n'
+        outstr += f'<p>auxiliary="{temp["11"]} {temp["31"]} {temp["21"]}"</p>\n'
         return outstr
 
     def make_box(self, x, temp):
