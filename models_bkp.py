@@ -1,5 +1,5 @@
 import os
-from math import radians, sin, cos, acos, degrees, pi, sqrt, pow, fabs
+from math import radians, sin, cos, acos, degrees, pi, sqrt, pow, fabs, atan2
 from django import forms
 from django.db import models
 from django.conf import settings
@@ -117,31 +117,38 @@ class Dxf2VrPage(Page):
                     Ay_3 = Ay_3/Norm
                     #insertion world coordinates from OCS
                     temp['10'] = P_x*Ax_1+P_y*Ay_1+P_z*Az_1
-                    temp['20'] = -(P_x*Ax_2+P_y*Ay_2+P_z*Az_2)
+                    temp['20'] = P_x*Ax_2+P_y*Ay_2+P_z*Az_2
                     temp['30'] = P_x*Ax_3+P_y*Ay_3+P_z*Az_3
-                    #world coord of X vector tip
-                    temp['11'] = (P_x+cos(radians(float(temp['50']))))*Ax_1+(P_y+sin(radians(float(temp['50']))))*Ay_1+P_z*Az_1
-                    temp['21'] = -((P_x+cos(radians(float(temp['50']))))*Ax_2+(P_y+sin(radians(float(temp['50']))))*Ay_2+P_z*Az_2)
-                    temp['31'] = (P_x+cos(radians(float(temp['50']))))*Ax_3+(P_y+sin(radians(float(temp['50']))))*Ay_3+P_z*Az_3
                     #OCS X vector translated into WCS
-                    Ax_1 = temp['11']-temp['10']
-                    Ax_2 = temp['21']-temp['20']
-                    Ax_3 = temp['31']-temp['30']
-                    #Z axis rotation
-                    Norm = sqrt(pow(Ax_1, 2)+pow(Ax_2, 2))
-                    temp['50'] = degrees(-acos(Ax_1/Norm))
-                    #corrections
-                    Norm = sqrt(pow(Az_1, 2)+pow(Az_2, 2))
-                    gamma = degrees(acos(Az_1/Norm))
-                    Az_2_new = cos(radians(gamma-temp['50']))*Az_2-sin(radians(gamma-temp['50']))*Az_1
-                    Az_1 = sin(radians(gamma-temp['50']))*Az_2+cos(radians(gamma-temp['50']))*Az_1
-                    Az_2 = Az_2_new
-                    #Y axis rotation
-                    Norm = sqrt(pow((Az_1), 2)+pow((Az_3), 2))
-                    temp['220'] = degrees(-acos(Az_3/Norm))
-                    #Y axis rotation
-                    #Norm = sqrt(pow((Az_1), 2)+pow((Az_3), 2))
-                    #temp['220'] = degrees(-acos(Az_3/Norm))
+                    Ax_1 = ((P_x+cos(radians(float(temp['50']))))*Ax_1+(P_y+sin(radians(float(temp['50']))))*Ay_1+P_z*Az_1)-temp['10']
+                    Ax_2 = ((P_x+cos(radians(float(temp['50']))))*Ax_2+(P_y+sin(radians(float(temp['50']))))*Ay_2+P_z*Az_2)-temp['20']
+                    Ax_3 = ((P_x+cos(radians(float(temp['50']))))*Ax_3+(P_y+sin(radians(float(temp['50']))))*Ay_3+P_z*Az_3)-temp['30']
+                    #cross product for OCS y vector, normalized
+                    Ay_1 = Az_2*Ax_3-Az_3*Ax_2
+                    Ay_2 = Az_3*Ax_1-Az_1*Ax_3
+                    Ay_3 = Az_1*Ax_2-Az_2*Ax_1
+                    Norm = sqrt(pow(Ay_1, 2)+pow(Ay_2, 2)+pow(Ay_3, 2))
+                    Ay_1 = Ay_1/Norm
+                    Ay_2 = Ay_2/Norm
+                    Ay_3 = Ay_3/Norm
+                    #Y (pitch, theta) rotation
+                    if Az_1>=0:
+                        temp['220'] = atan2(-Az_1, sqrt(pow(Az_2, 2)+pow(Az_3, 2)))
+                    else:
+                        temp['220'] = atan2(-Az_1, -sqrt(pow(Az_2, 2)+pow(Az_3, 2)))
+                    theta_b = temp['220']
+                    if cos(theta_b) == 0:
+                        theta_b = theta_b * 0.9999#just to avoid division by zero
+                    #X (roll, psi) rotation
+                    temp['210'] = atan2(Az_2/cos(theta_b), Az_3/cos(theta_b))
+                    #Z (awe, phi) rotation
+                    temp['50'] = atan2(Ay_1/cos(theta_b), Ax_1/cos(theta_b))
+                    #Y position, mirrored
+                    temp['20'] = -temp['20']
+                    #rotations from radians to degrees
+                    temp['50'] = degrees(temp['50'])
+                    temp['210'] = degrees(temp['210'])
+                    temp['220'] = -degrees(temp['220'])
 
             if key == '0':
 
@@ -281,7 +288,7 @@ class Dxf2VrPage(Page):
         outstr += self.is_repeat(temp["repeat"], temp["42"], temp["43"])
         outstr += '">\n</a-plane> \n'
 
-        outstr += f'<p>aux="{temp["11"]} {temp["21"]} {temp["31"]}"</p>\n'
+        outstr += f'<p>aux=""</p>\n'
         outstr += '</a-entity>\n'
         return outstr
 

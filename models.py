@@ -131,24 +131,47 @@ class Dxf2VrPage(Page):
                     Ay_1 = Ay_1/Norm
                     Ay_2 = Ay_2/Norm
                     Ay_3 = Ay_3/Norm
-                    #Y (pitch, theta) rotation
-                    if Az_1>=0:
-                        temp['220'] = atan2(-Az_1, sqrt(pow(Az_2, 2)+pow(Az_3, 2)))
+                    #Y roll rotation
+                    Norm = sqrt(pow(Ax_1, 2)+pow(Ax_3, 2))#normalize vector
+                    if Ax_3<0:
+                        roll=-acos(Ax_1/Norm)
                     else:
-                        temp['220'] = atan2(-Az_1, -sqrt(pow(Az_2, 2)+pow(Az_3, 2)))
-                    theta_b = temp['220']
-                    if cos(theta_b) == 0:
-                        theta_b = theta_b * 0.9999#just to avoid division by zero
-                    #X (roll, psi) rotation
-                    temp['210'] = atan2(Az_2/cos(theta_b), Az_3/cos(theta_b))
-                    #Z (awe, phi) rotation
-                    temp['50'] = atan2(Ay_1/cos(theta_b), Ax_1/cos(theta_b))
+                        roll=acos(Ax_1/Norm)
+                    #corrections
+                    Ax_1=Norm
+                    Norm = sqrt(pow(Az_1, 2)+pow(Az_3, 2))
+                    if Az_1<0:
+                        dev=-acos(Az_3/Norm)
+                    else:
+                        dev=acos(Az_3/Norm)
+                    Az_3=cos(dev+roll)*Norm
+                    Az_1=sin(dev+roll)*Norm
+                    #Z awe rotation
+                    Norm = sqrt(pow(Ax_1, 2)+pow(Ax_2, 2))#normalize vector
+                    if Ax_2<0:
+                        awe=-acos(Ax_1/Norm)
+                    else:
+                        awe=acos(Ax_1/Norm)
+                    #correct Z vector
+                    Norm = sqrt(pow(Az_1, 2)+pow(Az_2, 2))
+                    if Az_1<0:
+                        dev=-acos(Az_2/Norm)
+                    else:
+                        dev=acos(Az_2/Norm)
+                    Az_2=cos(dev+awe)*Norm
+                    #X pitch rotation
+                    Norm = sqrt(pow(Az_2, 2)+pow(Az_3, 2))#normalize vector
+                    if Az_2<0:
+                        pitch=-acos(Az_3/Norm)
+                    else:
+                        pitch=acos(Az_3/Norm)
+                    temp['axis']=f'roll={degrees(roll)}, awe={degrees(awe)},pitch={degrees(pitch)}\n'
                     #Y position, mirrored
                     temp['20'] = -temp['20']
                     #rotations from radians to degrees
-                    temp['50'] = degrees(temp['50'])
-                    temp['210'] = degrees(temp['210'])
-                    temp['220'] = degrees(temp['220'])
+                    temp['50'] = degrees(awe)
+                    temp['210'] = -degrees(pitch)
+                    temp['220'] = degrees(roll)
 
             if key == '0':
 
@@ -288,7 +311,7 @@ class Dxf2VrPage(Page):
         outstr += self.is_repeat(temp["repeat"], temp["42"], temp["43"])
         outstr += '">\n</a-plane> \n'
 
-        outstr += f'<p>aux=""</p>\n'
+        outstr += f'<p>{temp["axis"]}</p>\n'
         outstr += '</a-entity>\n'
         return outstr
 
