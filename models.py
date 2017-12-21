@@ -1,5 +1,5 @@
 import os
-from math import radians, sin, cos, acos, degrees, pi, sqrt, pow, fabs, atan2
+from math import radians, sin, cos, acos, asin, degrees, pi, sqrt, pow, fabs, atan2
 from django import forms
 from django.db import models
 from django.conf import settings
@@ -131,47 +131,29 @@ class Dxf2VrPage(Page):
                     Ay_1 = Ay_1/Norm
                     Ay_2 = Ay_2/Norm
                     Ay_3 = Ay_3/Norm
-                    #Y roll rotation
-                    Norm = sqrt(pow(Ax_1, 2)+pow(Ax_3, 2))#normalize vector
-                    if Ax_3<0:
-                        roll=-acos(Ax_1/Norm)
+
+                    #A-Frame rotation order is Yaw(Z), Pitch(X) and Roll(Y)
+                    #thanks for help Marilena Vendittelli and https://www.geometrictools.com/
+                    if Ay_3<1:
+                        if Ay_3>-1:
+                            pitch = asin(Ay_3)
+                            yaw = atan2(-Ay_1, Ay_2)
+                            roll = atan2(-Ax_3, Az_3)
+                        else:
+                            pitch = -pi/2
+                            yaw = -atan2(Az_1, Ax_1)
+                            roll = 0
                     else:
-                        roll=acos(Ax_1/Norm)
-                    #corrections
-                    Ax_1=Norm
-                    Norm = sqrt(pow(Az_1, 2)+pow(Az_3, 2))
-                    if Az_1<0:
-                        dev=-acos(Az_3/Norm)
-                    else:
-                        dev=acos(Az_3/Norm)
-                    Az_3=cos(dev+roll)*Norm
-                    Az_1=sin(dev+roll)*Norm
-                    #Z awe rotation
-                    Norm = sqrt(pow(Ax_1, 2)+pow(Ax_2, 2))#normalize vector
-                    if Ax_2<0:
-                        awe=-acos(Ax_1/Norm)
-                    else:
-                        awe=acos(Ax_1/Norm)
-                    #correct Z vector
-                    Norm = sqrt(pow(Az_1, 2)+pow(Az_2, 2))
-                    if Az_1<0:
-                        dev=-acos(Az_2/Norm)
-                    else:
-                        dev=acos(Az_2/Norm)
-                    Az_2=cos(dev+awe)*Norm
-                    #X pitch rotation
-                    Norm = sqrt(pow(Az_2, 2)+pow(Az_3, 2))#normalize vector
-                    if Az_2<0:
-                        pitch=-acos(Az_3/Norm)
-                    else:
-                        pitch=acos(Az_3/Norm)
-                    temp['axis']=f'roll={degrees(roll)}, awe={degrees(awe)},pitch={degrees(pitch)}\n'
+                        pitch = pi/2
+                        yaw = atan2(Az_1, Ax_1)
+                        roll = 0
+
                     #Y position, mirrored
                     temp['20'] = -temp['20']
                     #rotations from radians to degrees
-                    temp['50'] = degrees(awe)
-                    temp['210'] = -degrees(pitch)
-                    temp['220'] = degrees(roll)
+                    temp['210'] = degrees(pitch)
+                    temp['50'] = degrees(yaw)
+                    temp['220'] = -degrees(roll)
 
             if key == '0':
 
@@ -311,14 +293,13 @@ class Dxf2VrPage(Page):
         outstr += self.is_repeat(temp["repeat"], temp["42"], temp["43"])
         outstr += '">\n</a-plane> \n'
 
-        outstr += f'<p>{temp["axis"]}</p>\n'
         outstr += '</a-entity>\n'
         return outstr
 
     def make_box(self, x, temp):
         outstr = f'<a-entity id="box-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr += f'<a-box id="box-{x}" \n'
         outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} {-float(temp["42"])/2}" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
@@ -331,7 +312,7 @@ class Dxf2VrPage(Page):
     def make_cone(self, x, temp):
         outstr = f'<a-entity id="cone-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr += f'<a-cone id="cone-{x}" \n'
         outstr += f'position="0 {float(temp["43"])/2} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
@@ -342,20 +323,22 @@ class Dxf2VrPage(Page):
         return outstr
 
     def make_circle(self, x, temp):
-        outstr = f'<a-circle id="circle-{x}" \n'
+        outstr = f'<a-entity id="circle-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += f'rotation="-90 {temp["50"]} 0"\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
+        outstr = f'<a-circle id="circle-{x}" \n'
+        outstr += f'rotation="-90 0 0"\n'
         outstr += f'radius="{temp["41"]}" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
-        outstr += '">\n</a-circle>\n'
+        outstr += '">\n</a-circle>\n</a-entity>\n'
         return outstr
 
     def make_cylinder(self, x, temp):
         outstr = f'<a-entity id="cylinder-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr += f'<a-cylinder id="cylinder-{x}" \n'
         outstr += f'position="0 {float(temp["43"])/2} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
@@ -368,7 +351,7 @@ class Dxf2VrPage(Page):
     def make_sphere(self, x, temp):
         outstr = f'<a-entity id="sphere-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr += f'<a-sphere id="sphere-{x}" \n'
         outstr += f'position="0 {temp["43"]} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
@@ -381,7 +364,7 @@ class Dxf2VrPage(Page):
     def make_plane(self, x, temp):
         outstr = f'<a-entity id="plane-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr += f'<a-plane id="plane-{x}" \n'
         outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
@@ -394,7 +377,7 @@ class Dxf2VrPage(Page):
     def make_floor(self, x, temp):
         outstr = f'<a-entity id="floor-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr += f'<a-plane id="floor-{x}" \n'
         outstr += f'position="{float(temp["41"])/2} 0 {-float(temp["42"])/2}" \n'
         outstr += f'rotation="-90 0 0"\n'
@@ -408,7 +391,7 @@ class Dxf2VrPage(Page):
     def make_ceiling(self, x, temp):
         outstr = f'<a-entity id="ceiling-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += f'rotation="0 {temp["50"]} 0">\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr += f'<a-plane id="ceiling-{x}" \n'
         outstr += f'position="{float(temp["41"])/2} 0 {-float(temp["42"])/2}" \n'
         outstr += f'rotation="90 0 0"\n'
