@@ -1,6 +1,12 @@
 # DXF 2 VR
 A [Django](https://www.djangoproject.com/) / [Wagtail](https://wagtail.io/) app that imports [DXF](https://en.wikipedia.org/wiki/AutoCAD_DXF) files and renders Virtual Reality using [A-Frame](https://aframe.io) library.
 
+### How to get DXF files
+
+DXF files are drawing exchange files, and they are human readable (if in ASCII format). Obviously you will need a CAD if you want to generate your own files. For free I recommend [NanoCAD] (http://nanocad.com/) even if you won't be able to work with solids. It doesn't matter, you won't need them. Unfortunately open source CAD projects never match the industry.
+
+Lots of programs deal with DXF, but the goal here is to have blocks with attributes (data!), not just surfaces. Refer to the DXF constraints chapter to understand what your files have to look like.
+
 ### Install Wagtail app
 
 The app can be cloned or downloaded from [Github](https://github.com/andywar65/dxf2vr). Using a shell get into the project folder and type  `git clone https://github.com/andywar65/dxf2vr`. Add `dxf2vr` to the INSTALLED_APPS in your settings file. Migrate. The app's templates look for a `base.html` file, so be sure to have one.
