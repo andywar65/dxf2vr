@@ -501,11 +501,11 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2458110.767834155
+2458110.814781887
   9
 $TDUUPDATE
  40
-2458110.726167488
+2458110.77311522
   9
 $TDINDWG
  40
@@ -553,7 +553,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-14D9
+1BE8
   9
 $SURFTAB1
  70
@@ -1127,7 +1127,7 @@ ObjectDBX Classes
  90
         0
  91
-        8
+        7
 280
      0
 281
@@ -1175,7 +1175,7 @@ ObjectDBX Classes
  90
         0
  91
-        6
+        5
 280
      0
 281
@@ -1191,7 +1191,7 @@ ObjectDBX Classes
  90
      4095
  91
-        8
+        7
 280
      0
 281
@@ -1207,7 +1207,7 @@ ObjectDBX Classes
  90
      1153
  91
-        8
+        7
 280
      0
 281
@@ -1223,7 +1223,7 @@ ObjectDBX Classes
  90
      1153
  91
-        8
+        7
 280
      0
 281
@@ -1239,7 +1239,7 @@ ObjectDBX Classes
  90
      4095
  91
-        8
+        7
 280
      0
 281
@@ -1255,7 +1255,7 @@ SCENEOE
  90
      1153
  91
-        8
+        7
 280
      0
 281
@@ -1271,7 +1271,7 @@ ObjectDBX Classes
  90
      1152
  91
-        6
+        5
 280
      0
 281
@@ -1287,7 +1287,7 @@ ACDB_MLEADERSTYLE_CLASS
  90
      4095
  91
-        8
+        7
 280
      0
 281
@@ -1303,7 +1303,7 @@ ObjectDBX Classes
  90
      1025
  91
-        6
+        5
 280
      0
 281
@@ -1319,7 +1319,7 @@ ObjectDBX Classes
  90
      1025
  91
-        6
+        5
 280
      0
 281
@@ -1335,7 +1335,7 @@ ObjectDBX Classes
  90
         0
  91
-        5
+        4
 280
      0
 281
@@ -1351,7 +1351,7 @@ ObjectDBX Classes
  90
      4095
  91
-       11
+       10
 280
      0
 281
@@ -1367,7 +1367,7 @@ AcDbDimAssoc
  90
         0
  91
-        5
+        4
 280
      0
 281
@@ -1413,9 +1413,9 @@ AcDbViewportTableRecord
  21
 1.0
  12
-1.62420290090554
+0.03377065426097
  22
--0.17161316083404
+0.13732744431196
  13
 0.0
  23
@@ -1429,21 +1429,21 @@ AcDbViewportTableRecord
  25
 10.0
  16
--0.9999999999999973
+-0.9999999999999964
  26
 -1.0
  36
-0.9999999999999991
+0.9999999999999987
  17
 2.62072030957264
  27
-0.86847922683872
+0.86847922683873
  37
--1.06279085132807
+-1.06279085132808
  40
-3.18816399334123
+8.16169982295357
  41
-2.07070707070707
+1.37857105092217
  42
 50.0
  43
@@ -2083,9 +2083,9 @@ box
 102
 {BLKREFS
 331
-E80
+15CE
 331
-E80
+15CE
 102
 }
  70
@@ -2111,9 +2111,9 @@ cylinder
 102
 {BLKREFS
 331
-138F
+1718
 331
-138F
+1718
 102
 }
  70
@@ -2139,11 +2139,9 @@ cone
 102
 {BLKREFS
 331
-0
+155F
 331
-0
-331
-14CE
+155F
 102
 }
  70
@@ -2169,9 +2167,13 @@ sphere
 102
 {BLKREFS
 331
-D0D
+0
 331
-D0D
+0
+331
+0
+331
+1BDD
 102
 }
  70
@@ -2217,9 +2219,9 @@ circle
 102
 {BLKREFS
 331
-DC2
+1650
 331
-DC2
+1650
 102
 }
  70
@@ -2523,7 +2525,7 @@ box
   0
 LWPOLYLINE
   5
-E75
+15C1
 330
 25E
 100
@@ -2569,7 +2571,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-E76
+15C2
 330
 25E
 100
@@ -2615,7 +2617,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-E77
+15C3
 330
 25E
 100
@@ -2632,6 +2634,8 @@ AcDbPolyline
      0
  43
 0.0
+ 38
+-0.00000000000003
  10
 0.0
  20
@@ -2661,7 +2665,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-E78
+15C4
 330
 25E
 100
@@ -2697,7 +2701,7 @@ AcDbPolyline
   0
 3DFACE
   5
-E79
+15C5
 330
 25E
 100
@@ -2733,7 +2737,7 @@ AcDbFace
   0
 3DFACE
   5
-E7A
+15C6
 330
 25E
 100
@@ -2769,7 +2773,7 @@ AcDbFace
   0
 3DFACE
   5
-E7B
+15C7
 330
 25E
 100
@@ -2805,7 +2809,7 @@ AcDbFace
   0
 3DFACE
   5
-E7C
+15C8
 330
 25E
 100
@@ -2841,7 +2845,7 @@ AcDbFace
   0
 3DFACE
   5
-E7D
+15C9
 330
 25E
 100
@@ -2877,7 +2881,7 @@ AcDbFace
   0
 3DFACE
   5
-E7E
+15CA
 330
 25E
 100
@@ -2913,7 +2917,7 @@ AcDbFace
   0
 ATTDEF
   5
-E7F
+15CB
 330
 25E
 100
@@ -2923,21 +2927,85 @@ AcDbEntity
 100
 AcDbText
  10
-1.09072916666668
+1.25574116029651
  20
-0.39290009469697
+0.68889833675643
  30
-0.0
+0.00000000000004
  40
 0.2
   1
-0
+1
 100
 AcDbAttributeDefinition
   3
-Weight per cube meter
+
   2
-WEIGHT
+segments-height
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+15CC
+330
+25E
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+1.25574116029651
+ 20
+0.38889833675643
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+1
+100
+AcDbAttributeDefinition
+  3
+
+  2
+segments-depth
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+15CD
+330
+25E
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+1.25574116029651
+ 20
+0.08889833675643
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+1
+100
+AcDbAttributeDefinition
+  3
+
+  2
+segments-width
  70
      1
 280
@@ -2969,7 +3037,7 @@ AcDbBlockBegin
   2
 cylinder
  70
-     0
+     2
  10
 0.0
  20
@@ -2983,7 +3051,7 @@ cylinder
   0
 CIRCLE
   5
-1355
+16D8
 330
 2E2
 100
@@ -3003,7 +3071,7 @@ AcDbCircle
   0
 CIRCLE
   5
-1356
+16D9
 330
 2E2
 100
@@ -3023,7 +3091,7 @@ AcDbCircle
   0
 LINE
   5
-1357
+16DA
 330
 2E2
 100
@@ -3047,7 +3115,7 @@ AcDbLine
   0
 LINE
   5
-1358
+16DB
 330
 2E2
 100
@@ -3071,7 +3139,7 @@ AcDbLine
   0
 LINE
   5
-1359
+16DC
 330
 2E2
 100
@@ -3095,7 +3163,7 @@ AcDbLine
   0
 LINE
   5
-135A
+16DD
 330
 2E2
 100
@@ -3119,7 +3187,7 @@ AcDbLine
   0
 LINE
   5
-135B
+16DE
 330
 2E2
 100
@@ -3143,7 +3211,7 @@ AcDbLine
   0
 LWPOLYLINE
   5
-135C
+16DF
 330
 2E2
 100
@@ -3189,7 +3257,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-135D
+16E0
 330
 2E2
 100
@@ -3235,7 +3303,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-135E
+16E1
 330
 2E2
 100
@@ -3253,7 +3321,7 @@ AcDbPolyline
  43
 0.0
  38
--0.00000000000001
+-0.00000000000003
  10
 0.0
  20
@@ -3283,7 +3351,7 @@ AcDbPolyline
   0
 3DFACE
   5
-135F
+16E2
 330
 2E2
 100
@@ -3319,7 +3387,7 @@ AcDbFace
   0
 3DFACE
   5
-1360
+16E3
 330
 2E2
 100
@@ -3355,7 +3423,7 @@ AcDbFace
   0
 3DFACE
   5
-1361
+16E4
 330
 2E2
 100
@@ -3391,7 +3459,7 @@ AcDbFace
   0
 3DFACE
   5
-1362
+16E5
 330
 2E2
 100
@@ -3427,7 +3495,7 @@ AcDbFace
   0
 3DFACE
   5
-1363
+16E6
 330
 2E2
 100
@@ -3463,7 +3531,7 @@ AcDbFace
   0
 3DFACE
   5
-1364
+16E7
 330
 2E2
 100
@@ -3499,7 +3567,7 @@ AcDbFace
   0
 3DFACE
   5
-1365
+16E8
 330
 2E2
 100
@@ -3535,7 +3603,7 @@ AcDbFace
   0
 3DFACE
   5
-1366
+16E9
 330
 2E2
 100
@@ -3571,7 +3639,7 @@ AcDbFace
   0
 3DFACE
   5
-1367
+16EA
 330
 2E2
 100
@@ -3607,7 +3675,7 @@ AcDbFace
   0
 3DFACE
   5
-1368
+16EB
 330
 2E2
 100
@@ -3643,7 +3711,7 @@ AcDbFace
   0
 3DFACE
   5
-1369
+16EC
 330
 2E2
 100
@@ -3679,7 +3747,7 @@ AcDbFace
   0
 3DFACE
   5
-136A
+16ED
 330
 2E2
 100
@@ -3715,7 +3783,7 @@ AcDbFace
   0
 3DFACE
   5
-136B
+16EE
 330
 2E2
 100
@@ -3751,7 +3819,7 @@ AcDbFace
   0
 3DFACE
   5
-136C
+16EF
 330
 2E2
 100
@@ -3787,7 +3855,7 @@ AcDbFace
   0
 3DFACE
   5
-136D
+16F0
 330
 2E2
 100
@@ -3823,7 +3891,7 @@ AcDbFace
   0
 3DFACE
   5
-136E
+16F1
 330
 2E2
 100
@@ -3859,7 +3927,7 @@ AcDbFace
   0
 3DFACE
   5
-136F
+16F2
 330
 2E2
 100
@@ -3895,7 +3963,7 @@ AcDbFace
   0
 3DFACE
   5
-1370
+16F3
 330
 2E2
 100
@@ -3931,7 +3999,7 @@ AcDbFace
   0
 3DFACE
   5
-1371
+16F4
 330
 2E2
 100
@@ -3967,7 +4035,7 @@ AcDbFace
   0
 3DFACE
   5
-1372
+16F5
 330
 2E2
 100
@@ -4003,7 +4071,7 @@ AcDbFace
   0
 3DFACE
   5
-1373
+16F6
 330
 2E2
 100
@@ -4039,7 +4107,7 @@ AcDbFace
   0
 3DFACE
   5
-1374
+16F7
 330
 2E2
 100
@@ -4075,7 +4143,7 @@ AcDbFace
   0
 3DFACE
   5
-1375
+16F8
 330
 2E2
 100
@@ -4111,7 +4179,7 @@ AcDbFace
   0
 3DFACE
   5
-1376
+16F9
 330
 2E2
 100
@@ -4147,7 +4215,7 @@ AcDbFace
   0
 3DFACE
   5
-1377
+16FA
 330
 2E2
 100
@@ -4183,7 +4251,7 @@ AcDbFace
   0
 3DFACE
   5
-1378
+16FB
 330
 2E2
 100
@@ -4219,7 +4287,7 @@ AcDbFace
   0
 3DFACE
   5
-1379
+16FC
 330
 2E2
 100
@@ -4255,7 +4323,7 @@ AcDbFace
   0
 3DFACE
   5
-137A
+16FD
 330
 2E2
 100
@@ -4291,7 +4359,7 @@ AcDbFace
   0
 3DFACE
   5
-137B
+16FE
 330
 2E2
 100
@@ -4327,7 +4395,7 @@ AcDbFace
   0
 3DFACE
   5
-137C
+16FF
 330
 2E2
 100
@@ -4363,7 +4431,7 @@ AcDbFace
   0
 3DFACE
   5
-137D
+1700
 330
 2E2
 100
@@ -4399,7 +4467,7 @@ AcDbFace
   0
 3DFACE
   5
-137E
+1701
 330
 2E2
 100
@@ -4435,7 +4503,7 @@ AcDbFace
   0
 3DFACE
   5
-137F
+1702
 330
 2E2
 100
@@ -4471,7 +4539,7 @@ AcDbFace
   0
 3DFACE
   5
-1380
+1703
 330
 2E2
 100
@@ -4507,7 +4575,7 @@ AcDbFace
   0
 3DFACE
   5
-1381
+1704
 330
 2E2
 100
@@ -4543,7 +4611,7 @@ AcDbFace
   0
 3DFACE
   5
-1382
+1705
 330
 2E2
 100
@@ -4579,7 +4647,7 @@ AcDbFace
   0
 3DFACE
   5
-1383
+1706
 330
 2E2
 100
@@ -4615,7 +4683,7 @@ AcDbFace
   0
 3DFACE
   5
-1384
+1707
 330
 2E2
 100
@@ -4651,7 +4719,7 @@ AcDbFace
   0
 3DFACE
   5
-1385
+1708
 330
 2E2
 100
@@ -4687,7 +4755,7 @@ AcDbFace
   0
 3DFACE
   5
-1386
+1709
 330
 2E2
 100
@@ -4723,7 +4791,7 @@ AcDbFace
   0
 3DFACE
   5
-1387
+170A
 330
 2E2
 100
@@ -4759,7 +4827,7 @@ AcDbFace
   0
 3DFACE
   5
-1388
+170B
 330
 2E2
 100
@@ -4795,7 +4863,7 @@ AcDbFace
   0
 3DFACE
   5
-1389
+170C
 330
 2E2
 100
@@ -4831,7 +4899,7 @@ AcDbFace
   0
 3DFACE
   5
-138A
+170D
 330
 2E2
 100
@@ -4867,7 +4935,7 @@ AcDbFace
   0
 3DFACE
   5
-138B
+170E
 330
 2E2
 100
@@ -4903,7 +4971,7 @@ AcDbFace
   0
 3DFACE
   5
-138C
+170F
 330
 2E2
 100
@@ -4939,7 +5007,7 @@ AcDbFace
   0
 3DFACE
   5
-138D
+1710
 330
 2E2
 100
@@ -4975,7 +5043,7 @@ AcDbFace
   0
 3DFACE
   5
-138E
+1711
 330
 2E2
 100
@@ -5008,6 +5076,198 @@ AcDbFace
 0.0
  33
 1.0
+  0
+ATTDEF
+  5
+1712
+330
+2E2
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.75574116029651
+ 20
+0.65251941419846
+ 30
+0.0
+ 40
+0.2
+  1
+false
+100
+AcDbAttributeDefinition
+  3
+
+  2
+open-ended
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1713
+330
+2E2
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.75574116029651
+ 20
+0.35251941419846
+ 30
+0.0
+ 40
+0.2
+  1
+0
+100
+AcDbAttributeDefinition
+  3
+
+  2
+radius-top
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1714
+330
+2E2
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.75574116029651
+ 20
+0.05251941419846
+ 30
+0.0
+ 40
+0.2
+  1
+18
+100
+AcDbAttributeDefinition
+  3
+
+  2
+segments-height
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1715
+330
+2E2
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.75574116029651
+ 20
+-0.24748058580154
+ 30
+0.0
+ 40
+0.2
+  1
+36
+100
+AcDbAttributeDefinition
+  3
+
+  2
+segments-radial
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1716
+330
+2E2
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.75574116029651
+ 20
+-0.54748058580154
+ 30
+0.0
+ 40
+0.2
+  1
+360
+100
+AcDbAttributeDefinition
+  3
+
+  2
+theta-length
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1717
+330
+2E2
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.75574116029651
+ 20
+-0.84748058580154
+ 30
+0.0
+ 40
+0.2
+  1
+0
+100
+AcDbAttributeDefinition
+  3
+
+  2
+theta-start
+ 70
+     1
+280
+     0
   0
 ENDBLK
   5
@@ -5049,7 +5309,7 @@ cone
   0
 CIRCLE
   5
-148F
+1520
 330
 31D
 100
@@ -5069,7 +5329,7 @@ AcDbCircle
   0
 LINE
   5
-1490
+1521
 330
 31D
 100
@@ -5093,7 +5353,7 @@ AcDbLine
   0
 LINE
   5
-1491
+1522
 330
 31D
 100
@@ -5117,7 +5377,7 @@ AcDbLine
   0
 LINE
   5
-1492
+1523
 330
 31D
 100
@@ -5141,7 +5401,7 @@ AcDbLine
   0
 LINE
   5
-1493
+1524
 330
 31D
 100
@@ -5165,7 +5425,7 @@ AcDbLine
   0
 LINE
   5
-1494
+1525
 330
 31D
 100
@@ -5189,7 +5449,7 @@ AcDbLine
   0
 LWPOLYLINE
   5
-1495
+1526
 330
 31D
 100
@@ -5207,7 +5467,7 @@ AcDbPolyline
  43
 0.0
  38
-0.0
+-0.00000000000001
  10
 0.0
  20
@@ -5237,7 +5497,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-1496
+1527
 330
 31D
 100
@@ -5283,7 +5543,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-1497
+1528
 330
 31D
 100
@@ -5301,7 +5561,7 @@ AcDbPolyline
  43
 0.0
  38
--0.00000000000001
+-0.00000000000004
  10
 0.0
  20
@@ -5331,7 +5591,7 @@ AcDbPolyline
   0
 3DFACE
   5
-1498
+1529
 330
 31D
 100
@@ -5367,7 +5627,7 @@ AcDbFace
   0
 3DFACE
   5
-1499
+152A
 330
 31D
 100
@@ -5403,7 +5663,7 @@ AcDbFace
   0
 3DFACE
   5
-149A
+152B
 330
 31D
 100
@@ -5439,7 +5699,7 @@ AcDbFace
   0
 3DFACE
   5
-149B
+152C
 330
 31D
 100
@@ -5475,7 +5735,7 @@ AcDbFace
   0
 3DFACE
   5
-149C
+152D
 330
 31D
 100
@@ -5511,7 +5771,7 @@ AcDbFace
   0
 3DFACE
   5
-149D
+152E
 330
 31D
 100
@@ -5547,7 +5807,7 @@ AcDbFace
   0
 3DFACE
   5
-149E
+152F
 330
 31D
 100
@@ -5583,7 +5843,7 @@ AcDbFace
   0
 3DFACE
   5
-149F
+1530
 330
 31D
 100
@@ -5619,7 +5879,7 @@ AcDbFace
   0
 3DFACE
   5
-14A0
+1531
 330
 31D
 100
@@ -5655,7 +5915,7 @@ AcDbFace
   0
 3DFACE
   5
-14A1
+1532
 330
 31D
 100
@@ -5691,7 +5951,7 @@ AcDbFace
   0
 3DFACE
   5
-14A2
+1533
 330
 31D
 100
@@ -5727,7 +5987,7 @@ AcDbFace
   0
 3DFACE
   5
-14A3
+1534
 330
 31D
 100
@@ -5763,7 +6023,7 @@ AcDbFace
   0
 3DFACE
   5
-14A4
+1535
 330
 31D
 100
@@ -5799,7 +6059,7 @@ AcDbFace
   0
 3DFACE
   5
-14A5
+1536
 330
 31D
 100
@@ -5835,7 +6095,7 @@ AcDbFace
   0
 3DFACE
   5
-14A6
+1537
 330
 31D
 100
@@ -5871,7 +6131,7 @@ AcDbFace
   0
 3DFACE
   5
-14A7
+1538
 330
 31D
 100
@@ -5907,7 +6167,7 @@ AcDbFace
   0
 3DFACE
   5
-14A8
+1539
 330
 31D
 100
@@ -5943,7 +6203,7 @@ AcDbFace
   0
 3DFACE
   5
-14A9
+153A
 330
 31D
 100
@@ -5979,7 +6239,7 @@ AcDbFace
   0
 3DFACE
   5
-14AA
+153B
 330
 31D
 100
@@ -6015,7 +6275,7 @@ AcDbFace
   0
 3DFACE
   5
-14AB
+153C
 330
 31D
 100
@@ -6051,7 +6311,7 @@ AcDbFace
   0
 3DFACE
   5
-14AC
+153D
 330
 31D
 100
@@ -6087,7 +6347,7 @@ AcDbFace
   0
 3DFACE
   5
-14AD
+153E
 330
 31D
 100
@@ -6123,7 +6383,7 @@ AcDbFace
   0
 3DFACE
   5
-14AE
+153F
 330
 31D
 100
@@ -6159,7 +6419,7 @@ AcDbFace
   0
 3DFACE
   5
-14AF
+1540
 330
 31D
 100
@@ -6195,7 +6455,7 @@ AcDbFace
   0
 3DFACE
   5
-14B0
+1541
 330
 31D
 100
@@ -6231,7 +6491,7 @@ AcDbFace
   0
 3DFACE
   5
-14B1
+1542
 330
 31D
 100
@@ -6267,7 +6527,7 @@ AcDbFace
   0
 3DFACE
   5
-14B2
+1543
 330
 31D
 100
@@ -6303,7 +6563,7 @@ AcDbFace
   0
 3DFACE
   5
-14B3
+1544
 330
 31D
 100
@@ -6339,7 +6599,7 @@ AcDbFace
   0
 3DFACE
   5
-14B4
+1545
 330
 31D
 100
@@ -6375,7 +6635,7 @@ AcDbFace
   0
 3DFACE
   5
-14B5
+1546
 330
 31D
 100
@@ -6411,7 +6671,7 @@ AcDbFace
   0
 3DFACE
   5
-14B6
+1547
 330
 31D
 100
@@ -6447,7 +6707,7 @@ AcDbFace
   0
 3DFACE
   5
-14B7
+1548
 330
 31D
 100
@@ -6483,7 +6743,7 @@ AcDbFace
   0
 3DFACE
   5
-14B8
+1549
 330
 31D
 100
@@ -6519,7 +6779,7 @@ AcDbFace
   0
 3DFACE
   5
-14B9
+154A
 330
 31D
 100
@@ -6555,7 +6815,7 @@ AcDbFace
   0
 3DFACE
   5
-14BA
+154B
 330
 31D
 100
@@ -6591,7 +6851,7 @@ AcDbFace
   0
 3DFACE
   5
-14BB
+154C
 330
 31D
 100
@@ -6627,7 +6887,7 @@ AcDbFace
   0
 3DFACE
   5
-14BC
+154D
 330
 31D
 100
@@ -6663,7 +6923,7 @@ AcDbFace
   0
 3DFACE
   5
-14BD
+154E
 330
 31D
 100
@@ -6699,7 +6959,7 @@ AcDbFace
   0
 3DFACE
   5
-14BE
+154F
 330
 31D
 100
@@ -6735,7 +6995,7 @@ AcDbFace
   0
 3DFACE
   5
-14BF
+1550
 330
 31D
 100
@@ -6771,7 +7031,7 @@ AcDbFace
   0
 3DFACE
   5
-14C0
+1551
 330
 31D
 100
@@ -6807,7 +7067,7 @@ AcDbFace
   0
 3DFACE
   5
-14C1
+1552
 330
 31D
 100
@@ -6843,7 +7103,7 @@ AcDbFace
   0
 3DFACE
   5
-14C2
+1553
 330
 31D
 100
@@ -6879,7 +7139,7 @@ AcDbFace
   0
 3DFACE
   5
-14C3
+1554
 330
 31D
 100
@@ -6915,7 +7175,7 @@ AcDbFace
   0
 3DFACE
   5
-14C4
+1555
 330
 31D
 100
@@ -6951,7 +7211,7 @@ AcDbFace
   0
 3DFACE
   5
-14C5
+1556
 330
 31D
 100
@@ -6987,7 +7247,7 @@ AcDbFace
   0
 3DFACE
   5
-14C6
+1557
 330
 31D
 100
@@ -7023,7 +7283,7 @@ AcDbFace
   0
 3DFACE
   5
-14C7
+1558
 330
 31D
 100
@@ -7059,7 +7319,7 @@ AcDbFace
   0
 ATTDEF
   5
-14C8
+1559
 330
 31D
 100
@@ -7083,7 +7343,7 @@ AcDbAttributeDefinition
   3
 
   2
-openEnded
+open-ended
  70
      1
 280
@@ -7091,7 +7351,7 @@ openEnded
   0
 ATTDEF
   5
-14C9
+155A
 330
 31D
 100
@@ -7115,7 +7375,7 @@ AcDbAttributeDefinition
   3
 
   2
-radiusTop
+radius-top
  70
      1
 280
@@ -7123,7 +7383,7 @@ radiusTop
   0
 ATTDEF
   5
-14CA
+155B
 330
 31D
 100
@@ -7147,7 +7407,7 @@ AcDbAttributeDefinition
   3
 
   2
-segmentsHeight
+segments-height
  70
      1
 280
@@ -7155,7 +7415,7 @@ segmentsHeight
   0
 ATTDEF
   5
-14CB
+155C
 330
 31D
 100
@@ -7179,7 +7439,7 @@ AcDbAttributeDefinition
   3
 
   2
-segmentsRadial
+segments-radial
  70
      1
 280
@@ -7187,7 +7447,7 @@ segmentsRadial
   0
 ATTDEF
   5
-14CC
+155D
 330
 31D
 100
@@ -7211,7 +7471,7 @@ AcDbAttributeDefinition
   3
 
   2
-thetaLength
+theta-length
  70
      1
 280
@@ -7219,7 +7479,7 @@ thetaLength
   0
 ATTDEF
   5
-14CD
+155E
 330
 31D
 100
@@ -7243,7 +7503,7 @@ AcDbAttributeDefinition
   3
 
   2
-thetaStart
+theta-start
  70
      1
 280
@@ -7275,7 +7535,7 @@ AcDbBlockBegin
   2
 sphere
  70
-     0
+     2
  10
 0.0
  20
@@ -7289,7 +7549,7 @@ sphere
   0
 LINE
   5
-C01
+1ACB
 330
 33B
 100
@@ -7313,7 +7573,7 @@ AcDbLine
   0
 ARC
   5
-C02
+1ACC
 330
 33B
 100
@@ -7345,7 +7605,7 @@ AcDbArc
   0
 ARC
   5
-C03
+1ACD
 330
 33B
 100
@@ -7377,7 +7637,7 @@ AcDbArc
   0
 ARC
   5
-C04
+1ACE
 330
 33B
 100
@@ -7409,7 +7669,7 @@ AcDbArc
   0
 ARC
   5
-C05
+1ACF
 330
 33B
 100
@@ -7441,7 +7701,7 @@ AcDbArc
   0
 CIRCLE
   5
-C06
+1AD0
 330
 33B
 100
@@ -7461,7 +7721,7 @@ AcDbCircle
   0
 CIRCLE
   5
-C07
+1AD1
 330
 33B
 100
@@ -7481,7 +7741,7 @@ AcDbCircle
   0
 CIRCLE
   5
-C08
+1AD2
 330
 33B
 100
@@ -7501,7 +7761,7 @@ AcDbCircle
   0
 CIRCLE
   5
-C09
+1AD3
 330
 33B
 100
@@ -7521,7 +7781,7 @@ AcDbCircle
   0
 LWPOLYLINE
   5
-C0A
+1AD4
 330
 33B
 100
@@ -7537,6 +7797,8 @@ AcDbPolyline
  70
      0
  43
+0.0
+ 38
 0.0
  10
 0.0
@@ -7567,7 +7829,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-C0B
+1AD5
 330
 33B
 100
@@ -7613,7 +7875,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-C0C
+1AD6
 330
 33B
 100
@@ -7630,6 +7892,8 @@ AcDbPolyline
      0
  43
 0.0
+ 38
+0.00000000000001
  10
 0.0
  20
@@ -7659,7 +7923,7 @@ AcDbPolyline
   0
 3DFACE
   5
-C0D
+1AD7
 330
 33B
 100
@@ -7695,7 +7959,7 @@ AcDbFace
   0
 3DFACE
   5
-C0E
+1AD8
 330
 33B
 100
@@ -7731,7 +7995,7 @@ AcDbFace
   0
 3DFACE
   5
-C0F
+1AD9
 330
 33B
 100
@@ -7767,7 +8031,7 @@ AcDbFace
   0
 3DFACE
   5
-C10
+1ADA
 330
 33B
 100
@@ -7803,7 +8067,7 @@ AcDbFace
   0
 3DFACE
   5
-C11
+1ADB
 330
 33B
 100
@@ -7839,7 +8103,7 @@ AcDbFace
   0
 3DFACE
   5
-C12
+1ADC
 330
 33B
 100
@@ -7875,7 +8139,7 @@ AcDbFace
   0
 3DFACE
   5
-C13
+1ADD
 330
 33B
 100
@@ -7911,7 +8175,7 @@ AcDbFace
   0
 3DFACE
   5
-C14
+1ADE
 330
 33B
 100
@@ -7947,7 +8211,7 @@ AcDbFace
   0
 3DFACE
   5
-C15
+1ADF
 330
 33B
 100
@@ -7983,7 +8247,7 @@ AcDbFace
   0
 3DFACE
   5
-C16
+1AE0
 330
 33B
 100
@@ -8019,7 +8283,7 @@ AcDbFace
   0
 3DFACE
   5
-C17
+1AE1
 330
 33B
 100
@@ -8055,7 +8319,7 @@ AcDbFace
   0
 3DFACE
   5
-C18
+1AE2
 330
 33B
 100
@@ -8091,7 +8355,7 @@ AcDbFace
   0
 3DFACE
   5
-C19
+1AE3
 330
 33B
 100
@@ -8127,7 +8391,7 @@ AcDbFace
   0
 3DFACE
   5
-C1A
+1AE4
 330
 33B
 100
@@ -8163,7 +8427,7 @@ AcDbFace
   0
 3DFACE
   5
-C1B
+1AE5
 330
 33B
 100
@@ -8199,7 +8463,7 @@ AcDbFace
   0
 3DFACE
   5
-C1C
+1AE6
 330
 33B
 100
@@ -8235,7 +8499,7 @@ AcDbFace
   0
 3DFACE
   5
-C1D
+1AE7
 330
 33B
 100
@@ -8271,7 +8535,7 @@ AcDbFace
   0
 3DFACE
   5
-C1E
+1AE8
 330
 33B
 100
@@ -8307,7 +8571,7 @@ AcDbFace
   0
 3DFACE
   5
-C1F
+1AE9
 330
 33B
 100
@@ -8343,7 +8607,7 @@ AcDbFace
   0
 3DFACE
   5
-C20
+1AEA
 330
 33B
 100
@@ -8379,7 +8643,7 @@ AcDbFace
   0
 3DFACE
   5
-C21
+1AEB
 330
 33B
 100
@@ -8415,7 +8679,7 @@ AcDbFace
   0
 3DFACE
   5
-C22
+1AEC
 330
 33B
 100
@@ -8451,7 +8715,7 @@ AcDbFace
   0
 3DFACE
   5
-C23
+1AED
 330
 33B
 100
@@ -8487,7 +8751,7 @@ AcDbFace
   0
 3DFACE
   5
-C24
+1AEE
 330
 33B
 100
@@ -8523,7 +8787,7 @@ AcDbFace
   0
 3DFACE
   5
-C25
+1AEF
 330
 33B
 100
@@ -8559,7 +8823,7 @@ AcDbFace
   0
 3DFACE
   5
-C26
+1AF0
 330
 33B
 100
@@ -8595,7 +8859,7 @@ AcDbFace
   0
 3DFACE
   5
-C27
+1AF1
 330
 33B
 100
@@ -8631,7 +8895,7 @@ AcDbFace
   0
 3DFACE
   5
-C28
+1AF2
 330
 33B
 100
@@ -8667,7 +8931,7 @@ AcDbFace
   0
 3DFACE
   5
-C29
+1AF3
 330
 33B
 100
@@ -8703,7 +8967,7 @@ AcDbFace
   0
 3DFACE
   5
-C2A
+1AF4
 330
 33B
 100
@@ -8739,7 +9003,7 @@ AcDbFace
   0
 3DFACE
   5
-C2B
+1AF5
 330
 33B
 100
@@ -8775,7 +9039,7 @@ AcDbFace
   0
 3DFACE
   5
-C2C
+1AF6
 330
 33B
 100
@@ -8811,7 +9075,7 @@ AcDbFace
   0
 3DFACE
   5
-C2D
+1AF7
 330
 33B
 100
@@ -8847,7 +9111,7 @@ AcDbFace
   0
 3DFACE
   5
-C2E
+1AF8
 330
 33B
 100
@@ -8883,7 +9147,7 @@ AcDbFace
   0
 3DFACE
   5
-C2F
+1AF9
 330
 33B
 100
@@ -8919,7 +9183,7 @@ AcDbFace
   0
 3DFACE
   5
-C30
+1AFA
 330
 33B
 100
@@ -8955,7 +9219,7 @@ AcDbFace
   0
 3DFACE
   5
-C31
+1AFB
 330
 33B
 100
@@ -8991,7 +9255,7 @@ AcDbFace
   0
 3DFACE
   5
-C32
+1AFC
 330
 33B
 100
@@ -9027,7 +9291,7 @@ AcDbFace
   0
 3DFACE
   5
-C33
+1AFD
 330
 33B
 100
@@ -9063,7 +9327,7 @@ AcDbFace
   0
 3DFACE
   5
-C34
+1AFE
 330
 33B
 100
@@ -9099,7 +9363,7 @@ AcDbFace
   0
 3DFACE
   5
-C35
+1AFF
 330
 33B
 100
@@ -9135,7 +9399,7 @@ AcDbFace
   0
 3DFACE
   5
-C36
+1B00
 330
 33B
 100
@@ -9171,7 +9435,7 @@ AcDbFace
   0
 3DFACE
   5
-C37
+1B01
 330
 33B
 100
@@ -9207,7 +9471,7 @@ AcDbFace
   0
 3DFACE
   5
-C38
+1B02
 330
 33B
 100
@@ -9243,7 +9507,7 @@ AcDbFace
   0
 3DFACE
   5
-C39
+1B03
 330
 33B
 100
@@ -9279,7 +9543,7 @@ AcDbFace
   0
 3DFACE
   5
-C3A
+1B04
 330
 33B
 100
@@ -9315,7 +9579,7 @@ AcDbFace
   0
 3DFACE
   5
-C3B
+1B05
 330
 33B
 100
@@ -9351,7 +9615,7 @@ AcDbFace
   0
 3DFACE
   5
-C3C
+1B06
 330
 33B
 100
@@ -9387,7 +9651,7 @@ AcDbFace
   0
 3DFACE
   5
-C3D
+1B07
 330
 33B
 100
@@ -9423,7 +9687,7 @@ AcDbFace
   0
 3DFACE
   5
-C3E
+1B08
 330
 33B
 100
@@ -9459,7 +9723,7 @@ AcDbFace
   0
 3DFACE
   5
-C3F
+1B09
 330
 33B
 100
@@ -9495,7 +9759,7 @@ AcDbFace
   0
 3DFACE
   5
-C40
+1B0A
 330
 33B
 100
@@ -9531,7 +9795,7 @@ AcDbFace
   0
 3DFACE
   5
-C41
+1B0B
 330
 33B
 100
@@ -9567,7 +9831,7 @@ AcDbFace
   0
 3DFACE
   5
-C42
+1B0C
 330
 33B
 100
@@ -9603,7 +9867,7 @@ AcDbFace
   0
 3DFACE
   5
-C43
+1B0D
 330
 33B
 100
@@ -9639,7 +9903,7 @@ AcDbFace
   0
 3DFACE
   5
-C44
+1B0E
 330
 33B
 100
@@ -9675,7 +9939,7 @@ AcDbFace
   0
 3DFACE
   5
-C45
+1B0F
 330
 33B
 100
@@ -9711,7 +9975,7 @@ AcDbFace
   0
 3DFACE
   5
-C46
+1B10
 330
 33B
 100
@@ -9747,7 +10011,7 @@ AcDbFace
   0
 3DFACE
   5
-C47
+1B11
 330
 33B
 100
@@ -9783,7 +10047,7 @@ AcDbFace
   0
 3DFACE
   5
-C48
+1B12
 330
 33B
 100
@@ -9819,7 +10083,7 @@ AcDbFace
   0
 3DFACE
   5
-C49
+1B13
 330
 33B
 100
@@ -9855,7 +10119,7 @@ AcDbFace
   0
 3DFACE
   5
-C4A
+1B14
 330
 33B
 100
@@ -9891,7 +10155,7 @@ AcDbFace
   0
 3DFACE
   5
-C4B
+1B15
 330
 33B
 100
@@ -9927,7 +10191,7 @@ AcDbFace
   0
 3DFACE
   5
-C4C
+1B16
 330
 33B
 100
@@ -9963,7 +10227,7 @@ AcDbFace
   0
 3DFACE
   5
-C4D
+1B17
 330
 33B
 100
@@ -9999,7 +10263,7 @@ AcDbFace
   0
 3DFACE
   5
-C4E
+1B18
 330
 33B
 100
@@ -10035,7 +10299,7 @@ AcDbFace
   0
 3DFACE
   5
-C4F
+1B19
 330
 33B
 100
@@ -10071,7 +10335,7 @@ AcDbFace
   0
 3DFACE
   5
-C50
+1B1A
 330
 33B
 100
@@ -10107,7 +10371,7 @@ AcDbFace
   0
 3DFACE
   5
-C51
+1B1B
 330
 33B
 100
@@ -10143,7 +10407,7 @@ AcDbFace
   0
 3DFACE
   5
-C52
+1B1C
 330
 33B
 100
@@ -10179,7 +10443,7 @@ AcDbFace
   0
 3DFACE
   5
-C53
+1B1D
 330
 33B
 100
@@ -10215,7 +10479,7 @@ AcDbFace
   0
 3DFACE
   5
-C54
+1B1E
 330
 33B
 100
@@ -10251,7 +10515,7 @@ AcDbFace
   0
 3DFACE
   5
-C55
+1B1F
 330
 33B
 100
@@ -10287,7 +10551,7 @@ AcDbFace
   0
 3DFACE
   5
-C56
+1B20
 330
 33B
 100
@@ -10323,7 +10587,7 @@ AcDbFace
   0
 3DFACE
   5
-C57
+1B21
 330
 33B
 100
@@ -10359,7 +10623,7 @@ AcDbFace
   0
 3DFACE
   5
-C58
+1B22
 330
 33B
 100
@@ -10395,7 +10659,7 @@ AcDbFace
   0
 3DFACE
   5
-C59
+1B23
 330
 33B
 100
@@ -10431,7 +10695,7 @@ AcDbFace
   0
 3DFACE
   5
-C5A
+1B24
 330
 33B
 100
@@ -10467,7 +10731,7 @@ AcDbFace
   0
 3DFACE
   5
-C5B
+1B25
 330
 33B
 100
@@ -10503,7 +10767,7 @@ AcDbFace
   0
 3DFACE
   5
-C5C
+1B26
 330
 33B
 100
@@ -10539,7 +10803,7 @@ AcDbFace
   0
 3DFACE
   5
-C5D
+1B27
 330
 33B
 100
@@ -10575,7 +10839,7 @@ AcDbFace
   0
 3DFACE
   5
-C5E
+1B28
 330
 33B
 100
@@ -10611,7 +10875,7 @@ AcDbFace
   0
 3DFACE
   5
-C5F
+1B29
 330
 33B
 100
@@ -10647,7 +10911,7 @@ AcDbFace
   0
 3DFACE
   5
-C60
+1B2A
 330
 33B
 100
@@ -10683,7 +10947,7 @@ AcDbFace
   0
 3DFACE
   5
-C61
+1B2B
 330
 33B
 100
@@ -10719,7 +10983,7 @@ AcDbFace
   0
 3DFACE
   5
-C62
+1B2C
 330
 33B
 100
@@ -10755,7 +11019,7 @@ AcDbFace
   0
 3DFACE
   5
-C63
+1B2D
 330
 33B
 100
@@ -10791,7 +11055,7 @@ AcDbFace
   0
 3DFACE
   5
-C64
+1B2E
 330
 33B
 100
@@ -10827,7 +11091,7 @@ AcDbFace
   0
 3DFACE
   5
-C65
+1B2F
 330
 33B
 100
@@ -10863,7 +11127,7 @@ AcDbFace
   0
 3DFACE
   5
-C66
+1B30
 330
 33B
 100
@@ -10899,7 +11163,7 @@ AcDbFace
   0
 3DFACE
   5
-C67
+1B31
 330
 33B
 100
@@ -10935,7 +11199,7 @@ AcDbFace
   0
 3DFACE
   5
-C68
+1B32
 330
 33B
 100
@@ -10971,7 +11235,7 @@ AcDbFace
   0
 3DFACE
   5
-C69
+1B33
 330
 33B
 100
@@ -11007,7 +11271,7 @@ AcDbFace
   0
 3DFACE
   5
-C6A
+1B34
 330
 33B
 100
@@ -11043,7 +11307,7 @@ AcDbFace
   0
 3DFACE
   5
-C6B
+1B35
 330
 33B
 100
@@ -11079,7 +11343,7 @@ AcDbFace
   0
 3DFACE
   5
-C6C
+1B36
 330
 33B
 100
@@ -11115,7 +11379,7 @@ AcDbFace
   0
 3DFACE
   5
-C6D
+1B37
 330
 33B
 100
@@ -11151,7 +11415,7 @@ AcDbFace
   0
 3DFACE
   5
-C6E
+1B38
 330
 33B
 100
@@ -11187,7 +11451,7 @@ AcDbFace
   0
 3DFACE
   5
-C6F
+1B39
 330
 33B
 100
@@ -11223,7 +11487,7 @@ AcDbFace
   0
 3DFACE
   5
-C70
+1B3A
 330
 33B
 100
@@ -11259,7 +11523,7 @@ AcDbFace
   0
 3DFACE
   5
-C71
+1B3B
 330
 33B
 100
@@ -11295,7 +11559,7 @@ AcDbFace
   0
 3DFACE
   5
-C72
+1B3C
 330
 33B
 100
@@ -11331,7 +11595,7 @@ AcDbFace
   0
 3DFACE
   5
-C73
+1B3D
 330
 33B
 100
@@ -11367,7 +11631,7 @@ AcDbFace
   0
 3DFACE
   5
-C74
+1B3E
 330
 33B
 100
@@ -11403,7 +11667,7 @@ AcDbFace
   0
 3DFACE
   5
-C75
+1B3F
 330
 33B
 100
@@ -11439,7 +11703,7 @@ AcDbFace
   0
 3DFACE
   5
-C76
+1B40
 330
 33B
 100
@@ -11475,7 +11739,7 @@ AcDbFace
   0
 3DFACE
   5
-C77
+1B41
 330
 33B
 100
@@ -11511,7 +11775,7 @@ AcDbFace
   0
 3DFACE
   5
-C78
+1B42
 330
 33B
 100
@@ -11547,7 +11811,7 @@ AcDbFace
   0
 3DFACE
   5
-C79
+1B43
 330
 33B
 100
@@ -11583,7 +11847,7 @@ AcDbFace
   0
 3DFACE
   5
-C7A
+1B44
 330
 33B
 100
@@ -11619,7 +11883,7 @@ AcDbFace
   0
 3DFACE
   5
-C7B
+1B45
 330
 33B
 100
@@ -11655,7 +11919,7 @@ AcDbFace
   0
 3DFACE
   5
-C7C
+1B46
 330
 33B
 100
@@ -11691,7 +11955,7 @@ AcDbFace
   0
 3DFACE
   5
-C7D
+1B47
 330
 33B
 100
@@ -11727,7 +11991,7 @@ AcDbFace
   0
 3DFACE
   5
-C7E
+1B48
 330
 33B
 100
@@ -11763,7 +12027,7 @@ AcDbFace
   0
 3DFACE
   5
-C7F
+1B49
 330
 33B
 100
@@ -11799,7 +12063,7 @@ AcDbFace
   0
 3DFACE
   5
-C80
+1B4A
 330
 33B
 100
@@ -11835,7 +12099,7 @@ AcDbFace
   0
 3DFACE
   5
-C81
+1B4B
 330
 33B
 100
@@ -11871,7 +12135,7 @@ AcDbFace
   0
 3DFACE
   5
-C82
+1B4C
 330
 33B
 100
@@ -11907,7 +12171,7 @@ AcDbFace
   0
 3DFACE
   5
-C83
+1B4D
 330
 33B
 100
@@ -11943,7 +12207,7 @@ AcDbFace
   0
 3DFACE
   5
-C84
+1B4E
 330
 33B
 100
@@ -11979,7 +12243,7 @@ AcDbFace
   0
 3DFACE
   5
-C85
+1B4F
 330
 33B
 100
@@ -12015,7 +12279,7 @@ AcDbFace
   0
 3DFACE
   5
-C86
+1B50
 330
 33B
 100
@@ -12051,7 +12315,7 @@ AcDbFace
   0
 3DFACE
   5
-C87
+1B51
 330
 33B
 100
@@ -12087,7 +12351,7 @@ AcDbFace
   0
 3DFACE
   5
-C88
+1B52
 330
 33B
 100
@@ -12123,7 +12387,7 @@ AcDbFace
   0
 3DFACE
   5
-C89
+1B53
 330
 33B
 100
@@ -12159,7 +12423,7 @@ AcDbFace
   0
 3DFACE
   5
-C8A
+1B54
 330
 33B
 100
@@ -12195,7 +12459,7 @@ AcDbFace
   0
 3DFACE
   5
-C8B
+1B55
 330
 33B
 100
@@ -12231,7 +12495,7 @@ AcDbFace
   0
 3DFACE
   5
-C8C
+1B56
 330
 33B
 100
@@ -12267,7 +12531,7 @@ AcDbFace
   0
 3DFACE
   5
-C8D
+1B57
 330
 33B
 100
@@ -12303,7 +12567,7 @@ AcDbFace
   0
 3DFACE
   5
-C8E
+1B58
 330
 33B
 100
@@ -12339,7 +12603,7 @@ AcDbFace
   0
 3DFACE
   5
-C8F
+1B59
 330
 33B
 100
@@ -12375,7 +12639,7 @@ AcDbFace
   0
 3DFACE
   5
-C90
+1B5A
 330
 33B
 100
@@ -12411,7 +12675,7 @@ AcDbFace
   0
 3DFACE
   5
-C91
+1B5B
 330
 33B
 100
@@ -12447,7 +12711,7 @@ AcDbFace
   0
 3DFACE
   5
-C92
+1B5C
 330
 33B
 100
@@ -12483,7 +12747,7 @@ AcDbFace
   0
 3DFACE
   5
-C93
+1B5D
 330
 33B
 100
@@ -12519,7 +12783,7 @@ AcDbFace
   0
 3DFACE
   5
-C94
+1B5E
 330
 33B
 100
@@ -12555,7 +12819,7 @@ AcDbFace
   0
 3DFACE
   5
-C95
+1B5F
 330
 33B
 100
@@ -12591,7 +12855,7 @@ AcDbFace
   0
 3DFACE
   5
-C96
+1B60
 330
 33B
 100
@@ -12627,7 +12891,7 @@ AcDbFace
   0
 3DFACE
   5
-C97
+1B61
 330
 33B
 100
@@ -12663,7 +12927,7 @@ AcDbFace
   0
 3DFACE
   5
-C98
+1B62
 330
 33B
 100
@@ -12699,7 +12963,7 @@ AcDbFace
   0
 3DFACE
   5
-C99
+1B63
 330
 33B
 100
@@ -12735,7 +12999,7 @@ AcDbFace
   0
 3DFACE
   5
-C9A
+1B64
 330
 33B
 100
@@ -12771,7 +13035,7 @@ AcDbFace
   0
 3DFACE
   5
-C9B
+1B65
 330
 33B
 100
@@ -12807,7 +13071,7 @@ AcDbFace
   0
 3DFACE
   5
-C9C
+1B66
 330
 33B
 100
@@ -12843,7 +13107,7 @@ AcDbFace
   0
 3DFACE
   5
-C9D
+1B67
 330
 33B
 100
@@ -12879,7 +13143,7 @@ AcDbFace
   0
 3DFACE
   5
-C9E
+1B68
 330
 33B
 100
@@ -12915,7 +13179,7 @@ AcDbFace
   0
 3DFACE
   5
-C9F
+1B69
 330
 33B
 100
@@ -12951,7 +13215,7 @@ AcDbFace
   0
 3DFACE
   5
-CA0
+1B6A
 330
 33B
 100
@@ -12987,7 +13251,7 @@ AcDbFace
   0
 3DFACE
   5
-CA1
+1B6B
 330
 33B
 100
@@ -13023,7 +13287,7 @@ AcDbFace
   0
 3DFACE
   5
-CA2
+1B6C
 330
 33B
 100
@@ -13059,7 +13323,7 @@ AcDbFace
   0
 3DFACE
   5
-CA3
+1B6D
 330
 33B
 100
@@ -13095,7 +13359,7 @@ AcDbFace
   0
 3DFACE
   5
-CA4
+1B6E
 330
 33B
 100
@@ -13131,7 +13395,7 @@ AcDbFace
   0
 3DFACE
   5
-CA5
+1B6F
 330
 33B
 100
@@ -13167,7 +13431,7 @@ AcDbFace
   0
 3DFACE
   5
-CA6
+1B70
 330
 33B
 100
@@ -13203,7 +13467,7 @@ AcDbFace
   0
 3DFACE
   5
-CA7
+1B71
 330
 33B
 100
@@ -13239,7 +13503,7 @@ AcDbFace
   0
 3DFACE
   5
-CA8
+1B72
 330
 33B
 100
@@ -13275,7 +13539,7 @@ AcDbFace
   0
 3DFACE
   5
-CA9
+1B73
 330
 33B
 100
@@ -13311,7 +13575,7 @@ AcDbFace
   0
 3DFACE
   5
-CAA
+1B74
 330
 33B
 100
@@ -13347,7 +13611,7 @@ AcDbFace
   0
 3DFACE
   5
-CAB
+1B75
 330
 33B
 100
@@ -13383,7 +13647,7 @@ AcDbFace
   0
 3DFACE
   5
-CAC
+1B76
 330
 33B
 100
@@ -13419,7 +13683,7 @@ AcDbFace
   0
 3DFACE
   5
-CAD
+1B77
 330
 33B
 100
@@ -13455,7 +13719,7 @@ AcDbFace
   0
 3DFACE
   5
-CAE
+1B78
 330
 33B
 100
@@ -13491,7 +13755,7 @@ AcDbFace
   0
 3DFACE
   5
-CAF
+1B79
 330
 33B
 100
@@ -13527,7 +13791,7 @@ AcDbFace
   0
 3DFACE
   5
-CB0
+1B7A
 330
 33B
 100
@@ -13563,7 +13827,7 @@ AcDbFace
   0
 3DFACE
   5
-CB1
+1B7B
 330
 33B
 100
@@ -13599,7 +13863,7 @@ AcDbFace
   0
 3DFACE
   5
-CB2
+1B7C
 330
 33B
 100
@@ -13635,7 +13899,7 @@ AcDbFace
   0
 3DFACE
   5
-CB3
+1B7D
 330
 33B
 100
@@ -13671,7 +13935,7 @@ AcDbFace
   0
 3DFACE
   5
-CB4
+1B7E
 330
 33B
 100
@@ -13707,7 +13971,7 @@ AcDbFace
   0
 3DFACE
   5
-CB5
+1B7F
 330
 33B
 100
@@ -13743,7 +14007,7 @@ AcDbFace
   0
 3DFACE
   5
-CB6
+1B80
 330
 33B
 100
@@ -13779,7 +14043,7 @@ AcDbFace
   0
 3DFACE
   5
-CB7
+1B81
 330
 33B
 100
@@ -13815,7 +14079,7 @@ AcDbFace
   0
 3DFACE
   5
-CB8
+1B82
 330
 33B
 100
@@ -13851,7 +14115,7 @@ AcDbFace
   0
 3DFACE
   5
-CB9
+1B83
 330
 33B
 100
@@ -13887,7 +14151,7 @@ AcDbFace
   0
 3DFACE
   5
-CBA
+1B84
 330
 33B
 100
@@ -13923,7 +14187,7 @@ AcDbFace
   0
 3DFACE
   5
-CBB
+1B85
 330
 33B
 100
@@ -13959,7 +14223,7 @@ AcDbFace
   0
 3DFACE
   5
-CBC
+1B86
 330
 33B
 100
@@ -13995,7 +14259,7 @@ AcDbFace
   0
 3DFACE
   5
-CBD
+1B87
 330
 33B
 100
@@ -14031,7 +14295,7 @@ AcDbFace
   0
 3DFACE
   5
-CBE
+1B88
 330
 33B
 100
@@ -14067,7 +14331,7 @@ AcDbFace
   0
 3DFACE
   5
-CBF
+1B89
 330
 33B
 100
@@ -14103,7 +14367,7 @@ AcDbFace
   0
 3DFACE
   5
-CC0
+1B8A
 330
 33B
 100
@@ -14139,7 +14403,7 @@ AcDbFace
   0
 3DFACE
   5
-CC1
+1B8B
 330
 33B
 100
@@ -14175,7 +14439,7 @@ AcDbFace
   0
 3DFACE
   5
-CC2
+1B8C
 330
 33B
 100
@@ -14211,7 +14475,7 @@ AcDbFace
   0
 3DFACE
   5
-CC3
+1B8D
 330
 33B
 100
@@ -14247,7 +14511,7 @@ AcDbFace
   0
 3DFACE
   5
-CC4
+1B8E
 330
 33B
 100
@@ -14283,7 +14547,7 @@ AcDbFace
   0
 3DFACE
   5
-CC5
+1B8F
 330
 33B
 100
@@ -14319,7 +14583,7 @@ AcDbFace
   0
 3DFACE
   5
-CC6
+1B90
 330
 33B
 100
@@ -14355,7 +14619,7 @@ AcDbFace
   0
 3DFACE
   5
-CC7
+1B91
 330
 33B
 100
@@ -14391,7 +14655,7 @@ AcDbFace
   0
 3DFACE
   5
-CC8
+1B92
 330
 33B
 100
@@ -14427,7 +14691,7 @@ AcDbFace
   0
 3DFACE
   5
-CC9
+1B93
 330
 33B
 100
@@ -14463,7 +14727,7 @@ AcDbFace
   0
 3DFACE
   5
-CCA
+1B94
 330
 33B
 100
@@ -14499,7 +14763,7 @@ AcDbFace
   0
 3DFACE
   5
-CCB
+1B95
 330
 33B
 100
@@ -14535,7 +14799,7 @@ AcDbFace
   0
 3DFACE
   5
-CCC
+1B96
 330
 33B
 100
@@ -14571,7 +14835,7 @@ AcDbFace
   0
 3DFACE
   5
-CCD
+1B97
 330
 33B
 100
@@ -14607,7 +14871,7 @@ AcDbFace
   0
 3DFACE
   5
-CCE
+1B98
 330
 33B
 100
@@ -14643,7 +14907,7 @@ AcDbFace
   0
 3DFACE
   5
-CCF
+1B99
 330
 33B
 100
@@ -14679,7 +14943,7 @@ AcDbFace
   0
 3DFACE
   5
-CD0
+1B9A
 330
 33B
 100
@@ -14715,7 +14979,7 @@ AcDbFace
   0
 3DFACE
   5
-CD1
+1B9B
 330
 33B
 100
@@ -14751,7 +15015,7 @@ AcDbFace
   0
 3DFACE
   5
-CD2
+1B9C
 330
 33B
 100
@@ -14787,7 +15051,7 @@ AcDbFace
   0
 3DFACE
   5
-CD3
+1B9D
 330
 33B
 100
@@ -14823,7 +15087,7 @@ AcDbFace
   0
 3DFACE
   5
-CD4
+1B9E
 330
 33B
 100
@@ -14859,7 +15123,7 @@ AcDbFace
   0
 3DFACE
   5
-CD5
+1B9F
 330
 33B
 100
@@ -14895,7 +15159,7 @@ AcDbFace
   0
 3DFACE
   5
-CD6
+1BA0
 330
 33B
 100
@@ -14931,7 +15195,7 @@ AcDbFace
   0
 3DFACE
   5
-CD7
+1BA1
 330
 33B
 100
@@ -14967,7 +15231,7 @@ AcDbFace
   0
 3DFACE
   5
-CD8
+1BA2
 330
 33B
 100
@@ -15003,7 +15267,7 @@ AcDbFace
   0
 3DFACE
   5
-CD9
+1BA3
 330
 33B
 100
@@ -15039,7 +15303,7 @@ AcDbFace
   0
 3DFACE
   5
-CDA
+1BA4
 330
 33B
 100
@@ -15075,7 +15339,7 @@ AcDbFace
   0
 3DFACE
   5
-CDB
+1BA5
 330
 33B
 100
@@ -15111,7 +15375,7 @@ AcDbFace
   0
 3DFACE
   5
-CDC
+1BA6
 330
 33B
 100
@@ -15147,7 +15411,7 @@ AcDbFace
   0
 3DFACE
   5
-CDD
+1BA7
 330
 33B
 100
@@ -15183,7 +15447,7 @@ AcDbFace
   0
 3DFACE
   5
-CDE
+1BA8
 330
 33B
 100
@@ -15219,7 +15483,7 @@ AcDbFace
   0
 3DFACE
   5
-CDF
+1BA9
 330
 33B
 100
@@ -15255,7 +15519,7 @@ AcDbFace
   0
 3DFACE
   5
-CE0
+1BAA
 330
 33B
 100
@@ -15291,7 +15555,7 @@ AcDbFace
   0
 3DFACE
   5
-CE1
+1BAB
 330
 33B
 100
@@ -15327,7 +15591,7 @@ AcDbFace
   0
 3DFACE
   5
-CE2
+1BAC
 330
 33B
 100
@@ -15363,7 +15627,7 @@ AcDbFace
   0
 3DFACE
   5
-CE3
+1BAD
 330
 33B
 100
@@ -15399,7 +15663,7 @@ AcDbFace
   0
 3DFACE
   5
-CE4
+1BAE
 330
 33B
 100
@@ -15435,7 +15699,7 @@ AcDbFace
   0
 3DFACE
   5
-CE5
+1BAF
 330
 33B
 100
@@ -15471,7 +15735,7 @@ AcDbFace
   0
 3DFACE
   5
-CE6
+1BB0
 330
 33B
 100
@@ -15507,7 +15771,7 @@ AcDbFace
   0
 3DFACE
   5
-CE7
+1BB1
 330
 33B
 100
@@ -15543,7 +15807,7 @@ AcDbFace
   0
 3DFACE
   5
-CE8
+1BB2
 330
 33B
 100
@@ -15579,7 +15843,7 @@ AcDbFace
   0
 3DFACE
   5
-CE9
+1BB3
 330
 33B
 100
@@ -15615,7 +15879,7 @@ AcDbFace
   0
 3DFACE
   5
-CEA
+1BB4
 330
 33B
 100
@@ -15651,7 +15915,7 @@ AcDbFace
   0
 3DFACE
   5
-CEB
+1BB5
 330
 33B
 100
@@ -15687,7 +15951,7 @@ AcDbFace
   0
 3DFACE
   5
-CEC
+1BB6
 330
 33B
 100
@@ -15723,7 +15987,7 @@ AcDbFace
   0
 3DFACE
   5
-CED
+1BB7
 330
 33B
 100
@@ -15759,7 +16023,7 @@ AcDbFace
   0
 3DFACE
   5
-CEE
+1BB8
 330
 33B
 100
@@ -15795,7 +16059,7 @@ AcDbFace
   0
 3DFACE
   5
-CEF
+1BB9
 330
 33B
 100
@@ -15831,7 +16095,7 @@ AcDbFace
   0
 3DFACE
   5
-CF0
+1BBA
 330
 33B
 100
@@ -15867,7 +16131,7 @@ AcDbFace
   0
 3DFACE
   5
-CF1
+1BBB
 330
 33B
 100
@@ -15903,7 +16167,7 @@ AcDbFace
   0
 3DFACE
   5
-CF2
+1BBC
 330
 33B
 100
@@ -15939,7 +16203,7 @@ AcDbFace
   0
 3DFACE
   5
-CF3
+1BBD
 330
 33B
 100
@@ -15975,7 +16239,7 @@ AcDbFace
   0
 3DFACE
   5
-CF4
+1BBE
 330
 33B
 100
@@ -16011,7 +16275,7 @@ AcDbFace
   0
 3DFACE
   5
-CF5
+1BBF
 330
 33B
 100
@@ -16047,7 +16311,7 @@ AcDbFace
   0
 3DFACE
   5
-CF6
+1BC0
 330
 33B
 100
@@ -16083,7 +16347,7 @@ AcDbFace
   0
 3DFACE
   5
-CF7
+1BC1
 330
 33B
 100
@@ -16119,7 +16383,7 @@ AcDbFace
   0
 3DFACE
   5
-CF8
+1BC2
 330
 33B
 100
@@ -16155,7 +16419,7 @@ AcDbFace
   0
 3DFACE
   5
-CF9
+1BC3
 330
 33B
 100
@@ -16191,7 +16455,7 @@ AcDbFace
   0
 3DFACE
   5
-CFA
+1BC4
 330
 33B
 100
@@ -16227,7 +16491,7 @@ AcDbFace
   0
 3DFACE
   5
-CFB
+1BC5
 330
 33B
 100
@@ -16263,7 +16527,7 @@ AcDbFace
   0
 3DFACE
   5
-CFC
+1BC6
 330
 33B
 100
@@ -16299,7 +16563,7 @@ AcDbFace
   0
 3DFACE
   5
-CFD
+1BC7
 330
 33B
 100
@@ -16335,7 +16599,7 @@ AcDbFace
   0
 3DFACE
   5
-CFE
+1BC8
 330
 33B
 100
@@ -16371,7 +16635,7 @@ AcDbFace
   0
 3DFACE
   5
-CFF
+1BC9
 330
 33B
 100
@@ -16407,7 +16671,7 @@ AcDbFace
   0
 3DFACE
   5
-D00
+1BCA
 330
 33B
 100
@@ -16443,7 +16707,7 @@ AcDbFace
   0
 3DFACE
   5
-D01
+1BCB
 330
 33B
 100
@@ -16479,7 +16743,7 @@ AcDbFace
   0
 3DFACE
   5
-D02
+1BCC
 330
 33B
 100
@@ -16515,7 +16779,7 @@ AcDbFace
   0
 3DFACE
   5
-D03
+1BCD
 330
 33B
 100
@@ -16551,7 +16815,7 @@ AcDbFace
   0
 3DFACE
   5
-D04
+1BCE
 330
 33B
 100
@@ -16587,7 +16851,7 @@ AcDbFace
   0
 3DFACE
   5
-D05
+1BCF
 330
 33B
 100
@@ -16623,7 +16887,7 @@ AcDbFace
   0
 3DFACE
   5
-D06
+1BD0
 330
 33B
 100
@@ -16659,7 +16923,7 @@ AcDbFace
   0
 3DFACE
   5
-D07
+1BD1
 330
 33B
 100
@@ -16695,7 +16959,7 @@ AcDbFace
   0
 3DFACE
   5
-D08
+1BD2
 330
 33B
 100
@@ -16731,7 +16995,7 @@ AcDbFace
   0
 3DFACE
   5
-D09
+1BD3
 330
 33B
 100
@@ -16767,7 +17031,7 @@ AcDbFace
   0
 3DFACE
   5
-D0A
+1BD4
 330
 33B
 100
@@ -16803,7 +17067,7 @@ AcDbFace
   0
 3DFACE
   5
-D0B
+1BD5
 330
 33B
 100
@@ -16839,7 +17103,7 @@ AcDbFace
   0
 3DFACE
   5
-D0C
+1BD6
 330
 33B
 100
@@ -16872,6 +17136,198 @@ AcDbFace
 0.0
  33
 0.01921471959677
+  0
+ATTDEF
+  5
+1BD7
+330
+33B
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.85289873466396
+ 20
+0.05725577922495
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+18
+100
+AcDbAttributeDefinition
+  3
+
+  2
+segments-height
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1BD8
+330
+33B
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.85289873466396
+ 20
+-0.24274422077505
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+36
+100
+AcDbAttributeDefinition
+  3
+
+  2
+segments-width
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1BD9
+330
+33B
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.85289873466396
+ 20
+-0.54274422077505
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+180
+100
+AcDbAttributeDefinition
+  3
+
+  2
+theta-length
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1BDA
+330
+33B
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.85289873466396
+ 20
+-0.84274422077505
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+0
+100
+AcDbAttributeDefinition
+  3
+
+  2
+theta-start
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1BDB
+330
+33B
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.85289873466396
+ 20
+0.65725577922495
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+360
+100
+AcDbAttributeDefinition
+  3
+
+  2
+phi-length
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1BDC
+330
+33B
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.85289873466396
+ 20
+0.35725577922495
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+0
+100
+AcDbAttributeDefinition
+  3
+
+  2
+phi-start
+ 70
+     1
+280
+     0
   0
 ENDBLK
   5
@@ -17001,7 +17457,7 @@ AcDbBlockBegin
   2
 circle
  70
-     0
+     2
  10
 0.0
  20
@@ -17015,7 +17471,7 @@ circle
   0
 CIRCLE
   5
-DAE
+1634
 330
 D35
 100
@@ -17035,7 +17491,7 @@ AcDbCircle
   0
 LWPOLYLINE
   5
-DAF
+1635
 330
 D35
 100
@@ -17081,7 +17537,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-DB0
+1636
 330
 D35
 100
@@ -17127,7 +17583,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-DB1
+1637
 330
 D35
 100
@@ -17144,6 +17600,8 @@ AcDbPolyline
      0
  43
 0.0
+ 38
+-0.00000000000004
  10
 0.0
  20
@@ -17173,7 +17631,7 @@ AcDbPolyline
   0
 3DFACE
   5
-DB2
+1638
 330
 D35
 100
@@ -17209,7 +17667,7 @@ AcDbFace
   0
 3DFACE
   5
-DB3
+1639
 330
 D35
 100
@@ -17245,7 +17703,7 @@ AcDbFace
   0
 3DFACE
   5
-DB4
+163A
 330
 D35
 100
@@ -17281,7 +17739,7 @@ AcDbFace
   0
 3DFACE
   5
-DB5
+163B
 330
 D35
 100
@@ -17317,7 +17775,7 @@ AcDbFace
   0
 3DFACE
   5
-DB6
+163C
 330
 D35
 100
@@ -17353,7 +17811,7 @@ AcDbFace
   0
 3DFACE
   5
-DB7
+163D
 330
 D35
 100
@@ -17389,7 +17847,7 @@ AcDbFace
   0
 3DFACE
   5
-DB8
+163E
 330
 D35
 100
@@ -17425,7 +17883,7 @@ AcDbFace
   0
 3DFACE
   5
-DB9
+163F
 330
 D35
 100
@@ -17461,7 +17919,7 @@ AcDbFace
   0
 3DFACE
   5
-DBA
+1640
 330
 D35
 100
@@ -17497,7 +17955,7 @@ AcDbFace
   0
 3DFACE
   5
-DBB
+1641
 330
 D35
 100
@@ -17533,7 +17991,7 @@ AcDbFace
   0
 3DFACE
   5
-DBC
+1642
 330
 D35
 100
@@ -17569,7 +18027,7 @@ AcDbFace
   0
 3DFACE
   5
-DBD
+1643
 330
 D35
 100
@@ -17605,7 +18063,7 @@ AcDbFace
   0
 3DFACE
   5
-DBE
+1644
 330
 D35
 100
@@ -17641,7 +18099,7 @@ AcDbFace
   0
 3DFACE
   5
-DBF
+1645
 330
 D35
 100
@@ -17677,7 +18135,7 @@ AcDbFace
   0
 3DFACE
   5
-DC0
+1646
 330
 D35
 100
@@ -17713,7 +18171,7 @@ AcDbFace
   0
 3DFACE
   5
-DC1
+1647
 330
 D35
 100
@@ -17746,6 +18204,102 @@ AcDbFace
 -0.38268343236509
  33
 0.0
+  0
+ATTDEF
+  5
+1648
+330
+D35
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.66977520621124
+ 20
+0.11457438343524
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+32
+100
+AcDbAttributeDefinition
+  3
+
+  2
+segments
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+1649
+330
+D35
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.66977520621124
+ 20
+-0.18542561656476
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+360
+100
+AcDbAttributeDefinition
+  3
+
+  2
+theta-length
+ 70
+     1
+280
+     0
+  0
+ATTDEF
+  5
+164A
+330
+D35
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.66977520621124
+ 20
+-0.48542561656476
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+0
+100
+AcDbAttributeDefinition
+  3
+
+  2
+theta-start
+ 70
+     1
+280
+     0
   0
 ENDBLK
   5
@@ -19465,108 +20019,6 @@ ENTITIES
   0
 INSERT
   5
-D0D
-330
-1F
-100
-AcDbEntity
-  8
-0
-100
-AcDbBlockReference
-  2
-sphere
- 10
--2.0
- 20
-2.0
- 30
-0.0
-  0
-INSERT
-  5
-DC2
-330
-1F
-100
-AcDbEntity
-  8
-0
-100
-AcDbBlockReference
-  2
-circle
- 10
-0.0
- 20
-0.0
- 30
-0.0
-  0
-INSERT
-  5
-E80
-330
-1F
-100
-AcDbEntity
-  8
-0
-100
-AcDbBlockReference
- 66
-     1
-  2
-box
- 10
-1.5
- 20
-1.5
- 30
-0.0
-  0
-ATTRIB
-  5
-E81
-330
-E80
-100
-AcDbEntity
-  8
-0
-100
-AcDbText
- 10
-2.59072916666668
- 20
-1.89290009469697
- 30
-0.0
- 40
-0.2
-  1
-0
-100
-AcDbAttribute
-  2
-WEIGHT
- 70
-     1
-280
-     0
-  0
-SEQEND
-  5
-E82
-330
-E80
-100
-AcDbEntity
-  8
-0
-  0
-INSERT
-  5
 E8F
 330
 1F
@@ -19709,27 +20161,7 @@ light
   0
 INSERT
   5
-138F
-330
-1F
-100
-AcDbEntity
-  8
-0
-100
-AcDbBlockReference
-  2
-cylinder
- 10
--2.0
- 20
--2.0
- 30
-0.0
-  0
-INSERT
-  5
-14CE
+155F
 330
 1F
 100
@@ -19747,13 +20179,13 @@ cone
  20
 -2.0
  30
-0.0
+0.00000000000004
   0
 ATTRIB
   5
-14CF
+1560
 330
-14CE
+155F
 100
 AcDbEntity
   8
@@ -19765,7 +20197,7 @@ AcDbText
  20
 -1.34748058580154
  30
-0.0
+0.00000000000004
  40
 0.2
   1
@@ -19773,7 +20205,7 @@ false
 100
 AcDbAttribute
   2
-openEnded
+open-ended
  70
      1
 280
@@ -19781,9 +20213,9 @@ openEnded
   0
 ATTRIB
   5
-14D0
+1561
 330
-14CE
+155F
 100
 AcDbEntity
   8
@@ -19795,7 +20227,7 @@ AcDbText
  20
 -1.64748058580154
  30
-0.0
+0.00000000000004
  40
 0.2
   1
@@ -19803,7 +20235,7 @@ AcDbText
 100
 AcDbAttribute
   2
-radiusTop
+radius-top
  70
      1
 280
@@ -19811,9 +20243,9 @@ radiusTop
   0
 ATTRIB
   5
-14D1
+1562
 330
-14CE
+155F
 100
 AcDbEntity
   8
@@ -19825,7 +20257,7 @@ AcDbText
  20
 -1.94748058580154
  30
-0.0
+0.00000000000004
  40
 0.2
   1
@@ -19833,7 +20265,7 @@ AcDbText
 100
 AcDbAttribute
   2
-segmentsHeight
+segments-height
  70
      1
 280
@@ -19841,9 +20273,9 @@ segmentsHeight
   0
 ATTRIB
   5
-14D2
+1563
 330
-14CE
+155F
 100
 AcDbEntity
   8
@@ -19855,7 +20287,7 @@ AcDbText
  20
 -2.24748058580154
  30
-0.0
+0.00000000000004
  40
 0.2
   1
@@ -19863,7 +20295,7 @@ AcDbText
 100
 AcDbAttribute
   2
-segmentsRadial
+segments-radial
  70
      1
 280
@@ -19871,9 +20303,9 @@ segmentsRadial
   0
 ATTRIB
   5
-14D3
+1564
 330
-14CE
+155F
 100
 AcDbEntity
   8
@@ -19885,7 +20317,7 @@ AcDbText
  20
 -2.54748058580154
  30
-0.0
+0.00000000000004
  40
 0.2
   1
@@ -19893,7 +20325,7 @@ AcDbText
 100
 AcDbAttribute
   2
-thetaLength
+theta-length
  70
      1
 280
@@ -19901,9 +20333,9 @@ thetaLength
   0
 ATTRIB
   5
-14D4
+1565
 330
-14CE
+155F
 100
 AcDbEntity
   8
@@ -19915,7 +20347,7 @@ AcDbText
  20
 -2.84748058580154
  30
-0.0
+0.00000000000004
  40
 0.2
   1
@@ -19923,7 +20355,7 @@ AcDbText
 100
 AcDbAttribute
   2
-thetaStart
+theta-start
  70
      1
 280
@@ -19931,9 +20363,677 @@ thetaStart
   0
 SEQEND
   5
-14D5
+1566
 330
-14CE
+155F
+100
+AcDbEntity
+  8
+0
+  0
+INSERT
+  5
+15CE
+330
+1F
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockReference
+ 66
+     1
+  2
+box
+ 10
+1.5
+ 20
+1.5
+ 30
+0.0
+  0
+ATTRIB
+  5
+15CF
+330
+15CE
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+2.75574116029651
+ 20
+2.18889833675643
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+1
+100
+AcDbAttribute
+  2
+segments-height
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+15D0
+330
+15CE
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+2.75574116029651
+ 20
+1.88889833675643
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+1
+100
+AcDbAttribute
+  2
+segments-depth
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+15D1
+330
+15CE
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+2.75574116029651
+ 20
+1.58889833675643
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+1
+100
+AcDbAttribute
+  2
+segments-width
+ 70
+     1
+280
+     0
+  0
+SEQEND
+  5
+15D2
+330
+15CE
+100
+AcDbEntity
+  8
+0
+  0
+INSERT
+  5
+1650
+330
+1F
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockReference
+ 66
+     1
+  2
+circle
+ 10
+0.0
+ 20
+0.0
+ 30
+0.0
+  0
+ATTRIB
+  5
+1651
+330
+1650
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.66977520621124
+ 20
+0.11457438343524
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+32
+100
+AcDbAttribute
+  2
+segments
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+1652
+330
+1650
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.66977520621124
+ 20
+-0.18542561656476
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+360
+100
+AcDbAttribute
+  2
+theta-length
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+1653
+330
+1650
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+0.66977520621124
+ 20
+-0.48542561656476
+ 30
+0.00000000000004
+ 40
+0.2
+  1
+0
+100
+AcDbAttribute
+  2
+theta-start
+ 70
+     1
+280
+     0
+  0
+SEQEND
+  5
+1654
+330
+1650
+100
+AcDbEntity
+  8
+0
+  0
+INSERT
+  5
+1718
+330
+1F
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockReference
+ 66
+     1
+  2
+cylinder
+ 10
+-2.0
+ 20
+-2.0
+ 30
+0.00000000000001
+  0
+ATTRIB
+  5
+1719
+330
+1718
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.24425883970349
+ 20
+-1.34748058580154
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+false
+100
+AcDbAttribute
+  2
+open-ended
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+171A
+330
+1718
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.24425883970349
+ 20
+-1.64748058580154
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+0
+100
+AcDbAttribute
+  2
+radius-top
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+171B
+330
+1718
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.24425883970349
+ 20
+-1.94748058580154
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+18
+100
+AcDbAttribute
+  2
+segments-height
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+171C
+330
+1718
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.24425883970349
+ 20
+-2.24748058580154
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+36
+100
+AcDbAttribute
+  2
+segments-radial
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+171D
+330
+1718
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.24425883970349
+ 20
+-2.54748058580154
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+360
+100
+AcDbAttribute
+  2
+theta-length
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+171E
+330
+1718
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.24425883970349
+ 20
+-2.84748058580154
+ 30
+0.00000000000001
+ 40
+0.2
+  1
+0
+100
+AcDbAttribute
+  2
+theta-start
+ 70
+     1
+280
+     0
+  0
+SEQEND
+  5
+171F
+330
+1718
+100
+AcDbEntity
+  8
+0
+  0
+INSERT
+  5
+1BDD
+330
+1F
+100
+AcDbEntity
+  8
+0
+100
+AcDbBlockReference
+ 66
+     1
+  2
+sphere
+ 10
+-2.0
+ 20
+2.0
+ 30
+0.00000000000001
+  0
+ATTRIB
+  5
+1BDE
+330
+1BDD
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.14710126533604
+ 20
+2.05725577922495
+ 30
+0.00000000000002
+ 40
+0.2
+  1
+18
+100
+AcDbAttribute
+  2
+segments-height
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+1BDF
+330
+1BDD
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.14710126533604
+ 20
+1.75725577922495
+ 30
+0.00000000000002
+ 40
+0.2
+  1
+36
+100
+AcDbAttribute
+  2
+segments-width
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+1BE0
+330
+1BDD
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.14710126533604
+ 20
+1.45725577922495
+ 30
+0.00000000000002
+ 40
+0.2
+  1
+180
+100
+AcDbAttribute
+  2
+theta-length
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+1BE1
+330
+1BDD
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.14710126533604
+ 20
+1.15725577922495
+ 30
+0.00000000000002
+ 40
+0.2
+  1
+0
+100
+AcDbAttribute
+  2
+theta-start
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+1BE2
+330
+1BDD
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.14710126533604
+ 20
+2.65725577922495
+ 30
+0.00000000000002
+ 40
+0.2
+  1
+360
+100
+AcDbAttribute
+  2
+phi-length
+ 70
+     1
+280
+     0
+  0
+ATTRIB
+  5
+1BE3
+330
+1BDD
+100
+AcDbEntity
+  8
+0
+100
+AcDbText
+ 10
+-1.14710126533604
+ 20
+2.35725577922495
+ 30
+0.00000000000002
+ 40
+0.2
+  1
+0
+100
+AcDbAttribute
+  2
+phi-start
+ 70
+     1
+280
+     0
+  0
+SEQEND
+  5
+1BE4
+330
+1BDD
 100
 AcDbEntity
   8
@@ -20013,7 +21113,7 @@ ACAD_VISUALSTYLE
   3
 ACDB_RECOMPOSE_DATA
 350
-14D8
+1BE7
   3
 AcDbVariableDictionary
 350
@@ -20475,7 +21575,7 @@ X-Ray
   0
 XRECORD
   5
-14D8
+1BE7
 102
 {ACAD_REACTORS
 330
@@ -20511,31 +21611,31 @@ AcDbDictionary
   3
 CANNOSCALE
 350
-1411
+19A6
   3
 CMLEADERSTYLE
 350
-1416
+19AB
   3
 CTABLESTYLE
 350
-1415
+19AA
   3
 CVIEWDETAILSTYLE
 350
-1419
+19AE
   3
 CVIEWSECTIONSTYLE
 350
-141A
+19AF
   3
 DWFFRAME
 350
-1417
+19AC
   3
 XCLIPFRAME
 350
-1418
+19AD
   0
 DICTIONARY
   5
@@ -20569,18 +21669,6 @@ AcDbSortentsTable
 330
 1F
 331
-D0D
-  5
-13BA
-331
-DC2
-  5
-13BB
-331
-E80
-  5
-13BC
-331
 E8F
   5
 13BD
@@ -20600,10 +21688,6 @@ EAD
 EC0
   5
 13C1
-331
-138F
-  5
-13C8
   0
 ACDBDETAILVIEWSTYLE
   5
@@ -21501,7 +22585,7 @@ FA
 102
 {ACAD_XDICTIONARY
 360
-14D6
+1BE5
 102
 }
 330
@@ -28505,7 +29589,7 @@ strokes_ogs.tif
   0
 DICTIONARYVAR
   5
-1411
+19A6
 102
 {ACAD_REACTORS
 330
@@ -28523,7 +29607,7 @@ DictionaryVariables
   0
 DICTIONARYVAR
   5
-1416
+19AB
 102
 {ACAD_REACTORS
 330
@@ -28541,7 +29625,7 @@ Standard
   0
 DICTIONARYVAR
   5
-1415
+19AA
 102
 {ACAD_REACTORS
 330
@@ -28559,7 +29643,7 @@ Standard
   0
 DICTIONARYVAR
   5
-1419
+19AE
 102
 {ACAD_REACTORS
 330
@@ -28577,7 +29661,7 @@ Metric50
   0
 DICTIONARYVAR
   5
-141A
+19AF
 102
 {ACAD_REACTORS
 330
@@ -28595,7 +29679,7 @@ Metric50
   0
 DICTIONARYVAR
   5
-1417
+19AC
 102
 {ACAD_REACTORS
 330
@@ -28613,7 +29697,7 @@ DictionaryVariables
   0
 DICTIONARYVAR
   5
-1418
+19AD
 102
 {ACAD_REACTORS
 330
@@ -28679,7 +29763,7 @@ ACAD_XREC_ROUNDTRIP
   0
 DICTIONARY
   5
-14D6
+1BE5
 330
 FA
 100
@@ -28691,7 +29775,7 @@ AcDbDictionary
   3
 ACAD_ROUNDTRIP_2008_TABLESTYLE_CELLSTYLEMAP
 360
-14D7
+1BE6
   0
 XRECORD
   5
@@ -29581,15 +30665,15 @@ FLAGS
   0
 CELLSTYLEMAP
   5
-14D7
+1BE6
 102
 {ACAD_REACTORS
 330
-14D6
+1BE5
 102
 }
 330
-14D6
+1BE5
 100
 AcDbCellStyleMap
  90
@@ -30249,247 +31333,247 @@ A500007F7F003F7F7F00004C4C00264C4C00002626001326260000FFBF007FFFDF0000A57C0052A5
 310
 00A500A552A5007F007F007F3F7F004C004C004C264C002600260026132600BF00FF00DF7FFF007C00A5009152A5005F007F006F3F7F0039004C0042264C001C002600211326007F00FF00BF7FFF005200A5007C52A5003F007F005F3F7F0026004C0039264C00130026001C1326003F00FF009F7FFF002900A5006752A500
 310
-1F007F004F3F7F0013004C002F264C000900260017132600000000002D2D2D005B5B5B0089898900B7B7B700B3B3B30000000000000200020000000000000200000000000200000200000000070202020202020000000200020000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000002000000020000000000020000000000020000020707
-310
-02020202020000020002000002000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000002020202020202020200000000000200000000020202020202020002020000000002000002070200020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020200070707070202020202020202020202000000000202020000000000000200000002020002000000000000
+1F007F004F3F7F0013004C002F264C000900260017132600000000002D2D2D005B5B5B0089898900B7B7B700B3B3B30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000002020200000000020000000200000002000000000202000000000000000002000002020207020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000202000000020000020000020000000202000200000000000002020202020000020702000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020200020000000002020000020002
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00020000020200000002000002020202000002000000000202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000020202020200000002020200020200020200000002020202020000000000000200000000020202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000202020202020202020202020202020000020000000000000000020000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000200020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000202020202020202020202020202020202020202020202020202020202020202020202020202020202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000002020202020202020202020200000000020000000000000000020000000002000200000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070702020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020202020002
+310
+07020202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020002020000020000020200020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202000200020002000200020202020207000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000002020200000202000200020002020200000202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020200020202020202020202020202020202020002070000000000000000000000000000000000000000000000000000000000000000
 310
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002
 310
-02020202000002020002020200020200020202020200000000000000000200000000020207000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+02020202020202020202020202020202020202020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020202020000000002020000020002000200000202000000020202020000000000020000000002020000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020200020000000202020202020202020000020002020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000020000000200000200000200000002000002
-310
-00000002020202000200000000020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000070000000000000000020002020000000200000002000002000000000202020000000000000002020202000002070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070700070700000000000002020000000000020000000200000002000000000002020000000000000002000002020207000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700
-310
-00030000070000000002020007070707020202020202020202020207000000020002000000000000020000000207000000000000000000000000000000000000000000000000000000000000000000000000000000000000070707070202020202020202020707070000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030000070707070700000102020202020202020200000000000200000000020202020202020702020000000002000002070000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000202020202020200000000020000000002020202020202070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003030300000500000101010202070202000002000000000000
-310
-02000000000002000002020002020202020000020002070000000000000000000000000000000000000000000000000000000000000000000000000000020202000202000000000000000002000000000000000002020002020200000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000030303030005010101010100000002000200020000000000000200000000000002000202000000000202020202020000000000000000000000000000000000000000000000000000000000000000000000000002020200000000000200000000000000
-310
-00020000000000000000020000000000020202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000050505000000000000000200020200000000000000020000000000000202000200000000000007020200
-310
-00000000000000000000000000000000000000000000000000000000000000000000000202070000000000000002020000000000000002000000000000000202000000000000000702020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000005000000000000000002000202000000000000000200000000000002020002000000000002020207020000000000000000000000000000000000000000000000000000000000000000000002070202000000000000000200020000000000000200000000000002000200000000000000020207
-310
-02000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000002000000000000020000000000020000020200000002020200000007020000000000000000000000000000000000000000
-310
-00000000000000000000000702000002000202000000000002000002000000000002000000000002000002000000000002020002000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020207
-310
-02020000000200000000000200000000000200000202070202020000000000000702000000000000000000000000000000000000000000000000000000000002020000000002000002020000000002000200000000000200000000000200020000000002020000020000000002020000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020202020202020707000000020000000007020202020202020000000000000000000702000000000000000000000000000000000000000000000000000000020000000000000200000000
-310
-02000000020000020000000002000000000200000200000002000000000200000000000702000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020200000000020202020202020202020200000000
-310
-02020000000000000000000000020200000000000000000000000000000000000000000000000000020202000000000000020000000002020002000000020000000200000002000000020002020000000002000000000000020202000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000020200000002000000020000000200000002020000000000000000000202020200020700000000000000000000000000000000000000000000000002020002020202000002000000000000020200000002000000020000000200000202
-310
-02000000000000020000020202020002020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000002000002000002000000020000000000000002020202000000000000020000000000
-310
-00000000000000000000000000000000000002070002000000000202020200000000000000020000000200000200000200000002000000000000000202020200000000020007020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000202020200000000020200000200020002000002020000000002020202000000000000000000000200000000000000000000000000000000000000000000000200000002000000000000000202020200000002020200000200020002000002020200000002020202000000000000000200000002000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020200000202020002020002020000020202020000000000000000000000000000020700000000000000000000000000000000000000000000020000
-310
-00000200000000000002000000020202020000020200020202000202000002020202000000020000000000000200000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202
-310
-02020202020202020000000000000000000000000000000000000002000000000000000000000000000000000000000000020700000000020000000000000002000000000000020202020202020202020202020000000000000200000000000000020000000000020000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000020202020202020202020202020202020202020202020202020202020202020202020202020202020200000000000000000000000000000000000000000002020202020202020202020202020202020202020202020202
-310
-02020202020202020202020202020202020202020202020202020202020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202020202020202020000000000000000000000000000
-310
-00000000000002000000000000000000000000000000000000000000020200000000000002000000000000020000000000020202020202020202020202020000000000020000000000000200000000000002020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000202020200030202020002020102020002020202000000000000000000000000000000020700000000000000000000000000000000000000000000020202000000000002000000000002000202020202030202000202020002020102020202020002000000000002
-310
-00000000000202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202000000000202030302000201020101020200000002020202000000000000000000000002000000000000000000000000000000
-310
-00000000000000000200000200000000000200000202020200000000020203030205020002010102020000000002020202000002000000000002000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000200000002000502000002000000020000000000000202020200000000000000020000000000000000000000000000000000000000000000020700000200000002020202000000000200000200020002000502000002000200020000020000000002020202000000020000000200000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000000020000050205000002000000020200000000000000000202020200000207000000000000000000000000000000000000000000000000020000020202020000000200
-310
-00000002020200000202000000020005000202000002020200000000020000000202020200000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000000000200000000020000000200000000
-310
-00020200000000000000000000020202070000000000000000000000000000000000000000000000000202020000020000000000020000020202000000000200000002050000020000000002020200000200000000000200000202020000000000000000000000000000000000000000030701000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000200000000000200000000000200000000020000000000000200000000000000000000020700000000000000000000000000000000000000000000000000000202000000020200000000020200000200000002020000000200000002020000
-310
-00020000020200000000020200000002020000000000000000000000000000000000030003070705070701000100000000000000000000000000000000000000000000000000000000000000000000000000000202000000000000020000000000020000000000020000000000000202000000000000000207000000000000
-310
-00000000000000000000000000000000000000000000020200000000020000020200000000020002000200000002000000020002000200000002020200000200000000020200000000000000000000000000000000000003070703030500010707010000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000020000000000000200000000000200000000000000000202000000000207000000000000000000000000000000000000000000000000000000000000020202000000020200000200000000020200020000000200000002000202000000000200000202000000020202000000000000
-310
-00000000000000000000000007070000000505000000000707000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000020000000000000200000000000000000002020002000000000000000000000000000000000000000000000000000000000000
-310
-00000000020202020002000000020000000200000002000002000002000000020000000200000002000202020207000000000000000000000000000000000000070000000000000500050000000007000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000
-310
-00000200000000000000020000000000000000000202000000000000000000000000000000000000000000000000000000000000000000000000020202000002020000020002000200000200000200000200000200020002000002020000020202070000000000000000000000000000000000070700000000000000050500
-310
-00000000000707000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000020000000000000000020000000000020202000000000000000000000000000000000000000000000000000000000000000000000000000000020202020000020000020000020000
-310
-02000002000002000002000002000002000002020202000000000000000000000000000000000007070000000000000000000000000000000000000007070000000000000000000000000000000000000000000000000000000000000000020200000200000000000000000002000000000000000002000002020207000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000020202020202000202000002000200000200020000020000020200020202020202000000000000000000000000000000000000070000000000000000000000000000000000000000000000070000000000000000000000
-310
-00000000000000000000000000000000000000000707020202020000000000000000020000000000000002020202070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202020202000200000200020002000002000202020202020202000000
-310
-00000000000000000000000000000007070000000000000000000000000000000000000000000000000007070000000000000000000000000000000000000000000000000000000000000000000707020202020202000002000002020202020707000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000202000202020202020202000200020202020202020200020200000000000000000000000000000000000007070000000000000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000070202020202070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202000200020202020202020702000202020202000000000000000000000000000000000007070000000000000000
-310
-00000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000202000200020200020202000202000200020200000000000000000000000000000000000007000000000000000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202000202020202000202020200000000000000000000000000000000000000000007070000000000000000000000000000000000000000000000000000000000
-310
-00000000070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202020202020202020202
-310
-00000000000000000000000000000000000000000000000007070000000000000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202020202020200000000000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020202020200000000000000000000000000000000000000000000000000
-310
-00000000000000070700000000000000000000000000000000000000000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000707000000000000000000000000000000000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007070000000000000000
-310
-00000000000707000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007070000000000000000000707000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070700000000000707000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020002020202020200020202000202020202000202
 310
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000070700070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000020202020000020202020202020202020000020202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000030000070705070700000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003070700000500000707010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070703030303050001010107070000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202020202000200000200000200020202020202000000000000000000000000000000000000000000
 310
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000070000000000050500000000000007000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000020200020207070002000002000002000002020702020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070700000000000000050005000000000007070000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202020202020202020202020202020202020202000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000202020202000002
 310
-00000000000000000007070000000000000000000705000000000000000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000030000020202020200010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+02020002020202020002020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070000000000000000000007070700000000000000000000070000000000000000000000000000000000000000000000000000000000000000000000000000000003
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000002020002000002020202020202020202000002000202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-02020000020001020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070700000000000000000000000007
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202020202020202020202020202020202020200000000000000000000
 310
-07000000000000000000000007070000000000000000000000000000000000000000000000000000000000000000000000000002020303030002010101010202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000007070000000000000000000000000000070007000000000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000020000000000050205000000000002000000000000000000
+00000000000000000000000000000000000000000002020002020202020202020202020202020202000207000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007070000000000000000000000000000000007000000000000000000000000000000000707000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020200000002020202020202020200000202020000000000000000000000000000000000070202020000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000002020000000000000002000000000000000202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000003070707010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000007000000000000000000000000000000000000070000000000000000000000000000000000000700000000000000000000000000000000000000000000000000000002020000000000000000000200000000000000000002020000000000000000000000000000000000000000000000000000
+00000202000202020202000207020202020202020700000000000000000000000000000202020200020002020202000000000000000000000000000000000000000000000000000303030101000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000300000303070707000100000000000000000000000000000000000000000000000000000000000000000007070000000000000000000000000000000000000000000000000000000000000000000707000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202070002020000020000020200020200000000000000000000000000000202000202000002000002020002020200000000000000000000000000000000000000000000000005
 310
-00000002000000000000000000000002000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030303000007000107070000000000000000000000000000000000000000000000000000000000000000000000070700000000
+05000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002070202020202020002000702020202000207
 310
-00000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000000002020000000000000000000000000200000000000000000000000002020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000200020200020200020002020000020207020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000303030300070101010107000000000000000000000000000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000
+00000000000000000000000007020207000000000000000000000000000000000002020200000202070202020202020200000202020000000000000000000002020202000202020002000202020200020202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000002020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000507000000000007070000000000000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202020202020700000000000000000000000000020700000202020202020202020202020202000002070000000000000000020002000202020202020202
 310
-00070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000050705000000000000070000000000
+02020202020200020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202020202020202020200
 310
-00000000000000000000000000000000000000000000000000000000000000070700000000000000000000000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000200000000000000
+00000000000000000000000202020202020202020202020202020202020202020200000000000000000202020202020202020202020202020202020202020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000007000000000000000007070000000000000000000000000000000000000000000000000000000000000000000000000707000000000000000000000000000000070700000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000202020202020202020202020202020000000000000000000000020700000000000202020202020202020000000000020000000000000000020200020000020202020202020202020002000002020000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000200000000000000000000000000000000020202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700000000000000000000070700000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202020202000202020202020202020000000000000000000000020002020202000200
 310
-00000000000000000000000000000700000000000000000000000000070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000020200000200000000000000000000000000000000000000000000000000000000
+02020200020002020200020000000000000000000702020202020202020202020202020202020202020000000000000000070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000007000000000000000000000000070000000000000000000000000000000000000000000000000000000000000000000000000707000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000000000020200000000000000
+00000000000000000000000000000002020202020202020202020202020202020202000000000000000000000202000000020200020002000200020000000202000000000000000000000202020002020202000200020002020002000202000000000000070705070700000000000000000000000000000000000000000000
 310
-00000000000200000000000000000000000002020000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000000007070000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202020702000200020702020202020200000000000000000000000207020200000200000200000200020200020700000000000000000000
 310
-00000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000000000020000000000000000000000020000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070000
+00020202020202000202020002000202020202000000000000070005050000070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020202020202
 310
-00000000000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000000007070007070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020200000000000000000002000000000000000000020200000000
+02020202020202020202020202020000000000000000000000020207070002000002000002000002020000000000000000000000000000020202020202020202020202020202020000000000070700000005000000070000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000000000000000000070000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020202020202020207020202070202020202020202000000000000000000000000000202020202020202020202020000000000000000000000000000000000020202020202020202020202020200000000
 310
-00000000000000000000000000000000000000000000000000000000020200000000000000020000000000000002020000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070000000000000000000000000000000000070000000000
+07070000000000000000000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202020702020202020202020202070202020202000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000002000000000000020000000000000000000000020000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000020202020202020202020000000000070000000000000000000000000000070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000700000000000000000000000000000000000700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000020207020202000200000200000202000202070202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202020000000000000000070700000000000000000000070700000000000000
 310
-00000000000000000000020200000000020000000002020000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000070000000000000000000000000000000000070000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202070002020202020202020202020202020202000000000000000000000000000000000000000000000000000000
 310
-00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000002000002020000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000202000000000000000000000000070700000000000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 310
-000000000000000007000000000000000000000000000000000007000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000020202020202000200000200000202020202070202020000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000707000007070000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020002020702020202020202020202070202020202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000030707010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000702020202020202070702070702020202
+310
+02020202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007070507070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000020202020002020202020202020202020202020200000000000000000000000000000000000300020001000000000000000000000000000000000000000000000000000000000000000000000000000000000007070007070000
+310
+07070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020202020202020002000202020202020202000000000000000000000000000000000000
+310
+02020202020000000000000000000000000000000000000000000000000000000000000000000000000000000707000000000700000000070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000202020202020202020202020200020202000000000000000000000000000000000002020000020000020200000000000000000000000000000000000000000007000000000000000000000000000707000000000000070000000000000700000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202020202020202020202020202020000000000000000000000000000000002020000000002000000000202000000000000000000000000
+310
+00000000000303070707000000000000000000000000070700000000000000000000070700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202
+310
+02020202020202020202020700000000000000000000000000000202000000000000020000000000000200000000000000000000000000000000000007000007070000000000000000000000000707000000000000070700000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020202020202020202020200000000000000000000000000000000020202000000000002000000000202020000000000000000000000000000000000000700000000070700000000000000
+310
+00000000000707000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020202020202020202000000000000000000000000
+310
+00000000000200000200000000020000000200000200000000000000000000000000000000000007000000000000070000000000000000000000000007070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000202000002000002000000020000000000000000000000000000000000000700000000000007000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000002020202020000000002
+310
+00000000000000000000000000000000000007000000000000070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000020000000000000002000000000000020000000000030707010000000000000000000700000000000007000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000002020202020000000002000000000202020202000000000000000000070000
+310
+00000000070000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000020000000202000002000002020000020000020200000200000202000000000000000700000000000007000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000202000000000200000000020202020200000000020000000002020000000000000707000000000700000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000000
+310
+00000002000000000000020000000000000200000000000002020000000000000707000007000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020200000000000200000000020202020200000000020000000000020202000000000000000007070700000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000000020000020200000200000202000002000000
+310
+02020000020000000000000000000007000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000202000202020000000002000000000202020002020000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020000000000000200000000000002020000000000000200000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000002000000000202020202000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000202000002000002020000000200000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+02020200000000020000000002020002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000002000000000000020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000202000000000200000000000202000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000200000002000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000200000202000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000020202020200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+310
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   0
 ENDSEC
   0
