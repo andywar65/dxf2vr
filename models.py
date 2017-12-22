@@ -63,7 +63,7 @@ class Dxf2VrPage(Page):
         while value !='ENDSEC':
             key = dxf_f.readline().strip()
             value = dxf_f.readline().strip()
-            if flag == 'face':
+            if flag == 'face':#stores values for 3D faces
                 if key == '8':#layer name
                     temp[key] = value
                 elif key == '10' or key == '11' or key == '12' or key == '13':#X position
@@ -73,7 +73,7 @@ class Dxf2VrPage(Page):
                     temp[key] = value
                 elif key == '30' or key == '31' or key == '32' or key == '33':#Z position
                     temp[key] = value
-            elif flag == 'block':
+            elif flag == 'block':#stores values for blocks
                 if key == '2' or key == '8':#block name and layer name
                     temp[key] = value
                 elif key == '10' or key == '30':#X Z position
@@ -155,9 +155,16 @@ class Dxf2VrPage(Page):
                     temp['50'] = degrees(yaw)
                     temp['220'] = -degrees(roll)
 
+            elif flag == 'attrib':#stores values for attributes within block
+                if key == '1':#attribute value
+                    attr_value = value
+                elif key == '2':#attribute key
+                    temp[value] = attr_value
+                    flag = 'block'#restore block modality
+
             if key == '0':
 
-                if flag == 'face':#to do repeat we should calculate triangle width
+                if flag == 'face':#close 3D face
                     #is material set in model?
                     no_color=True
                     if material_gallery:
@@ -172,7 +179,11 @@ class Dxf2VrPage(Page):
                         output[x] = self.make_triangle_2(x, temp)
                     flag = False
 
-                elif flag == 'block':
+                elif value == 'ATTRIB':#start attribute within block
+                    attr_value = ''
+                    flag = 'attrib'
+
+                elif flag == 'block':#close block
                     #material images are patterns? is material set in model?
                     no_color=True
                     if material_gallery:
@@ -216,11 +227,11 @@ class Dxf2VrPage(Page):
 
                     flag = False
 
-                if value == '3DFACE':
+                if value == '3DFACE':#start 3D face
                     temp = {}#default values
                     flag = 'face'
                     x += 1
-                elif value == 'INSERT':
+                elif value == 'INSERT':#start block
                     temp = {'41': 1, '42': 1, '43': 1, '50': 0, '210': 0, '220': 0, '230': 1,'repeat': False}#default values
                     flag = 'block'
                     x += 1
@@ -316,6 +327,20 @@ class Dxf2VrPage(Page):
         outstr += f'<a-cone id="cone-{x}" \n'
         outstr += f'position="0 {float(temp["43"])/2} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
+        outstr += 'geometry="'
+        if temp['openEnded']!='false':
+            outstr += 'open-ended: true;'
+        if temp['radiusTop']!='0':
+            outstr += f'radius-top: {temp["radiusTop"]};'
+        if temp['segmentsHeight']!='18':
+            outstr += f'segments-height: {temp["segmentsHeight"]};'
+        if temp['segmentsRadial']!='36':
+            outstr += f'segments-radial: {temp["segmentsRadial"]};'
+        if temp['thetaLength']!='360':
+            outstr += f'theta-length: {temp["thetaLength"]};'
+        if temp['thetaStart']!='0':
+            outstr += f'theta-start: {temp["thetaStart"]};'
+        outstr += '" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
@@ -434,98 +459,6 @@ class Dxf2VrPage(Page):
             outstr += 'castShadow: true;'
         outstr += '">\n</a-entity>\n'
         return outstr
-
-    def extract_meshes(self):#abandoned, but interesting structure
-        path_to_dxf = os.path.join(settings.MEDIA_ROOT, 'documents', self.dxf_file.filename)
-        dxf_f = open(path_to_dxf, encoding = 'utf-8')
-        output = {}
-        flag = False
-        x = 0
-        value = 'dummy'
-        while value !='ENTITIES':
-            key = dxf_f.readline().strip()
-            value = dxf_f.readline().strip()
-        while value !='ENDSEC':
-            key = dxf_f.readline().strip()
-            value = dxf_f.readline().strip()
-            if flag == 'face':
-                if key == '8':#layer name
-                    temp[key] = value
-                elif key == '10' or key == '11' or key == '12' or key == '13':#X position
-                    temp[key] = value
-                elif key == '20' or key == '21' or key == '22' or key == '23':#mirror Y position
-                    value = -float(value)
-                    temp[key] = value
-                elif key == '30' or key == '31' or key == '32' or key == '33':#Z position
-                    temp[key] = value
-            elif flag == 'mesh':
-                if key == '8':#layer name
-                    temp[key] = value
-                elif key == '10':#X position
-                    temp_v[key] = value
-                elif key == '20':#mirror Y position
-                    value = -float(value)
-                    temp_v[key] = value
-                elif key == '30':#Z position
-                    temp_v[key] = value
-                    vertex[v] = temp_v
-                    temp_v = {}
-                    v += 1
-                elif key == '71':#first vertex
-                    #return vertex
-                    temp_v = vertex[int(value)].copy()
-                    temp['10'] = temp_v['10']
-                    temp['20'] = temp_v['20']
-                    temp['30'] = temp_v['30']
-                elif key == '72':#second vertex
-                    temp_v = vertex[int(value)].copy()
-                    temp['11'] = temp_v['10']
-                    temp['21'] = temp_v['20']
-                    temp['31'] = temp_v['30']
-                elif key == '73':#third vertex
-                    temp_v = vertex[int(value)].copy()
-                    temp['12'] = temp_v['10']
-                    temp['22'] = temp_v['20']
-                    temp['32'] = temp_v['30']
-                    output[x] = temp
-                    x += 1
-                elif key == '74':#fourth vertex
-                    temp2 = temp.copy()
-                    temp_v = vertex[int(value)].copy()
-                    temp2['10'] = temp_v['10']
-                    temp2['20'] = temp_v['20']
-                    temp2['30'] = temp_v['30']
-                    temp2['11']=temp['10']; temp2['21']=temp['20']; temp2['31']=temp['30']
-                    output[x] = temp2
-                    temp = {}
-                    temp2 = {}
-                    x += 1
-            if key == '0':
-                if flag == 'face':
-                    output[x] = temp
-                    if temp['12']!=temp['13'] or temp['22']!=temp['23'] or temp['32']!=temp['33']:
-                        temp2 = temp.copy()
-                        temp2['11']=temp['12']; temp2['21']=temp['22']; temp2['31']=temp['32']
-                        temp2['12']=temp['13']; temp2['22']=temp['23']; temp2['32']=temp['33']
-                        x += 1
-                        output[x] = temp2
-                    flag = False
-                if flag == 'mesh' and value != 'VERTEX':
-                    flag = False
-                if value == '3DFACE':
-                    temp = {}#default values
-                    flag = 'face'
-                    x += 1
-                elif value == 'VERTEX' and flag != 'mesh':
-                    temp = {}
-                    temp2 = {}
-                    vertex = {}
-                    temp_v = {}
-                    flag = 'mesh'
-                    x += 1
-                    v = 1
-        dxf_f.close()
-        return output
 
 class Dxf2VrPageMaterialImage(Orderable):
     page = ParentalKey(Dxf2VrPage, related_name='material_images')
