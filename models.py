@@ -498,10 +498,36 @@ class Dxf2VrPage(Page):
     def make_light(self, x, temp):
         outstr = f'<a-entity id="light-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
-        outstr += 'light="type: point; intensity: 0.75; distance: 50; decay: 2; '
-        if self.shadows:
-            outstr += 'castShadow: true;'
-        outstr += '">\n</a-entity>\n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}"\n'
+        try:
+            if temp['type'] == 'ambient':
+                outstr += f'light="type: ambient; color: {temp["color"]}; intensity: {temp["intensity"]}; '
+                outstr += '">\n</a-entity>\n'#close light entity
+            elif temp['type'] == 'point':
+                outstr += f'light="type: point; color: {temp["color"]}; intensity: {temp["intensity"]}; '
+                outstr += f'decay: {temp["decay"]}; distance: {temp["distance"]}; '
+                if self.shadows:
+                    outstr += 'castShadow: true; '
+                outstr += '"> \n</a-entity>\n'#close light entity
+            elif temp['type'] == 'spot':
+                outstr += f'light="type: spot; color: {temp["color"]}; intensity: {temp["intensity"]}; '
+                outstr += f'decay: {temp["decay"]}; distance: {temp["distance"]}; '
+                outstr += f'angle: {temp["angle"]}; penumbra: {temp["penumbra"]}; '
+                if self.shadows:
+                    outstr += 'castShadow: true; '
+                outstr += f'target: #light-{x}-target;"> \n'
+                outstr += f'<a-entity id="light-{x}-target" position="0 -1 0"> </a-entity> \n</a-entity> \n'#close light entity
+            else:#defaults to directional
+                outstr += f'light="type: directional; color: {temp["color"]}; intensity: {temp["intensity"]}; '
+                if self.shadows:
+                    outstr += 'castShadow: true; '
+                outstr += f'target: #light-{x}-target;"> \n'
+                outstr += f'<a-entity id="light-{x}-target" position="0 -1 0"> </a-entity> \n</a-entity> \n'#close light entity
+        except KeyError:#default if no light type is set
+            outstr += 'light="type: point; intensity: 0.75; distance: 50; decay: 2; '
+            if self.shadows:
+                outstr += 'castShadow: true;'
+            outstr += '">\n</a-entity>\n'#close light entity
         return outstr
 
 class Dxf2VrPageMaterialImage(Orderable):
