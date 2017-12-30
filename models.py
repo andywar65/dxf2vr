@@ -195,34 +195,34 @@ class Dxf2VrPage(Page):
                     if no_color:#color is still not set for layer, so we use default
                         temp['8'] = 'default'
 
-                    if temp['2'] == '6planes':
+                    if temp['2'] == '6planes':#useless, mantained for legacy
                         output[x] = self.make_6planes(x, temp)
 
-                    elif temp['2'] == 'box':
+                    elif temp['2'] == 'box' or temp['2'] == 'a-box':
                         output[x] = self.make_box(x, temp)
 
-                    elif temp['2'] == 'cylinder':
+                    elif temp['2'] == 'cylinder' or temp['2'] == 'a-cylinder':
                         output[x] = self.make_cylinder(x, temp)
 
-                    elif temp['2'] == 'cone':
+                    elif temp['2'] == 'cone' or temp['2'] == 'a-cone':
                         output[x] = self.make_cone(x, temp)
 
-                    elif temp['2'] == 'sphere':
+                    elif temp['2'] == 'sphere' or temp['2'] == 'a-sphere':
                         output[x] = self.make_sphere(x, temp)
 
-                    elif temp['2'] == 'circle':
+                    elif temp['2'] == 'circle' or temp['2'] == 'a-circle':
                         output[x] = self.make_circle(x, temp)
 
-                    elif temp['2'] == 'plane':
+                    elif temp['2'] == 'plane' or temp['2'] == 'a-plane' or temp['2'] == 'look-at':
                         output[x] = self.make_plane(x, temp)
 
-                    elif temp['2'] == 'floor':
+                    elif temp['2'] == 'floor':#useless, mantained for legacy
                         output[x] = self.make_floor(x, temp)
 
-                    elif temp['2'] == 'ceiling':
+                    elif temp['2'] == 'ceiling':#useless, mantained for legacy
                         output[x] = self.make_ceiling(x, temp)
 
-                    elif temp['2'] == 'light':
+                    elif temp['2'] == 'light' or temp['2'] == 'a-light':
                         output[x] = self.make_light(x, temp)
 
                     flag = False
@@ -246,7 +246,7 @@ class Dxf2VrPage(Page):
         else:
             return ';'
 
-    def make_6planes(self, x, temp):
+    def make_6planes(self, x, temp):#useless, mantained for legacy
         outstr = f'<a-entity id="box-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
@@ -360,7 +360,8 @@ class Dxf2VrPage(Page):
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr = f'<a-circle id="circle-{x}" \n'
-        outstr += f'rotation="-90 0 0"\n'
+        if temp['2'] == 'circle':
+            outstr += f'rotation="-90 0 0"\n'
         outstr += f'radius="{temp["41"]}" \n'
         outstr += 'geometry="'
         if temp['segments']!='32':
@@ -435,15 +436,25 @@ class Dxf2VrPage(Page):
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
         outstr += f'<a-plane id="plane-{x}" \n'
-        outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} 0" \n'
+        if temp['2'] == 'look-at':#if it's a look at, it is centered and looks at the camera foot
+            outstr += f'position="0 {float(temp["43"])/2} 0" \n'
+            outstr += 'look-at="#camera-foot" \n'
+        else:#it's not a look at, insertion is at corner
+            outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
+        outstr += 'geometry="'
+        if temp['segments-height']!='1':
+            outstr += f'segments-height: {temp["segments-height"]};'
+        if temp['segments-width']!='1':
+            outstr += f'segments-width: {temp["segments-width"]};'
+        outstr += '" \n'
         outstr += f'mixin="color-{temp["8"]}" \n'
         outstr += f'material="src: #image-{temp["8"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
         outstr += '">\n</a-plane>\n</a-entity>\n'
         return outstr
 
-    def make_floor(self, x, temp):
+    def make_floor(self, x, temp):#useless, mantained for legacy
         outstr = f'<a-entity id="floor-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
@@ -457,7 +468,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane>\n</a-entity>\n'
         return outstr
 
-    def make_ceiling(self, x, temp):
+    def make_ceiling(self, x, temp):#useless, mantained for legacy
         outstr = f'<a-entity id="ceiling-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
