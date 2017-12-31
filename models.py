@@ -171,8 +171,11 @@ class Dxf2VrPage(Page):
                         for material in material_gallery:
                             if material.layer == temp['8']:
                                 no_color=False
+                                temp['color'] = material.color
                     if no_color:#color is still not set for layer, so we use default
                         temp['8'] = 'default'
+                        temp['color'] = 'white'
+
                     output[x] = self.make_triangle_1(x, temp)
                     if temp['12']!=temp['13'] or temp['22']!=temp['23'] or temp['32']!=temp['33']:
                         x += 1
@@ -190,10 +193,12 @@ class Dxf2VrPage(Page):
                         for material in material_gallery:
                             if material.layer == temp['8']:
                                 no_color=False
+                                temp['color'] = material.color
                                 if material.pattern:# == True
                                     temp['repeat']=True
                     if no_color:#color is still not set for layer, so we use default
                         temp['8'] = 'default'
+                        temp['color'] = 'white'
 
                     if temp['2'] == '6planes':#useless, mantained for legacy
                         output[x] = self.make_6planes(x, temp)
@@ -315,15 +320,17 @@ class Dxf2VrPage(Page):
         outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} {-float(temp["42"])/2}" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
         outstr += 'geometry="'
-        if temp['segments-depth']!='1':
-            outstr += f'segments-depth: {temp["segments-depth"]};'
-        if temp['segments-height']!='1':
-            outstr += f'segments-height: {temp["segments-height"]};'
-        if temp['segments-width']!='1':
-            outstr += f'segments-width: {temp["segments-width"]};'
-        outstr += '" \n'
-        outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}'
+        try:
+            if temp['segments-depth']!='1':
+                outstr += f'segments-depth: {temp["segments-depth"]};'
+            if temp['segments-height']!='1':
+                outstr += f'segments-height: {temp["segments-height"]};'
+            if temp['segments-width']!='1':
+                outstr += f'segments-width: {temp["segments-width"]};'
+            outstr += '" \n'
+        except KeyError:
+            outstr += '" \n'
+        outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
         outstr += '">\n</a-box>\n</a-entity>\n'
         return outstr
@@ -336,21 +343,23 @@ class Dxf2VrPage(Page):
         outstr += f'position="0 {float(temp["43"])/2} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
         outstr += 'geometry="'
-        if temp['open-ended']!='false':
-            outstr += 'open-ended: true;'
-        if temp['radius-top']!='0':
-            outstr += f'radius-top: {temp["radius-top"]};'
-        if temp['segments-height']!='18':
-            outstr += f'segments-height: {temp["segments-height"]};'
-        if temp['segments-radial']!='36':
-            outstr += f'segments-radial: {temp["segments-radial"]};'
-        if temp['theta-length']!='360':
-            outstr += f'theta-length: {temp["theta-length"]};'
-        if temp['theta-start']!='0':
-            outstr += f'theta-start: {temp["theta-start"]};'
-        outstr += '" \n'
-        outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}'
+        try:
+            if temp['open-ended']!='false':
+                outstr += 'open-ended: true;'
+            if temp['radius-top']!='0':
+                outstr += f'radius-top: {temp["radius-top"]};'
+            if temp['segments-height']!='18':
+                outstr += f'segments-height: {temp["segments-height"]};'
+            if temp['segments-radial']!='36':
+                outstr += f'segments-radial: {temp["segments-radial"]};'
+            if temp['theta-length']!='360':
+                outstr += f'theta-length: {temp["theta-length"]};'
+            if temp['theta-start']!='0':
+                outstr += f'theta-start: {temp["theta-start"]};'
+            outstr += '" \n'
+        except KeyError:
+            outstr += '" \n'
+        outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
         outstr += '">\n</a-cone>\n</a-entity>\n'
         return outstr
@@ -364,15 +373,17 @@ class Dxf2VrPage(Page):
             outstr += f'rotation="-90 0 0"\n'
         outstr += f'radius="{temp["41"]}" \n'
         outstr += 'geometry="'
-        if temp['segments']!='32':
-            outstr += f'segments: {temp["segments"]};'
-        if temp['theta-length']!='360':
-            outstr += f'theta-length: {temp["theta-length"]};'
-        if temp['theta-start']!='0':
-            outstr += f'theta-start: {temp["theta-start"]};'
-        outstr += '" \n'
-        outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}'
+        try:
+            if temp['segments']!='32':
+                outstr += f'segments: {temp["segments"]};'
+            if temp['theta-length']!='360':
+                outstr += f'theta-length: {temp["theta-length"]};'
+            if temp['theta-start']!='0':
+                outstr += f'theta-start: {temp["theta-start"]};'
+            outstr += '" \n'
+        except KeyError:
+            outstr += '" \n'
+        outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
         outstr += '">\n</a-circle>\n</a-entity>\n'
         return outstr
@@ -385,21 +396,23 @@ class Dxf2VrPage(Page):
         outstr += f'position="0 {float(temp["43"])/2} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
         outstr += 'geometry="'
-        if temp['open-ended']!='false':
-            outstr += 'open-ended: true;'
-        if temp['radius-top']!='0':
-            outstr += f'radius-top: {temp["radius-top"]};'
-        if temp['segments-height']!='18':
-            outstr += f'segments-height: {temp["segments-height"]};'
-        if temp['segments-radial']!='36':
-            outstr += f'segments-radial: {temp["segments-radial"]};'
-        if temp['theta-length']!='360':
-            outstr += f'theta-length: {temp["theta-length"]};'
-        if temp['theta-start']!='0':
-            outstr += f'theta-start: {temp["theta-start"]};'
-        outstr += '" \n'
-        outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}'
+        try:
+            if temp['open-ended']!='false':
+                outstr += 'open-ended: true;'
+            if temp['radius-top']!='0':
+                outstr += f'radius-top: {temp["radius-top"]};'
+            if temp['segments-height']!='18':
+                outstr += f'segments-height: {temp["segments-height"]};'
+            if temp['segments-radial']!='36':
+                outstr += f'segments-radial: {temp["segments-radial"]};'
+            if temp['theta-length']!='360':
+                outstr += f'theta-length: {temp["theta-length"]};'
+            if temp['theta-start']!='0':
+                outstr += f'theta-start: {temp["theta-start"]};'
+            outstr += '" \n'
+        except KeyError:
+            outstr += '" \n'
+        outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
         outstr += '">\n</a-cylinder>\n</a-entity>\n'
         return outstr
@@ -412,21 +425,23 @@ class Dxf2VrPage(Page):
         outstr += f'position="0 {temp["43"]} 0" \n'
         outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}" \n'
         outstr += 'geometry="'
-        if temp['phi-length']!='360':
-            outstr += f'phi-length: {temp["phi-length"]};'
-        if temp['phi-start']!='0':
-            outstr += f'phi-start: {temp["phi-start"]};'
-        if temp['segments-height']!='18':
-            outstr += f'segments-height: {temp["segments-height"]};'
-        if temp['segments-width']!='36':
-            outstr += f'segments-width: {temp["segments-width"]};'
-        if temp['theta-length']!='180':
-            outstr += f'theta-length: {temp["theta-length"]};'
-        if temp['theta-start']!='0':
-            outstr += f'theta-start: {temp["theta-start"]};'
-        outstr += '" \n'
-        outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}'
+        try:
+            if temp['phi-length']!='360':
+                outstr += f'phi-length: {temp["phi-length"]};'
+            if temp['phi-start']!='0':
+                outstr += f'phi-start: {temp["phi-start"]};'
+            if temp['segments-height']!='18':
+                outstr += f'segments-height: {temp["segments-height"]};'
+            if temp['segments-width']!='36':
+                outstr += f'segments-width: {temp["segments-width"]};'
+            if temp['theta-length']!='180':
+                outstr += f'theta-length: {temp["theta-length"]};'
+            if temp['theta-start']!='0':
+                outstr += f'theta-start: {temp["theta-start"]};'
+            outstr += '" \n'
+        except KeyError:
+            outstr += '" \n'
+        outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
         outstr += '">\n</a-sphere>\n</a-entity>\n'
         return outstr
@@ -443,13 +458,15 @@ class Dxf2VrPage(Page):
             outstr += f'position="{float(temp["41"])/2} {float(temp["43"])/2} 0" \n'
         outstr += f'width="{temp["41"]}" height="{temp["43"]}" \n'
         outstr += 'geometry="'
-        if temp['segments-height']!='1':
-            outstr += f'segments-height: {temp["segments-height"]};'
-        if temp['segments-width']!='1':
-            outstr += f'segments-width: {temp["segments-width"]};'
-        outstr += '" \n'
-        outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}'
+        try:
+            if temp['segments-height']!='1':
+                outstr += f'segments-height: {temp["segments-height"]};'
+            if temp['segments-width']!='1':
+                outstr += f'segments-width: {temp["segments-width"]};'
+            outstr += '" \n'
+        except KeyError:
+            outstr += '" \n'
+        outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
         outstr += '">\n</a-plane>\n</a-entity>\n'
         return outstr
@@ -487,8 +504,7 @@ class Dxf2VrPage(Page):
         outstr += f'geometry="vertexA:{temp["10"]} {temp["30"]} {temp["20"]}; \n'
         outstr += f'vertexB:{temp["11"]} {temp["31"]} {temp["21"]}; \n'
         outstr += f'vertexC:{temp["12"]} {temp["32"]} {temp["22"]}" \n'
-        outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}; '
+        outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}; '
         if self.double_face:
             outstr += 'side: double; '
         outstr += '">\n</a-triangle> \n'
@@ -499,8 +515,7 @@ class Dxf2VrPage(Page):
         outstr += f'geometry="vertexA:{temp["10"]} {temp["30"]} {temp["20"]}; \n'
         outstr += f'vertexB:{temp["12"]} {temp["32"]} {temp["22"]}; \n'
         outstr += f'vertexC:{temp["13"]} {temp["33"]} {temp["23"]}" \n'
-        outstr += f'mixin="color-{temp["8"]}" \n'
-        outstr += f'material="src: #image-{temp["8"]}; '
+        outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}; '
         if self.double_face:
             outstr += 'side: double; '
         outstr += '">\n</a-triangle> \n'
