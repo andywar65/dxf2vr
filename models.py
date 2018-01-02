@@ -371,7 +371,7 @@ class Dxf2VrPage(Page):
         outstr = f'<a-entity id="circle-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
-        outstr = f'<a-circle id="circle-{x}" \n'
+        outstr += f'<a-circle id="circle-{x}" \n'
         if temp['2'] == 'circle':
             outstr += f'rotation="-90 0 0"\n'
         outstr += f'radius="{temp["41"]}" \n'
