@@ -230,6 +230,9 @@ class Dxf2VrPage(Page):
                     elif temp['2'] == 'light' or temp['2'] == 'a-light':
                         output[x] = self.make_light(x, temp)
 
+                    elif temp['2'] == 'a-text':
+                        output[x] = self.make_text(x, temp)
+
                     flag = False
 
                 if value == '3DFACE':#start 3D face
@@ -469,6 +472,15 @@ class Dxf2VrPage(Page):
         outstr += f'material="src: #image-{temp["8"]}; color: {temp["color"]}'
         outstr += self.is_repeat(temp["repeat"], temp["41"], temp["43"])
         outstr += '">\n</a-plane>\n</a-entity>\n'
+        return outstr
+
+    def make_text(self, x, temp):
+        outstr = f'<a-entity id="text-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}"\n'
+        outstr += f'text="width: {temp["41"]}; align: {temp["align"]}; color: {temp["color"]}; '
+        outstr += f'value: {temp["text"]}; wrap-count: {temp["wrap-count"]}; '
+        outstr += '">\n</a-entity>\n'
         return outstr
 
     def make_floor(self, x, temp):#useless, mantained for legacy
