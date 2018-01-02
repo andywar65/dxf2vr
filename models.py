@@ -233,6 +233,9 @@ class Dxf2VrPage(Page):
                     elif temp['2'] == 'a-text':
                         output[x] = self.make_text(x, temp)
 
+                    elif temp['2'] == 'a-link':
+                        output[x] = self.make_link(x, temp)
+
                     flag = False
 
                 if value == '3DFACE':#start 3D face
@@ -254,7 +257,7 @@ class Dxf2VrPage(Page):
         else:
             return ';'
 
-    def make_6planes(self, x, temp):#useless, mantained for legacy
+    def make_6planes(self, x, temp):#useless, left for legacy
         outstr = f'<a-entity id="box-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
@@ -483,7 +486,33 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-entity>\n'
         return outstr
 
-    def make_floor(self, x, temp):#useless, mantained for legacy
+    def make_link(self, x, temp):
+        outstr = f'<a-link id="link-{x}" \n'
+        outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
+        outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}"\n'
+        outstr += f'scale="{temp["41"]} {temp["43"]} {temp["42"]}"\n'
+        if temp['tree'] == 'parent':
+            target = self.get_parent()
+        elif temp['tree'] == 'child':
+            target = self.get_first_child()
+        elif temp['tree'] == 'previous' or temp['tree'] == 'prev':
+            target = self.get_prev_sibling()
+        else:#we default to next sibling
+            target = self.get_next_sibling()
+        if target:
+            outstr += f'href="{target.url}"\n'
+            outstr += f'title="{temp["title"]}" color="{temp["color"]}" on="click"\n'
+            image = False #target.equirectangular_image
+            if image:
+                outstr += f'image="{image.url}"'
+            else:
+                outstr += 'image="#sky"'
+            outstr += '>\n</a-link>\n'
+            return outstr
+        else:
+            return ''
+
+    def make_floor(self, x, temp):#useless, left for legacy
         outstr = f'<a-entity id="floor-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
@@ -497,7 +526,7 @@ class Dxf2VrPage(Page):
         outstr += '">\n</a-plane>\n</a-entity>\n'
         return outstr
 
-    def make_ceiling(self, x, temp):#useless, mantained for legacy
+    def make_ceiling(self, x, temp):#useless, left for legacy
         outstr = f'<a-entity id="ceiling-ent-{x}" \n'
         outstr += f'position="{temp["10"]} {temp["30"]} {temp["20"]}" \n'
         outstr += f'rotation="{temp["210"]} {temp["50"]} {temp["220"]}">\n'
