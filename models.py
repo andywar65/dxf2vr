@@ -502,11 +502,11 @@ class Dxf2VrPage(Page):
         if target:
             outstr += f'href="{target.url}"\n'
             outstr += f'title="{temp["title"]}" color="{temp["color"]}" on="click"\n'
-            image = False #target.equirectangular_image
-            if image:
-                outstr += f'image="{image.url}"'
+            eq_image = target.specific.equirectangular_image
+            if eq_image:
+                outstr += f'image="{eq_image.file.url}"'
             else:
-                outstr += 'image="#sky"'
+                outstr += 'image="#default-sky"'
             outstr += '>\n</a-link>\n'
             return outstr
         else:

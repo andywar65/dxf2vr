@@ -13,6 +13,7 @@
 {% block content %}
         <a-scene style="width: 100%; height: 768px" embedded>
           <a-assets>
+			   <img id="default-sky" src="{% static 'images/target.png' %}">
 			{% with equirectangular_image=page.equirectangular_image %}
 			 {% if equirectangular_image %}
 			  {% image equirectangular_image original as temp_image %}
