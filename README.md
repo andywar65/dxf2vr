@@ -1,6 +1,8 @@
 # DXF 2 VR
 A [Django](https://www.djangoproject.com/) / [Wagtail](https://wagtail.io/) app that imports [DXF](https://en.wikipedia.org/wiki/AutoCAD_DXF) files and renders Virtual Reality using [A-Frame](https://aframe.io) library.
 
+### This project has been discontinued. Further development at [PYMba](https://github.com/andywar65/pymba).
+
 ### How to get DXF files
 
 DXF files are drawing exchange files, and they are human readable (if in ASCII format). Obviously you will need a CAD if you want to generate your own files. For free I recommend [NanoCAD](http://nanocad.com/) even if you won't be able to work with solids. It doesn't matter, you won't need them. Unfortunately open source CAD projects never match the industry.
@@ -46,4 +48,4 @@ enter the Inspector mode, that makes you inspect and modify the entities of the 
 
 ### Next improvements
 
-Add displacement maps for textures.
+Add a Wall standard block and models for walls and wall finishing.

@@ -1,5 +1,5 @@
 import os
-from math import radians, sin, cos, acos, asin, degrees, pi, sqrt, pow, fabs, atan2
+from math import radians, sin, cos, asin, degrees, pi, sqrt, pow, fabs, atan2
 from django import forms
 from django.db import models
 from django.conf import settings
